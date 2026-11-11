@@ -36,6 +36,7 @@ Blender/EEVEE → SFX mux → contact sheet).
 from __future__ import annotations
 
 import json
+import logging
 import subprocess
 from dataclasses import dataclass, field, replace
 from pathlib import Path
@@ -72,6 +73,9 @@ from .blocky_voice import (
     write_manifest,
 )
 from ..blend3d.host.sound import pcm16, render_events
+from .story_film import loudnorm_two_pass
+
+logger = logging.getLogger(__name__)
 
 #: procedurally synthesised sound effects (see blocky_hero.synth_sfx)
 SFX_LENGTHS = {"sparkle": 1.2, "boing": 0.55, "pop": 0.12}
@@ -1194,7 +1198,14 @@ class BlockyScene:
             if inputs:
                 mix_path = audio_dir / "mix.wav"
                 mix_scene_audio(mix_path, inputs, duration=self.duration)
-                mux_audio(video, mix_path.read_bytes(), final)
+                audio_for_mux = mix_path.read_bytes()
+                audio_final = audio_dir / "mix_loud.wav"
+                try:
+                    loudnorm_two_pass(mix_path, audio_final)
+                    audio_for_mux = audio_final.read_bytes()
+                except Exception as exc:
+                    logger.warning("loudnorm unavailable, fallback to raw mix: %s", exc)
+                mux_audio(video, audio_for_mux, final)
                 report["mix"] = mix_report(mix_path)
                 report["audio_inputs"] = [item.to_dict() for item in inputs]
                 # Микс готов только здесь: внутри render_skinned WAV ещё не

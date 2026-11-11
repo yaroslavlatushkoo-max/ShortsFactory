@@ -2725,6 +2725,8 @@ def stance_windows(frames: Sequence[PoseParams], fps: int) -> list[dict[str, Any
 
 _BLENDER_TEMPLATE = r'''
 import bpy, json, math, os, subprocess, sys, time
+import logging
+logger = logging.getLogger(__name__)
 from pathlib import Path
 from mathutils import Matrix, Vector
 

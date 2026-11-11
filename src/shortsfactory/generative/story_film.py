@@ -14,10 +14,12 @@ import json
 import math
 import os
 import random
+import re
 import shutil
 import subprocess
 import sys
 import wave
+import zlib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Optional
@@ -686,6 +688,11 @@ def compose_scene_frame(
             if n == 1:
                 anchor_x = width // 2 - sw // 2
             anchor_y = height - sh - int(height * 0.10)
+            # idle-дыхание: ±2 px, 0.4 Гц, фаза от имени персонажа
+            # (crc32 — детерминированно между процессами, в отличие от hash())
+            phase = (zlib.crc32(char.encode("utf-8")) % 628) / 100.0
+            bob = int(round(2.0 * math.sin(2 * math.pi * 0.4 * t + phase)))
+            anchor_y += bob
 
         canvas.alpha_composite(spr, (anchor_x, anchor_y))
 
@@ -721,6 +728,13 @@ def compose_scene_frame(
         for li, ln in enumerate(lines[:4]):
             draw.text((40, y0 + li * 56), ln, font=line_font, fill=(255, 255, 255),
                       stroke_width=3, stroke_fill=(10, 10, 10))
+    # медленный зум камеры (+1.5% к концу сцены) — живость кадра
+    zoom = 1.0 + 0.015 * t
+    if zoom > 1.0:
+        w, h = out.size
+        cw, ch = int(w / zoom), int(h / zoom)
+        x0, y0 = (w - cw) // 2, (h - ch) // 2
+        out = out.crop((x0, y0, x0 + cw, y0 + ch)).resize((w, h), Image.LANCZOS)
     return out
 
 
@@ -1042,10 +1056,19 @@ def build_story_film(
     audio_wav = work / "audio_master.wav"
     _write_wav_mono(audio_wav, master, sr)
 
+    # --- двухпроходный loudnorm (цель из конфига) + стерео 48k ---
+    audio_final = work / "audio_master_loud.wav"
+    try:
+        loudnorm_two_pass(audio_wav, audio_final)
+        mux_audio = audio_final
+    except Exception as exc:  # noqa: BLE001
+        print(f"LOUDNORM_FALLBACK {exc}")
+        mux_audio = audio_wav
+
     # --- mux + субтитры ---
     final = out_dir / f"{_slugify(title0)}.mp4"
     cmd = [
-        _ffmpeg(), "-y", "-i", str(silent_video), "-i", str(audio_wav),
+        _ffmpeg(), "-y", "-i", str(silent_video), "-i", str(mux_audio),
         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
         str(final),
     ]
@@ -1091,6 +1114,52 @@ def _normalize(samples: np.ndarray, peak: float = 0.85) -> None:
     m = float(np.max(np.abs(samples))) if len(samples) else 0.0
     if m > 1e-6:
         samples *= peak / m
+
+
+def loudnorm_two_pass(
+    src: Path,
+    dst: Path,
+    *,
+    i: float = -14.0,
+    tp: float = -1.5,
+    lra: float = 11.0,
+) -> None:
+    """Двухпроходный EBU R128 loudnorm + приведение к стерео 48 kHz.
+
+    Проход 1 — измерение, проход 2 — применение с измеренными значениями
+    (linear=true сохраняет динамику). Побочный эффект: выход всегда стерео
+    48 кГц (закрывает требование channels=2 из конфига).
+    """
+    probe = subprocess.run(
+        [_ffmpeg(), "-hide_banner", "-nostats", "-i", str(src),
+         "-af", f"loudnorm=I={i}:TP={tp}:LRA={lra}:print_format=json",
+         "-f", "null", "-"],
+        capture_output=True, text=True,
+    )
+    if probe.returncode != 0:
+        raise StoryFilmError(f"loudnorm measure failed: {probe.stderr[-800:]}")
+    stats = None
+    for block in reversed(re.findall(r"\{[^{}]*\"input_i\"[^{}]*\}", probe.stderr, flags=re.S)):
+        try:
+            stats = json.loads(block)
+            break
+        except (ValueError, TypeError):
+            continue
+    if not stats:
+        raise StoryFilmError("loudnorm: no measurement in ffmpeg output")
+    af = (
+        f"loudnorm=I={i}:TP={tp}:LRA={lra}:"
+        f"measured_I={stats['input_i']}:measured_TP={stats['input_tp']}:"
+        f"measured_LRA={stats['input_lra']}:measured_thresh={stats['input_thresh']}:"
+        f"offset={stats['target_offset']}:linear=true"
+    )
+    apply_ = subprocess.run(
+        [_ffmpeg(), "-y", "-i", str(src), "-af", af,
+         "-ar", "48000", "-ac", "2", str(dst)],
+        capture_output=True, text=True,
+    )
+    if apply_.returncode != 0:
+        raise StoryFilmError(f"loudnorm apply failed: {apply_.stderr[-800:]}")
 
 
 def _slugify(text: str) -> str:

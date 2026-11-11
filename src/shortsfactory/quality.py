@@ -101,6 +101,11 @@ class QualityService:
         self.min_audio = float(config.get("quality", "min_audio_lufs", -24))
         self.max_audio = float(config.get("quality", "max_audio_lufs", -9))
         self.manual_visual = bool(config.get("quality", "manual_visual_review", True))
+        self.cfg_width = int(config.get("video", "width", 1080))
+        self.cfg_height = int(config.get("video", "height", 1920))
+        self.cfg_fps = float(config.get("video", "fps", 30))
+        self.target_lufs = float(config.get("audio", "target_lufs", -14.0))
+        self.target_true_peak = float(config.get("audio", "true_peak", -1.5))
 
     # ------------------------------------------------------------------ technical
     def _technical(
@@ -147,11 +152,11 @@ class QualityService:
         add(
             "resolution",
             "Разрешение корректно",
-            width == 1080 and height == 1920,
-            f"{width}×{height}, ожидается 1080×1920",
+            width == self.cfg_width and height == self.cfg_height,
+            f"{width}×{height}, ожидается {self.cfg_width}×{self.cfg_height}",
         )
         fps = _fraction(str((video_stream or {}).get("avg_frame_rate") or (video_stream or {}).get("r_frame_rate") or "0"))
-        add("fps", "Частота кадров допустима", abs(fps - 30.0) <= 0.15, f"{fps:.2f} fps, ожидается 30")
+        add("fps", "Частота кадров допустима", abs(fps - self.cfg_fps) <= 0.15, f"{fps:.2f} fps, ожидается {self.cfg_fps:g}")
         pix_fmt = str((video_stream or {}).get("pix_fmt", ""))
         audio_codec = str((audio_stream or {}).get("codec_name", ""))
         sample_rate = int((audio_stream or {}).get("sample_rate") or 0)
@@ -196,6 +201,7 @@ class QualityService:
             timeout=300,
         )
         input_i = None
+        input_tp = None
         if loud.stderr:
             blocks = re.findall(r"\{[^{}]+\}", loud.stderr, flags=re.S)
             for block in reversed(blocks):
@@ -203,15 +209,23 @@ class QualityService:
                     value = json.loads(block)
                     if "input_i" in value:
                         input_i = float(value["input_i"])
+                        input_tp = float(value.get("input_tp", 0.0))
                         break
                 except (ValueError, TypeError):
                     continue
-        audio_ok = input_i is not None and self.min_audio <= input_i <= self.max_audio
+        audio_ok = input_i is not None and abs(input_i - self.target_lufs) <= 1.5
         add(
             "audio_level",
             "Звук не отсутствует",
             audio_ok,
-            "интегральная громкость: " + (f"{input_i:.1f} LUFS" if input_i is not None else "не определена"),
+            "интегральная громкость: " + (f"{input_i:.1f} LUFS (цель {self.target_lufs:.1f}±1.5)" if input_i is not None else "не определена"),
+        )
+        tp_ok = input_tp is not None and input_tp <= -1.0
+        add(
+            "true_peak",
+            "True peak имеет запас ниже 0 dBTP",
+            tp_ok,
+            (f"{input_tp:.2f} dBTP (нужно ≤ -1.0)" if input_tp is not None else "не измерен"),
         )
 
         black = run(
@@ -247,6 +261,34 @@ class QualityService:
             not end_bad,
             f"чёрных интервалов: {len(intervals)}" + (f", последний до {intervals[-1][1]:.2f} с" if intervals else ""),
         )
+
+        # застывшие кадры (advisory)
+        freeze = run(
+            [
+                ffmpeg_bin(),
+                "-hide_banner",
+                "-i",
+                str(video),
+                "-vf",
+                "freezedetect=n=-50dB:d=2",
+                "-an",
+                "-f",
+                "null",
+                "-",
+            ],
+            cwd=self.config.root,
+            timeout=600,
+        )
+        freeze_starts = re.findall(r"freeze_start:([\d.]+)", freeze.stderr or "")
+        freeze_ends = re.findall(r"freeze_end:([\d.]+)", freeze.stderr or "")
+        long_freezes = [
+            (float(s), float(e))
+            for s, e in zip(freeze_starts, freeze_ends)
+            if float(e) - float(s) > 2.0
+        ]
+        if long_freezes:
+            spans = ", ".join(f"{s:.1f}-{e:.1f}с" for s, e in long_freezes[:6])
+            warnings.append(f"Застывшие участки >2с: {spans}")
 
         subs_ok = False
         subs_detail = "файл субтитров отсутствует"

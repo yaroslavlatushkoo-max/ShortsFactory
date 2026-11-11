@@ -122,3 +122,61 @@ def test_build_story_film_smoke(tmp_path, needs_voices):
     # видео непустое и является mp4
     with open(final, "rb") as f:
         assert f.read(4) == b"\x00\x00\x00\x18" or final.suffix == ".mp4"
+
+import subprocess
+import wave
+from pathlib import Path
+
+import numpy as np
+import pytest
+
+from shortsfactory.generative.story_film import loudnorm_two_pass
+
+
+def test_idle_frames_differ_due_to_breathe_and_zoom():
+    """Idle-сцены без moves должны иметь микродвижение (дыхание/зум)."""
+    a = compose_scene_frame(
+        title="T", location="forest", characters=[("boy", "left")],
+        width=240, height=320, seed=7, t=0.2,
+    )
+    b = compose_scene_frame(
+        title="T", location="forest", characters=[("boy", "left")],
+        width=240, height=320, seed=7, t=0.8,
+    )
+    aa = np.asarray(a, dtype=float)
+    bb = np.asarray(b, dtype=float)
+    assert np.abs(aa - bb).mean() > 0.05
+
+
+def test_idle_frames_are_deterministic():
+    a = compose_scene_frame(
+        title="T", location="forest", characters=[("boy", "left")],
+        width=240, height=320, seed=7, t=0.5,
+    )
+    b = compose_scene_frame(
+        title="T", location="forest", characters=[("boy", "left")],
+        width=240, height=320, seed=7, t=0.5,
+    )
+    assert np.array_equal(np.asarray(a), np.asarray(b))
+
+
+def test_loudnorm_two_pass_produces_stereo_48k(tmp_path):
+    # синтетический тихий моно 22050 WAV
+    sr = 22050
+    t = np.linspace(0, 1.0, sr, endpoint=False)
+    tone = (0.05 * np.sin(2 * np.pi * 440 * t)).astype(np.float32)
+    src = tmp_path / "in.wav"
+    with wave.open(str(src), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(sr)
+        w.writeframes((tone * 32767).astype(np.int16).tobytes())
+    dst = tmp_path / "out.wav"
+    loudnorm_two_pass(src, dst)
+    assert dst.exists() and dst.stat().st_size > 0
+    import subprocess as sp
+    probe = sp.run(
+        ["ffmpeg", "-hide_banner", "-i", str(dst), "-f", "null", "-"],
+        capture_output=True, text=True,
+    )
+    assert "48000 Hz, stereo" in probe.stderr
