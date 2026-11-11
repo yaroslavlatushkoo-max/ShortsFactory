@@ -65,7 +65,7 @@ def test_plan_rejects_unknown_action():
 # ----------------------------------------------------------------- render
 
 
-def test_render_plan_procedural_small(config, tmp_path):
+def test_render_plan_procedural_small(config, tmp_path, needs_voices):
     plan = _small_plan(duration=4.0)
     res = render_plan(plan, config, tmp_path, engine="procedural")
     assert res.status == "OK"
@@ -80,7 +80,7 @@ def test_render_plan_procedural_small(config, tmp_path):
     assert anim.decode_ok
 
 
-def test_dispatch_falls_back_when_no_blender(config, tmp_path, monkeypatch):
+def test_dispatch_falls_back_when_no_blender(config, tmp_path, monkeypatch, needs_voices):
     import shortsfactory.generative.engine_dispatcher as disp
     monkeypatch.setattr(disp, "blender_available", lambda: False)
     plan = _small_plan(duration=4.0)
@@ -89,7 +89,7 @@ def test_dispatch_falls_back_when_no_blender(config, tmp_path, monkeypatch):
     assert res.status == "OK"
 
 
-def test_dispatch_explicit_blender_unavailable_partial(config, tmp_path, monkeypatch):
+def test_dispatch_explicit_blender_unavailable_partial(config, tmp_path, monkeypatch, needs_voices):
     import shortsfactory.generative.engine_dispatcher as disp
     monkeypatch.setattr(disp, "blender_available", lambda: False)
     plan = _small_plan(duration=4.0)
@@ -115,7 +115,7 @@ def test_blender_available_flag_returns_bool():
 # ----------------------------------------------------------------- pipeline
 
 
-def test_free_create_end_to_end_small(config, tmp_path, monkeypatch):
+def test_free_create_end_to_end_small(config, tmp_path, monkeypatch, needs_voices):
     import shortsfactory.generative.freeanim as free
     monkeypatch.setattr(free, "_expand_idea", lambda cfg, idea, model="": idea)
     # use a small plan for speed
@@ -137,7 +137,7 @@ def test_free_create_end_to_end_small(config, tmp_path, monkeypatch):
     assert result.mode == "free_local"
 
 
-def test_free_create_rejects_nonempty_without_overwrite(config, tmp_path):
+def test_free_create_rejects_nonempty_without_overwrite(config, tmp_path, needs_voices):
     (tmp_path / "lock").write_text("x", encoding="utf-8")
     import shortsfactory.generative.freeanim as free
     with pytest.raises(FileExistsError):
@@ -146,7 +146,7 @@ def test_free_create_rejects_nonempty_without_overwrite(config, tmp_path):
     assert result.video
 
 
-def test_free_create_resume_reuses_render(config, tmp_path, monkeypatch):
+def test_free_create_resume_reuses_render(config, tmp_path, monkeypatch, needs_voices):
     import shortsfactory.generative.freeanim as free
     monkeypatch.setattr(free, "_expand_idea", lambda cfg, idea, model="": idea)
     monkeypatch.setattr(free, "build_plan_for_idea",
@@ -159,7 +159,7 @@ def test_free_create_resume_reuses_render(config, tmp_path, monkeypatch):
     assert any("resume" in n.lower() for n in second.notes)
 
 
-def test_free_local_never_creates_cloud_backend(config, tmp_path, monkeypatch):
+def test_free_local_never_creates_cloud_backend(config, tmp_path, monkeypatch, needs_voices):
     import shortsfactory.generative.freeanim as free
     import shortsfactory.generative.backend as backend
     monkeypatch.setattr(free, "_expand_idea", lambda cfg, idea, model="": idea)

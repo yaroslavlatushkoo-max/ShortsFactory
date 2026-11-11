@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Optional
 
-from .models import Joint, Pose, RotationLimits, Vec2Field
+from .models import Joint, RotationLimits, Vec2Field
 from .vectors import (
     EPS,
     Vec2,
@@ -87,7 +87,6 @@ class Rig2D:
                 world[jid] = j.local_position.as_tuple()
                 angles[jid] = local_rot
             else:
-                parent = self.joints[j.parent_id]
                 parent_angle = angles[j.parent_id]
                 # Local offset expressed in the parent's rotated frame.
                 offset = rotate_deg(j.local_position.as_tuple(), parent_angle)

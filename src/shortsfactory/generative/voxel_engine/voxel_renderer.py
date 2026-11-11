@@ -11,6 +11,7 @@ touches the network or any cloud provider.
 
 from __future__ import annotations
 
+import logging
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -25,6 +26,8 @@ from .voxel_interactions import interaction_source
 from .voxel_materials import DEFAULT_PALETTE, hex_to_rgb, material_source
 from .voxel_scene import build_scene_source
 from .voxel_validation import ensure_voxel_plan
+
+logger = logging.getLogger(__name__)
 
 ENGINE_VOXEL = "voxel"
 
@@ -80,16 +83,16 @@ bpy.context.scene.render.filepath = str(FRAMES_DIR / "frame_")
 bpy.context.scene.render.engine = ('BLENDER_EEVEE_NEXT' if hasattr(bpy.types, 'BLENDER_EEVEE_NEXT') else 'BLENDER_EEVEE')
 try:
     bpy.context.scene.eevee.use_shadows = True
-except Exception:
-    pass
+except Exception as exc:
+    logger.debug("eevee shadows unavailable: %s", exc)
 try:
     bpy.context.scene.eevee.use_soft_shadows = True
-except Exception:
-    pass
+except Exception as exc:
+    logger.debug("eevee soft shadows unavailable: %s", exc)
 try:
     bpy.context.scene.eevee.use_ambient_occlusion = True
-except Exception:
-    pass
+except Exception as exc:
+    logger.debug("eevee ao unavailable: %s", exc)
 
 STAGE_W = 8.0
 STAGE_D = 6.0

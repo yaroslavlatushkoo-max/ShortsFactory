@@ -116,5 +116,5 @@ def test_unknown_character_in_segment_rejected():
 
 def test_strict_plan_raises_on_failed_precondition():
     scene = broken_handoff_scene()
-    with pytest.raises(Exception):
+    with pytest.raises(Exception):  # noqa: B017
         build_plan_strict(scene)

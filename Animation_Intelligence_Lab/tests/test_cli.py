@@ -12,7 +12,6 @@ from animation_lab.exporter import export_schema
 from animation_lab.fixtures import (
     broken_handoff_scene,
     demo_handoff_scene,
-    simple_walk_scene,
 )
 
 runner = CliRunner()

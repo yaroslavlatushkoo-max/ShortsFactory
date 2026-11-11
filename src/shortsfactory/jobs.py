@@ -1093,7 +1093,7 @@ class JobService:
                     "Не удалось продолжить проект %s: %s", project.id, exc
                 )
                 continue
-        return projects
+        return resumed
 
     def close(self) -> None:
         if self._owns_store:

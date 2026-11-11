@@ -12,20 +12,15 @@ from typing import Optional
 
 from .models import (
     CharacterState,
-    Interaction,
     Keyframe,
     MotionPlan,
     PropState,
 )
 from .motion_planner import (
-    DEFAULT_PROP_REACH,
-    _character_state_at,
-    _prop_state_at,
     _character_timeline,
     plan_interactions,
 )
 from .interaction import OwnershipLedger
-from .vectors import Vec2
 
 
 @dataclass(frozen=True)

@@ -29,10 +29,13 @@ All animation math is pure Python, so it is unit-testable without Blender.
 from __future__ import annotations
 
 import json
+import logging
 import math
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any, Callable, Sequence
+
+logger = logging.getLogger(__name__)
 
 Vec3 = tuple[float, float, float]
 Mat3 = tuple[Vec3, Vec3, Vec3]  # three columns (world images of local X, Y, Z)
@@ -2757,8 +2760,8 @@ scene.render.film_transparent = False
 try:
     scene.view_settings.view_transform = 'Standard'
     scene.view_settings.look = 'None'
-except Exception:
-    pass
+except Exception as exc:
+    logger.debug("view transform not applied: %s", exc)
 FRAMES = OUT / 'frames'
 FRAMES.mkdir(parents=True, exist_ok=True)
 scene.render.filepath = str(FRAMES / 'frame_')
@@ -2794,8 +2797,8 @@ fill_d.size = 3.0
 try:
     sun_d.use_contact_shadow = True
     fill_d.use_contact_shadow = True
-except Exception:
-    pass
+except Exception as exc:
+    logger.debug("contact shadow unavailable: %s", exc)
 
 # ---------- stage ----------
 bpy.ops.mesh.primitive_cube_add(size=1.0, location=(0.0, 0.0, -0.10))
@@ -2829,8 +2832,8 @@ for pr in (data.get('props') or []):
             ldata.keyframe_insert('energy', frame=int(fr))
         try:
             ldata.use_contact_shadow = True
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.debug("point contact shadow unavailable: %s", exc)
         continue
     bpy.ops.mesh.primitive_cube_add(size=1.0, location=tuple(pr['center']))
     pob = bpy.context.active_object
@@ -3080,8 +3083,8 @@ if _cuts:
             for _fc in cam.animation_data.action.fcurves:
                 for _kp in _fc.keyframe_points:
                     _kp.interpolation = 'BEZIER'
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.debug("bezier interpolation not applied: %s", exc)
 
 def pose_matrix(name, head, rot):
     R = Matrix(((rot[0], rot[1], rot[2]),

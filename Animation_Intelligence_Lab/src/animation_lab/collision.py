@@ -17,7 +17,7 @@ from dataclasses import dataclass
 from typing import Optional, Sequence
 
 from .models import CharacterState, PropState
-from .vectors import EPS, Vec2, clamp01, in_unit_square
+from .vectors import EPS, Vec2, clamp01
 
 
 # ---------------------------------------------------------------------------

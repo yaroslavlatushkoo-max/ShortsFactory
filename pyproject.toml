@@ -46,3 +46,5 @@ ignore = [
     "F403", "F405", "E701", "E702", "B905", "B007", "B023",
     "E731", "E741", "B024",
 ]
+# typer default-argument pattern is idiomatic for the CLI; keep it.
+per-file-ignores = { "Animation_Intelligence_Lab/src/animation_lab/cli.py" = ["B008"] }

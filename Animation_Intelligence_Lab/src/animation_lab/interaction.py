@@ -13,7 +13,7 @@ from typing import Optional
 
 from .models import Interaction, PropState
 from .rig_2d import ATTACHMENT_POINTS
-from .vectors import EPS, Vec2, add, distance, sub
+from .vectors import EPS, Vec2, distance
 
 
 class InteractionError(ValueError):

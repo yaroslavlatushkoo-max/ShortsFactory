@@ -23,13 +23,11 @@ from .interaction import (
 )
 from .models import (
     CharacterState,
-    Interaction,
     Keyframe,
     MotionPlan,
     MotionSegment,
     PropState,
     SceneDescription,
-    ValidationReport,
 )
 from .trajectories import continuity_gap, segment_position
 from .vectors import Vec2

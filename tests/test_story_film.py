@@ -102,7 +102,7 @@ def test_write_srt_formats():
 
 
 @pytest.mark.slow
-def test_build_story_film_smoke(tmp_path):
+def test_build_story_film_smoke(tmp_path, needs_voices):
     """Полный smoke: небольшой ролик из fallback-сториборда (без Blender)."""
     sb = _mini_storyboard()
     out = tmp_path / "out"

@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from animation_lab.exporter import import_scene
 from animation_lab.fixtures import demo_handoff_scene, simple_walk_scene
-from animation_lab.models import MotionSegment, Vec2Field, CharacterState
 from animation_lab.motion_planner import build_plan
 from animation_lab.simulation import Simulator, frame_csv
 

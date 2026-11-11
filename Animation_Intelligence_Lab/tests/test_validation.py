@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
 
 from animation_lab.fixtures import (
     broken_handoff_scene,
@@ -15,7 +14,6 @@ from animation_lab.validation import (
     check_ownership_conflicts,
     check_reachability,
     check_state_transitions,
-    check_trajectory_continuity,
     validate_plan,
 )
 

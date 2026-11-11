@@ -8,7 +8,6 @@ segments.  Uses matplotlib with the non-interactive Agg backend.
 from __future__ import annotations
 
 import csv
-import io
 from pathlib import Path
 from typing import Optional, Sequence
 
@@ -20,7 +19,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from .models import MotionPlan, ValidationReport  # noqa: E402
 from .rig_2d import Rig2D  # noqa: E402
 from .simulation import SimulationResult, frame_csv  # noqa: E402
-from .vectors import Vec2, normalized_to_pixels  # noqa: E402
+from .vectors import Vec2  # noqa: E402
 
 # Scene is normalized [0,1]^2 with y growing downward: invert the axis so the
 # picture matches the screen convention.

@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 
 from animation_lab.models import Pose, RotationLimits
-from animation_lab.pose_system import PoseLibrary, demo_pose_library
+from animation_lab.pose_system import demo_pose_library
 from animation_lab.rig_2d import (
     arm_reach,
     demo_humanoid_rig,

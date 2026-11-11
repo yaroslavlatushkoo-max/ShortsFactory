@@ -55,7 +55,7 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument("--version", action="version", version=f"ShortsFactory {__version__}")
-    parser.add_argument("--root", default="", help="Корень проекта (по умолчанию D:\\ShortsFactory)")
+    parser.add_argument("--root", default="", help="Корень проекта (по умолчанию — каталог запуска)")
     parser.add_argument("--json", action="store_true", help="Машиночитаемый вывод, где применимо")
 
     sub = parser.add_subparsers(dest="command")

@@ -18,7 +18,6 @@ from typing import Optional
 import typer
 
 from .exporter import (
-    EngineAdapter,
     KeyframeListAdapter,
     export_json,
     import_scene,
@@ -26,7 +25,7 @@ from .exporter import (
 )
 from .models import SCHEMA_VERSION
 from .motion_planner import build_plan
-from .simulation import Simulator, frame_csv
+from .simulation import Simulator
 from .validation import validate_plan
 from .visualization import render_diagnostic_png, save_frames_csv
 

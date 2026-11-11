@@ -319,7 +319,7 @@ def test_scene_reads_ambience_and_rejects_unknown_one(tmp_path):
         BlockyScene.from_dict(bad).validate()
 
 
-def test_default_profile_files_exist_for_ru_pairs():
+def test_default_profile_files_exist_for_ru_pairs(needs_voices):
     from shortsfactory.config import load_config
 
     cfg = load_config()
