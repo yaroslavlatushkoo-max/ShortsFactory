@@ -1,13 +1,11 @@
 """Unit tests for the AnimationLab pre-render QC adapter (stage E3)."""
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
 import pytest
 
 from shortsfactory.generative.animlab_qc import (
-    QCError,
     build_scene_description,
     fsm_check,
     run_pre_render_qc,

@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
-import shutil
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -257,7 +255,8 @@ class RenderService:
             relative_ass = ass_path.relative_to(workspace)
             ass_value = relative_ass.as_posix()
         except ValueError:
-            ass_value = ass_path.as_posix()
+            # абсолютный путь: экранируем ':' и спецсимволы фильтра
+            ass_value = self._escape_filter_path(str(ass_path))
         fonts_value = self._escape_filter_path(self.fonts_dir)
         filter_parts.append(
             f"[{current}]ass={ass_value}:fontsdir={fonts_value},format=yuv420p[vout]"

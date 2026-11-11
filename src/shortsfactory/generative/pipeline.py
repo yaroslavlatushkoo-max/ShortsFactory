@@ -19,9 +19,8 @@ from pathlib import Path
 from typing import Any
 
 from ..config import Config
-from ..util import run
 from . import assembly, qc
-from .backend import BackendError, BackendNotConfigured, _load_dotenv, create_backend
+from .backend import BackendError, _load_dotenv, create_backend
 from .cinematic import plan_cinematic
 from .models import AiCreateResult, SceneGenerationSpec
 from .planner import plan_story

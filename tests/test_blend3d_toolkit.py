@@ -13,8 +13,8 @@ from shortsfactory.blend3d.host.film_spec import (
     FilmSpec, plan_from_idea, validate, Beat, FPS,
 )
 from shortsfactory.blend3d.host.render_job import (
-    build_blender_argv, build_render_argv, assemble_argv, frames_done,
-    validate_script, MODES,
+    build_blender_argv, assemble_argv, frames_done,
+    MODES,
 )
 from shortsfactory.blend3d.host.paths import find_blender
 
@@ -126,7 +126,7 @@ def _write_test_wav(p, dur=2.0, sr=48000, freq=440.0):
 def test_qc_frames_ok(tmp_path):
     d = tmp_path / "frames"
     _write_test_frames(d, n=40)
-    res = qc_frames_dir = qc.qc_frames(d, fps=30, expect_size=(1080, 1920), sample_step=1)
+    res = qc.qc_frames(d, fps=30, expect_size=(1080, 1920), sample_step=1)
     assert res["frames"] == 40 and res["issues"] == []
 
 def test_qc_frames_detects_black(tmp_path):
@@ -211,7 +211,7 @@ def test_sound_roundtrip_with_qc(tmp_path):
     assert not any(i.startswith("CRITICAL") for i in res["issues"])
 
 def test_events_from_timings_minimal():
-    from shortsfactory.blend3d.host.sound import events_from_timings, render_events
+    from shortsfactory.blend3d.host.sound import events_from_timings
     timings = {
         'pickaxe_hits': [[1.0, -0.2, 1.0], [1.5, 0.2, 1.05]],
         'walks': [[0.0, 1.0, 0.0]],
@@ -293,5 +293,5 @@ def test_placeholder_skin_has_shirt_in_body_front():
     arr = build_placeholder_skin("steve")
     x0, y0, x1, y1 = region_px("body", "front")
     chunk = arr[y0:y1, x0:x1].astype(float).reshape(-1, 4)
-    r, g, b = chunk[:, 0].mean(), chunk[:, 1].mean(), chunk[:, 2].mean()
+    r, g, _b = chunk[:, 0].mean(), chunk[:, 1].mean(), chunk[:, 2].mean()
     assert g > 0.40 and r < 0.35  # Steve's cyan shirt lives on body front

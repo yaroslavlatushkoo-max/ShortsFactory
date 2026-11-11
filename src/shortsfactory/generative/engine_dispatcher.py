@@ -440,7 +440,7 @@ def render_plan(
 
     # ------------------------------------------------------------------ procedural
     from ..animation import AnimationEngine
-    from ..animation.scene import SceneError, load_scene
+    from ..animation.scene import SceneError
 
     scene_dict = plan.to_scene_dict()
     scene_path = out_dir / f"{plan.scene_id}.json"

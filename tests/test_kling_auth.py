@@ -6,7 +6,6 @@ Mock-only — no real paid request is ever sent.
 from __future__ import annotations
 
 import json
-from types import SimpleNamespace
 
 import pytest
 

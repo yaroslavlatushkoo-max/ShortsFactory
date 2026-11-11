@@ -32,7 +32,7 @@ import json
 import math
 from dataclasses import dataclass, field, replace
 from pathlib import Path
-from typing import Any, Callable, Iterable, Sequence
+from typing import Any, Callable, Sequence
 
 Vec3 = tuple[float, float, float]
 Mat3 = tuple[Vec3, Vec3, Vec3]  # three columns (world images of local X, Y, Z)
@@ -744,7 +744,6 @@ def build_character_mesh(spec: CharacterSpec) -> MeshBuilder:
     for side, sx in (("L", 1.0), ("R", -1.0)):
         th = BONE_BY_NAME[f"thigh_{side}"]
         sn = BONE_BY_NAME[f"shin_{side}"]
-        ft = BONE_BY_NAME[f"foot_{side}"]
         pts = [
             th.head,
             vlerp(th.head, th.tail, 0.55),
@@ -1277,8 +1276,6 @@ def make_stop(duration: float, start_params: PoseParams, gait: Gait, t_start: fl
 
 def make_turn_in_place(duration: float, base: PoseParams, yaw_from: float, yaw_to: float) -> Segment:
     root = base.root
-    r0 = rot_z(RIGHT, yaw_from)
-    f0 = rot_z(FWD, yaw_from)
 
     def fn(u: float) -> PoseParams:
         s = smoothstep(u)

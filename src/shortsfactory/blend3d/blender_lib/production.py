@@ -1,5 +1,6 @@
 # blend3d/blender_lib/production.py — lighting, fx, camera, titles, render config, driver.
-import sys, traceback
+import sys
+import traceback
 from core import *
 
 def add_light(name, type_, energy, color, loc, size=None, angle=None):
@@ -142,7 +143,6 @@ def fade_plane_and_titles(cam, title_lines, end_label, F_END,
     mk('ov_title', 'Alpha', [(1, 0.0), (t_in[0], 0.0), (t_in[1], 1.0), (t_in[2], 1.0), (t_in[3], 0.0)])
     mk('ov_end', 'Alpha', [(1, 0.0), (t_out[0], 0.0), (t_out[1], 1.0), (F_END, 1.0)])
     mk('ov_fade', 'Alpha', [(1, 1.0), (16, 0.0), (t_out[0], 0.0), (t_out[1], 1.0), (F_END, 1.0)])
-    import os
     font = bpy.data.fonts.load(r'C:\Windows\Fonts\arialbd.ttf')
     def add_text(name, body, size, mkey):
         cu = bpy.data.curves.new(name, 'FONT')

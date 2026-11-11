@@ -101,6 +101,8 @@ __all__ = [
     "render_full_body",
     "FullBodyResult",
     "detect_control_groups",
+    "build_authored_rig_script",
+    "render_authored_rig",
     "BONES",
     "BONE_BY_NAME",
     "BONE_LEN",

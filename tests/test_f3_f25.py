@@ -7,9 +7,7 @@
 - stage_interactions НЕ двигает предмет, а добавляет walk с target перед grab/pickup;
 - если предмет уже в зоне досягаемости — walk не вставляется.
 """
-import math
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline.skinned_hero import timeline_from_actions
 from shortsfactory.generative.blocky_story import stage_interactions

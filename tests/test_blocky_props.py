@@ -172,7 +172,6 @@ def test_transfer_waits_for_real_hand_contact():
 def test_transfer_fails_when_hands_never_meet():
     frames = []
     for index in range(90):
-        t = index / 30.0
         frames.append(
             {
                 "steve:hand_R": [0.0, 0.9, 1.0],
@@ -196,7 +195,6 @@ def test_transfer_falls_back_to_hip_distance_when_hands_far():
     всё равно возможна (предмет перелетает из руки в руку)."""
     frames = []
     for index in range(90):
-        t = index / 30.0
         frames.append(
             {
                 "steve:hand_R": [0.0, 0.9, 1.0],

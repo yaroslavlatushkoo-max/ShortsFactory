@@ -36,7 +36,7 @@ from shortsfactory.animation import rig
 from shortsfactory.animation.motion import ACTIONS, POSES, UNSUPPORTED, evaluate, pose_angles
 from shortsfactory.animation.renderer import AnimationRenderer
 from shortsfactory.animation.scene import sample_object
-from shortsfactory.jobs import JobError, JobService
+from shortsfactory.jobs import JobService
 from shortsfactory.models import Plan, Project, VISUAL_MODES
 
 
@@ -413,7 +413,7 @@ def test_mouth_follows_loudness_envelope():
         assert 0.0 <= line.mouth(t)[0] <= 1.0
 
 
-def test_lip_sync_integration_uses_real_tts(config, tmp_path):
+def test_lip_sync_integration_uses_real_tts(config, tmp_path, needs_voices):
     """Synthesizes one line with Piper and checks the mouth follows the WAV."""
     from shortsfactory.animation.voice import build_voice_track
 

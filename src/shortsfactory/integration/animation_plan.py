@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any
 
 from ..animation.paths import path_from_lab_segment
-from .contracts import IntegrationError, IntegrationPaths, read_json, run_json_worker, write_json
-from .text_story import CHARACTERS, ZONE_POSITIONS
+from .contracts import IntegrationError, IntegrationPaths, run_json_worker, write_json
+from .text_story import CHARACTERS
 
 
 STORY_TO_LAB_ACTION: dict[str, str] = {
@@ -484,7 +484,6 @@ def build_factory_storyboard(
 ) -> dict[str, Any]:
     """Project the validated Lab plan onto Factory storyboard version 1."""
     scene = project["scenes"][0]
-    actions = {action["id"]: action for action in scene["actions"]}
     segments = {segment["id"]: segment for segment in plan["motion_segments"]}
     beats: list[dict[str, Any]] = []
     gesture_index = 0

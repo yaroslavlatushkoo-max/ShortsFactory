@@ -801,7 +801,7 @@ class AnimationEngine:
                 f"({size}, {stream.get('r_frame_rate', '-')} fps)"
             )
         lines = [
-            f"# Animation Engine v4 - технический отчёт",
+            "# Animation Engine v4 - технический отчёт",
             "",
             f"- Сцена: `{scene.id}` — {scene.title or 'без названия'}",
             f"- Версия схемы: {scene.version}",

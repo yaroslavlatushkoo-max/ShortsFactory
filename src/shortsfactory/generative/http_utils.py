@@ -8,7 +8,7 @@ outcomes (video jobs are handled by the backend's submit/poll flow instead).
 from __future__ import annotations
 
 import time
-from typing import Any, Callable
+from typing import Any
 
 import requests
 
@@ -55,7 +55,6 @@ def request_with_retry(
     - network errors -> backoff (bounded).
     - other non-2xx -> ApiTransportError.
     """
-    retryable = retryable_statuses or {408, 429, 500, 502, 503, 504}
     sess = session or requests.Session()
     last_exc: Exception | None = None
 

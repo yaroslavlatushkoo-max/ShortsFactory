@@ -1264,7 +1264,7 @@ class App(tk.Tk):
         result: dict | None = None
         for line in proc.stdout or []:
             if self.cancel.is_set():
-                proc.kill()
+                self._kill_proc_tree()
                 self.log("Отменено пользователем.")
                 self.set_status("Отменено")
                 self.proc = None
@@ -1306,15 +1306,29 @@ class App(tk.Tk):
     def _on_series_result(self, result: object) -> None:
         self.screens["series"].show_result(dict(result))  # type: ignore[arg-type]
 
+    def _kill_proc_tree(self) -> None:
+        proc = self.proc
+        if proc is None or proc.poll() is not None:
+            return
+        if os.name == "nt":
+            # /T — вместе с дочерними (ffmpeg, blender), /F — принудительно
+            subprocess.run(
+                ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
+                capture_output=True,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+            )
+        else:
+            proc.terminate()
+            try:
+                proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+
     def cancel_job(self) -> None:
         if not self.busy:
             return
         self.cancel.set()
-        if self.proc is not None:
-            try:
-                self.proc.terminate()
-            except Exception:  # noqa: BLE001
-                pass
+        self._kill_proc_tree()
         self.set_status("Отменено")
 
     # -------------------------------------------------------------- doctor
@@ -1356,7 +1370,7 @@ class App(tk.Tk):
         assert proc.stdout is not None
         for line in proc.stdout:
             if self.cancel.is_set():
-                proc.kill()
+                self._kill_proc_tree()
                 yield "error", "Отменено пользователем."
                 self.proc = None
                 return
@@ -1442,11 +1456,7 @@ class App(tk.Tk):
                     "Задание ещё выполняется. Прервать его и закрыть окно?"):
                 return
             self.cancel.set()
-            if self.proc is not None:
-                try:
-                    self.proc.terminate()
-                except Exception:  # noqa: BLE001
-                    pass
+            self._kill_proc_tree()
         self.destroy()
 
 

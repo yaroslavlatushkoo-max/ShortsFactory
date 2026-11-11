@@ -34,7 +34,6 @@ def qc_frames(frames_dir, fps=30, expect_size=(1080, 1920), sample_step=5):
         im = Image.open(files[i]).convert("L")
         arr = np.asarray(im, dtype=np.float32)
         luma = float(arr.mean())
-        small = np.asarray(im.resize((24, 42)), dtype=np.float32)
         lumas.append((files[i].name, luma))
         if luma < 14 and i < n - int(fps * 3):
             dark.append((files[i].name, round(luma, 1)))
@@ -52,7 +51,7 @@ def qc_frames(frames_dir, fps=30, expect_size=(1080, 1920), sample_step=5):
 def qc_wav(wav_path, expect_duration=None, expect_sr=48000):
     """Validate the audio WAV: format, duration, peak/mean levels (dBFS)."""
     w = wave.open(str(wav_path), "rb")
-    sr, ch, sw, nfr = w.getframerate(), w.getnchannels(), w.getsampwidth(), w.getnframes()
+    sr, ch, _sw, nfr = w.getframerate(), w.getnchannels(), w.getsampwidth(), w.getnframes()
     w.close()
     issues = []
     if sr != expect_sr: issues.append(f"WARN: sample rate {sr} != {expect_sr}")

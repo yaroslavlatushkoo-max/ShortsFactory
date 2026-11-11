@@ -51,7 +51,6 @@ from .animation_pipeline.blocky_hero import (
 from .animation_pipeline.skinned_hero import PLAN_ACTION_STATES, viseme_track
 from .blocky_camera import (
     plan_scene_shots,
-    plan_shot_list,
     shot_summary,
     validate_shot_list,
 )

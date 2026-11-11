@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import json
 import re
-import shutil
 import statistics
-from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
@@ -12,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, UnidentifiedImageError
 
 from .config import Config
 from .logging_setup import get_logger
-from .models import LanguageQC, Plan, Project, QualityCheck, Script
+from .models import LanguageQC, Project, QualityCheck, Script
 from .util import (
     dhash,
     content_tokens,
@@ -46,7 +44,8 @@ def _parse_ass(path: Path) -> dict[str, Any]:
     data = {"styles": {}, "events": [], "play_res": (1080, 1920)}
     text = path.read_text(encoding="utf-8", errors="replace")
     in_events = False
-    format_fields: list[str] = []
+    fields = ["layer", "start", "end", "style", "name",
+              "marginl", "marginr", "marginv", "effect", "text"]
     for line in text.splitlines():
         if line.startswith("PlayResX:"):
             try:
@@ -58,26 +57,29 @@ def _parse_ass(path: Path) -> dict[str, Any]:
                 data["play_res"] = (data["play_res"][0], int(line.split(":", 1)[1]))
             except ValueError:
                 pass
+        elif line.strip() == "[Events]":
+            in_events = True
         elif line.startswith("Format:") and in_events:
-            format_fields = [item.strip() for item in line.split(":", 1)[1].split(",")]
+            fields = [item.strip().lower()
+                      for item in line.split(":", 1)[1].split(",")]
         elif line.startswith("Style:"):
             parts = [item.strip() for item in line.split(":", 1)[1].split(",")]
             if parts:
                 data["styles"][parts[0]] = parts
-        elif line.strip() == "[Events]":
-            in_events = True
         elif line.startswith("Dialogue:") and in_events:
-            parts = line.split(",", 9)
-            if len(parts) < 10:
+            body = line.split(":", 1)[1]
+            # Text — последнее поле и может содержать запятые
+            parts = [p.strip() for p in body.split(",", len(fields) - 1)]
+            if len(parts) < len(fields):
                 continue
-            event = {
-                "layer": parts[0].split(":", 1)[1].strip(),
-                "start": parts[1].strip(),
-                "end": parts[2].strip(),
-                "style": parts[3].strip(),
-                "text": parts[9].strip(),
-            }
-            data["events"].append(event)
+            row = dict(zip(fields, parts))
+            data["events"].append({
+                "layer": row.get("layer", "0"),
+                "start": row.get("start", ""),
+                "end": row.get("end", ""),
+                "style": row.get("style", ""),
+                "text": row.get("text", ""),
+            })
     return data
 
 

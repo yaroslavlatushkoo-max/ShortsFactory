@@ -197,9 +197,6 @@ class TTSService:
 
         (audio_dir / "scenes").mkdir(parents=True, exist_ok=True)
         (audio_dir / "sentences").mkdir(parents=True, exist_ok=True)
-        pause_frames_default = int(
-            float(self.config.get("tts", "sentence_pause", 0.10)) * 22050
-        )
         manifest_scenes: list[dict[str, Any]] = []
         total_speech = 0.0
 

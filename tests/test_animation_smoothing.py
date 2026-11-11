@@ -1,6 +1,5 @@
 """Tests for whole-body pose smoothing (Priority 1: cartoon motion)."""
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline.blocky_hero import ease_poses
 from shortsfactory.generative.animation_pipeline.skinned_hero import PoseParams

@@ -264,4 +264,5 @@ audio_start_i = v_i + lead
 - `config/config.toml` — видео, TTS, LLM, исследование, медиа, QC.
 - `config/profiles.toml` — 9 тематических профилей с сидами.
 - Переменные окружения: `SHORTSFACTORY_ROOT`, `SHORTSFACTORY_CONFIG`,
-  `SHORTSFACTORY_PROFILES`, `SHORTSFACTORY_FFMPEG`, `SHORTSFACTORY_FFPROBE`.
+  `SHORTSFACTORY_PROFILES`, `SHORTSFACTORY_FFMPEG`, `SHORTSFACTORY_FFPROBE`
+  (legacy-алиасы: `FFMPEG_BIN` / `FFPROBE_BIN`).

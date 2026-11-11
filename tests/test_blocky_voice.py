@@ -14,7 +14,6 @@ from shortsfactory.generative.blocky_voice import (
     AMBIENCE_PRESETS,
     ENVELOPE_HZ,
     MixInput,
-    VoiceProfile,
     VOICE_PROFILES,
     VoiceTake,
     ambient_wav,

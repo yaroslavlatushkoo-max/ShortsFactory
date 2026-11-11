@@ -326,11 +326,11 @@ def speech_segments(
             inside = False
             runs.append([begin, index * step])
     merged: list[list[float]] = []
-    for run in runs:
-        if merged and run[0] - merged[-1][1] < min_silence:
-            merged[-1][1] = run[1]
+    for seg in runs:
+        if merged and seg[0] - merged[-1][1] < min_silence:
+            merged[-1][1] = seg[1]
         else:
-            merged.append(run)
+            merged.append(seg)
     limit = len(values) * step
     spans = []
     for begin, end in merged:

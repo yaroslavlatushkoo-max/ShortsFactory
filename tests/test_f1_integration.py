@@ -11,7 +11,6 @@ from pathlib import Path
 import pytest
 
 from shortsfactory.generative.blocky_continuity import (
-    FEATURE_VERSION,
     WorldState,
     hash_scene,
     prepare_scene_continuity,

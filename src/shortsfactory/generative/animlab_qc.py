@@ -189,7 +189,6 @@ def run_pre_render_qc(description, *, fps: int | None = None,
     motion_planner = importlib.import_module("animation_lab.motion_planner")
     simulation = importlib.import_module("animation_lab.simulation")
     collision = importlib.import_module("animation_lab.collision")
-    state_machine = importlib.import_module("animation_lab.state_machine")
 
     # --- планирование ----------------------------------------------------
     plan, log = motion_planner.build_plan(description, fps=fps)

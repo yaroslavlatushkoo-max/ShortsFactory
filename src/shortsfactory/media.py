@@ -1,13 +1,11 @@
 from __future__ import annotations
 
 import hashlib
-import io
 import re
 import time
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
 
 import requests
 from PIL import Image, ImageOps, UnidentifiedImageError

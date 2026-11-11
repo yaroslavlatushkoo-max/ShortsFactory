@@ -1,6 +1,5 @@
 """Tests for the Voxel Animation Engine v1 (mock-based, no heavy Blender runs)."""
 
-import types
 
 import pytest
 
@@ -12,7 +11,7 @@ from shortsfactory.generative.animation_plan import (
     PlanAction,
     PlanError,
 )
-from shortsfactory.generative.voxel_engine import build_voxel_script, render_voxel
+from shortsfactory.generative.voxel_engine import build_voxel_script
 from shortsfactory.generative.voxel_engine import voxel_character, voxel_interactions
 from shortsfactory.generative.voxel_engine.voxel_validation import validate_voxel_plan
 

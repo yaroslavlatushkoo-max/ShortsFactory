@@ -279,7 +279,6 @@ def build_plan_for_idea(
     (a girl finds a glowing stone).  This is a documented, offline default; it
     does not pretend to understand arbitrary prose.
     """
-    idea_lower = idea.lower()
     total = min(max(float(duration), MIN_DURATION), MAX_DURATION)
     if _wants_two_actors(idea, original):
         # the rig can only play Milo and Nina; a two-name idea therefore gets a
@@ -561,7 +560,6 @@ def run_qc(result: DispatchResult, plan: AnimationPlan, config: Any, out_dir: Pa
         qc.props_interacted = bool(plan.events)
 
     # audio
-    audio_path = Path(result.video) if result.video else None
     audio_dur = float(astream.get("duration", 0.0) or 0.0)
     audio_present = bool(astream) and audio_dur > 0.0
     qc.audio_present = audio_present or bool(getattr(anim, "audio", "")) if getattr(result, "engine_used", None) == "procedural" else audio_present
@@ -688,7 +686,6 @@ def run_free_create(
     if resume and (render_out / (plan.to_scene_dict()["id"] + ".json")).exists() and (render_out / "procedural" / "pilot.mp4").exists():
         # reuse existing procedural render
         from ..animation import AnimationEngine
-        from ..animation.scene import load_scene
         scene_path = render_out / f"{plan.scene_id}.json"
         scene_path.write_text(json.dumps(plan.to_scene_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
         anim = AnimationEngine(config).render(scene_path, render_out / "procedural")

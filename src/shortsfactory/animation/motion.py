@@ -705,8 +705,6 @@ def _stand(u: float, params: dict[str, Any], base_x: float) -> ActionState:
     return ActionState(angles=pose_angles("sit", weight), root_x=base_x, root_dy=-0.20 * weight)
 
 
-_look = _pose_action("neutral", ramp_in=1.5, ramp_out=0.25, expression="neutral", mouth=0.08)
-
 def _look(u: float, params: dict[str, Any], base_x: float) -> ActionState:
     weight = math.sin(math.pi * clamp(u))
     return ActionState(

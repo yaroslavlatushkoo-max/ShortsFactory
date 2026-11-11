@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import math
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline.skinned_hero import (
     encode_frames,

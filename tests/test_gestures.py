@@ -1,7 +1,6 @@
 """Unit tests for the gesture library (stage C2)."""
 from __future__ import annotations
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline.gestures import (
     DEFAULT_GESTURE_DURATION,

@@ -101,9 +101,6 @@ def build_blender_script(plan: AnimationPlan, out_dir: Path, *, fps: int = 30) -
 
     actions = [a.to_dict() for a in plan.actions]
     camera = [k.to_dict() for k in plan.camera]
-    characters = [c.to_dict() for c in plan.characters]
-    objects = [o.to_dict() for o in plan.objects]
-    events = [e.to_dict() for e in plan.events]
 
     width = int(plan.width)
     height = int(plan.height)

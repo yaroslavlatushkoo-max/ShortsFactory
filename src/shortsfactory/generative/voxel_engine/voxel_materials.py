@@ -6,7 +6,6 @@ default palette.  No Blender import here (testable without bpy).
 
 from __future__ import annotations
 
-from typing import Any
 
 
 def hex_to_rgb(value: str) -> tuple[float, float, float]:
@@ -49,7 +48,7 @@ DEFAULT_PALETTE: dict[str, str] = {
 
 def material_source(code: str = "materials") -> str:
     """Blender-side helper source for creating materials by palette key."""
-    return f'''
+    return '''
 # ---------------- materials ----------------
 def _mat(key, strength=0.0):
     color = PALETTE[key]

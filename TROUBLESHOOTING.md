@@ -20,6 +20,20 @@ $env:SHORTSFACTORY_FFMPEG = "C:\path\to\ffmpeg.exe"
 $env:SHORTSFACTORY_FFPROBE = "C:\path\to\ffprobe.exe"
 ```
 
+## FFmpeg слишком старый
+
+FFmpeg >= 4.4 обязателен: конвейер использует `adelay=all=1`,
+`amix=normalize` и `alimiter=level`. На старых версиях (например 4.2) рендер
+падает с ошибкой `Option 'all' not found` или тихо выдаёт «пустой» микс.
+
+Проверьте версию:
+
+```powershell
+ffmpeg -version
+```
+
+Если она меньше 4.4 — обновите FFmpeg (рекомендуется 6+): https://ffmpeg.org/download.html
+
 ## Ollama недоступен или сценарий слишком короткий
 
 Проверьте:

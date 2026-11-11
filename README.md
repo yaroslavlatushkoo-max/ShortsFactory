@@ -180,7 +180,7 @@ EDITING → RENDERING → METADATA → QUALITY_CHECK → READY`
 |---|---|---|
 | `ru_RU-dmitri-medium.onnx` | RU, мужской | наррация/речь Стива в русских роликах |
 | `ru_RU-irina-medium.onnx` | RU, женский | речь Алекс в русских роликах |
-| `en_US-ryan-high.onnx` | EN, мужской | наррация в английских роликах |
+| `en_US-ryan-high.onnx` | EN, мужской | резерв (CC BY-NC-SA — некоммерческая); рабочий EN = libritts_r |
 | `en_US-libritts_r-medium.onnx` | EN, женский | речь Алекс в английских роликах |
 | `ru_RU-denis-medium.onnx` | RU, мужской (доп.) | альтернативные голоса (скачиваются по желанию) |
 | `ru_RU-elena-medium.onnx` | RU, женский (доп.) | альтернативные голоса (скачиваются по желанию) |

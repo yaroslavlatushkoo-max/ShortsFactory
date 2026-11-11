@@ -16,11 +16,14 @@ from __future__ import annotations
 
 import ast
 import json
+import logging
 import re
 from pathlib import Path
 from typing import Any
 
 from . import mouth_rig
+
+logger = logging.getLogger(__name__)
 
 #: пороги вердикта: доля закрытого рта во время речи и доля кадров,
 #: когда рот «хлопает» в тишине (от общего числа кадров сцены)
@@ -178,5 +181,5 @@ def attach_lip_sync_qc(
             json.dumps(diag, ensure_ascii=False, indent=2), encoding="utf-8"
         )
     except Exception:
-        pass
+        logger.debug("Не удалось записать lip_sync diagnostics в %s", diag_path, exc_info=True)
     return result

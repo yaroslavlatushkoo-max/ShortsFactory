@@ -9,7 +9,6 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Sequence
@@ -258,16 +257,24 @@ def which(name: str) -> str | None:
 
 
 def ffmpeg_bin() -> str:
-    value = os.environ.get("FFMPEG_BIN") or which("ffmpeg")
+    value = (
+        os.environ.get("SHORTSFACTORY_FFMPEG")
+        or os.environ.get("FFMPEG_BIN")
+        or which("ffmpeg")
+    )
     if not value:
-        raise FileNotFoundError("FFmpeg не найден в PATH. Установите FFmpeg или задайте FFMPEG_BIN.")
+        raise FileNotFoundError("FFmpeg не найден в PATH. Установите FFmpeg или задайте FFMPEG_BIN/SHORTSFACTORY_FFMPEG.")
     return value
 
 
 def ffprobe_bin() -> str:
-    value = os.environ.get("FFPROBE_BIN") or which("ffprobe")
+    value = (
+        os.environ.get("SHORTSFACTORY_FFPROBE")
+        or os.environ.get("FFPROBE_BIN")
+        or which("ffprobe")
+    )
     if not value:
-        raise FileNotFoundError("ffprobe не найден в PATH. Установите FFmpeg или задайте FFPROBE_BIN.")
+        raise FileNotFoundError("ffprobe не найден в PATH. Установите FFmpeg или задайте FFPROBE_BIN/SHORTSFACTORY_FFPROBE.")
     return value
 
 

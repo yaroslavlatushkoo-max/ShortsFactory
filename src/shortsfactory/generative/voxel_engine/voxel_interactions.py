@@ -36,7 +36,6 @@ def interaction_source(objects: list, events: list, fps: int, pickup_start: floa
     ]
     for i, obj in enumerate(objects):
         oid = obj.id
-        color = getattr(obj, "color", None) or "#8df0b4"
         # start position from object keyframes (stage) or default.
         kf = (obj.keyframes or [])
         if kf:

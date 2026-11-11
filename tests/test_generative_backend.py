@@ -9,6 +9,7 @@ from types import SimpleNamespace
 import pytest
 
 from shortsfactory.generative.backend import (
+    BackendError,
     BackendNotConfigured,
     create_backend,
 )
@@ -54,7 +55,7 @@ def test_cost_estimate_uses_per_second():
 
 
 def test_unknown_provider_raises():
-    with pytest.raises(Exception):
+    with pytest.raises(BackendError):
         create_backend("nope", env={})
 
 

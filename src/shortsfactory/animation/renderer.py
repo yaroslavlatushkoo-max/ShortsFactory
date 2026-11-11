@@ -1,4 +1,4 @@
-﻿"""Frame compositor and FFmpeg encoder for Animation Engine v4.
+"""Frame compositor and FFmpeg encoder for Animation Engine v4.
 
 The renderer draws every frame with Pillow, streams raw RGB frames into FFmpeg
 and muxes a deterministic procedural audio bed. Layers are painted by explicit

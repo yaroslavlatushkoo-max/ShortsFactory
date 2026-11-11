@@ -1,12 +1,9 @@
 import json
-import shutil
 
 import numpy as np
 import pytest
-from PIL import Image
 
 from shortsfactory.generative.story_film import (
-    StoryFilmError,
     build_story_film,
     compose_scene_frame,
     render_character_sprite,

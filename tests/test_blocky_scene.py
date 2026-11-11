@@ -1,12 +1,12 @@
 """Data-driven blocky scene tests (no Blender): validation, presets, JSON."""
 
-import json
 from pathlib import Path
 
 import pytest
 
 from shortsfactory.generative.animation_pipeline import blocky_hero as bh
 from shortsfactory.generative.animation_pipeline.skinned_hero import PLAN_ACTION_STATES
+from shortsfactory.generative.blender_adapter import blender_available
 from shortsfactory.generative.blocky_scene import (
     BlockyScene,
     ENVIRONMENT_PRESETS,
@@ -490,6 +490,7 @@ def test_dialogue_qc_flags_overlapping_subtitles_and_empty_text():
 
 
 @pytest.mark.integration
+@pytest.mark.skipif(not blender_available(), reason="Blender не найден (BLENDER_EXECUTABLE)")
 @pytest.mark.parametrize("name", ["lost_diamond", "tricky_door"])
 def test_authored_scenes_render(name: str, tmp_path: Path):
     report = BlockyScene.load(SCENES / f"{name}.json").render(tmp_path / name)

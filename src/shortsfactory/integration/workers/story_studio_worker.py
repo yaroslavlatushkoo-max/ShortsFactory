@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import sys
-from typing import Any
 
 
 def main() -> int:
@@ -19,7 +18,6 @@ def main() -> int:
         from story_studio.models import (  # type: ignore
             Action,
             ActionType,
-            ActorSceneState,
             CameraPlan,
             Character,
             CharacterAppearance,
@@ -30,7 +28,6 @@ def main() -> int:
             NormalizedPoint,
             Project,
             Prop,
-            PropSceneState,
             Scene,
             SceneWorldState,
             ValidationSummary,

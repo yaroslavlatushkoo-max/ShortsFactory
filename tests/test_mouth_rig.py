@@ -2,7 +2,6 @@
 
 import wave
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline import mouth_rig as mr
 from shortsfactory.generative.animation_pipeline import blocky_hero as bh

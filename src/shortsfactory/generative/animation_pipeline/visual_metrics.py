@@ -1,4 +1,6 @@
-import subprocess, sys, json
+import subprocess
+import sys
+import json
 from pathlib import Path
 import numpy as np
 
@@ -25,7 +27,7 @@ def analyze(video, w=1080, h=1920, out=None):
     # assume character occupies middle ~40% width, middle ~55% height
     cx = W//2
     halfw = int(W*0.20)
-    top = int(H*0.28); bot = int(H*0.92)
+    bot = int(H*0.92)
     mid = int(H*0.55)
     legs = (int(H*0.68), bot, cx-halfw, cx+halfw)
     arms = (mid, int(H*0.68), cx-halfw, cx+halfw)

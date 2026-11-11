@@ -74,7 +74,6 @@ def build_environment_bibles(scenes: list[ScenePlan]) -> dict[str, EnvironmentBi
         loc = scene.location or "general"
         if loc in result:
             continue
-        seed = _seed(loc, "env")
         result[loc] = EnvironmentBible(
             id=loc.lower().replace(" ", "_"),
             name=loc,

@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-import importlib.metadata
 import platform
+import re
 import shutil
 import subprocess
 import sys
 from dataclasses import asdict, dataclass, field
-from pathlib import Path
 from typing import Any
 
 from .config import Config
@@ -68,6 +67,7 @@ class Doctor:
         self._writable(result)
         self._ffmpeg(result)
         self._ffmpeg_capabilities(result)
+        self._ffmpeg_version(result)
         self._fonts(result)
         self._tts_models(result)
         self._llm(result)
@@ -156,6 +156,41 @@ class Doctor:
             result.checks.append(
                 Check("ffmpeg_capabilities", "ok", "ass, zoompan, xfade, loudnorm, libx264, aac доступны")
             )
+
+    def _ffmpeg_version(self, result: DoctorResult) -> None:
+        """adelay=all / amix=normalize / alimiter=level требуют FFmpeg >= 4.4."""
+        binary = ffmpeg_bin()
+        if not binary:
+            return  # отсутствие уже отметил _ffmpeg
+        try:
+            proc = subprocess.run(
+                [binary, "-version"], capture_output=True, text=True,
+                encoding="utf-8", timeout=10,
+            )
+            match = re.search(r"ffmpeg version n?(\d+)\.(\d+)", proc.stdout)
+            if not match:
+                result.checks.append(Check(
+                    "ffmpeg_version", "warn",
+                    "Не удалось определить версию FFmpeg",
+                    "Проверьте вывод ffmpeg -version вручную",
+                ))
+                return
+            major, minor = int(match.group(1)), int(match.group(2))
+            if (major, minor) < (4, 4):
+                result.checks.append(Check(
+                    "ffmpeg_version", "fail",
+                    f"FFmpeg {major}.{minor} — слишком старый (adelay=all, amix=normalize, alimiter=level не поддерживаются)",
+                    "Установите FFmpeg >= 4.4 (рекомендуется 6+)",
+                ))
+            elif (major, minor) < (6, 0):
+                result.checks.append(Check(
+                    "ffmpeg_version", "warn",
+                    f"FFmpeg {major}.{minor} — работает, но рекомендуется 6+",
+                ))
+            else:
+                result.checks.append(Check("ffmpeg_version", "ok", f"FFmpeg {major}.{minor}"))
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            result.checks.append(Check("ffmpeg_version", "warn", str(exc)))
 
     def _fonts(self, result: DoctorResult) -> None:
         required = [

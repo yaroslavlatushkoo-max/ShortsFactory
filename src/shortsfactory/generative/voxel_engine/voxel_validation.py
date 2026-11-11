@@ -7,7 +7,7 @@ rules (object references, attach points, capture world mapping).
 
 from __future__ import annotations
 
-from ..animation_plan import PlanError
+from ..animation_plan import AnimationPlan, PlanError
 
 #: Valid hand attachment points used by the voxel rig.
 VALID_ATTACH_POINTS = {"hand_r", "hand_l", "root", "head"}
@@ -37,7 +37,7 @@ def validate_voxel_plan(plan) -> list[str]:
     return errors
 
 
-def ensure_voxel_plan(plan) -> "plan":
+def ensure_voxel_plan(plan: AnimationPlan) -> AnimationPlan:
     """Run both base and voxel validation; raise PlanError on any error."""
     base = plan.validate()
     extra = validate_voxel_plan(plan)

@@ -12,7 +12,6 @@ import os
 import pytest
 
 from shortsfactory.generative.animation_pipeline import (
-    FullBodyResult,
     build_authored_rig_script,
     detect_control_groups,
     render_authored_rig,

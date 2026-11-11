@@ -11,11 +11,9 @@ touches the network or any cloud provider.
 
 from __future__ import annotations
 
-import os
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
 
 from ..animation_plan import AnimationPlan, PlanError
 from ..blender_adapter import blender_executable

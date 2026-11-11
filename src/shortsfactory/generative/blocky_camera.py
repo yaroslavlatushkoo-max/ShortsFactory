@@ -19,7 +19,7 @@ renderer.
 from __future__ import annotations
 
 import math
-from typing import Any, Iterable, Sequence
+from typing import Any, Sequence
 
 #: Framing presets.  ``height`` is the vertical size the camera fits, ``dz`` the
 #: height of the frame centre, ``yaw`` an optional orbit for a 3/4 view.

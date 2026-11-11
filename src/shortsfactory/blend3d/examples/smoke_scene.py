@@ -2,7 +2,8 @@
 # Builds a tiny scene from library components (2 blocky characters, block floor,
 # torch, lights, camera) and renders 6 preview frames at low resolution.
 # Run: blender -b -P smoke_scene.py -- preview
-import sys, os
+import sys
+import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + r'\..\blender_lib')
 from core import *
 from blocks import build_palette, cube_block, torch, star_sky

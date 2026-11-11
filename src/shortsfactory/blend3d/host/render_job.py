@@ -43,7 +43,7 @@ def assemble_argv(frames_dir, wav_path, out_mp4, fps=30, crf=17, preset="medium"
     if not fd.is_dir(): raise FileNotFoundError(f"frames dir missing: {fd}")
     if not wp.is_file(): raise FileNotFoundError(f"wav missing: {wp}")
     if out.suffix.lower() != ".mp4": raise ValueError("out must be .mp4")
-    if not (fd / (f"f0001.jpg")).exists() and not (fd / "f0001.png").exists():
+    if not (fd / ("f0001.jpg")).exists() and not (fd / "f0001.png").exists():
         raise FileNotFoundError("no f0001 frame found")
     return ["ffmpeg", "-y", "-framerate", str(int(fps)),
             "-i", str(fd / "f%04d.jpg"),

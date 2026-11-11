@@ -1,7 +1,8 @@
 # blend3d/blender_lib/core.py — proven helpers from «Маленький садовник», generalized.
 # Runs INSIDE Blender's python (bpy). No shortsfactory imports here.
-import bpy, bmesh, math
-from mathutils import Vector, Matrix, Euler
+import bpy
+import math
+from mathutils import Vector, Matrix
 
 FPS = 30
 

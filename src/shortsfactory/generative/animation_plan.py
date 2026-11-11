@@ -20,7 +20,6 @@ from typing import Any
 # Re-export the supported action catalogue so both engines agree on vocabulary.
 from ..animation.motion import ACTIONS as SUPPORTED_ACTIONS
 from ..animation.motion import UNSUPPORTED as UNSUPPORTED_ACTIONS
-from ..animation.scene import _OBJECT_KINDS as OBJECT_KINDS
 
 #: Engine identifiers understood by the dispatcher.
 ENGINE_PROCEDURAL = "procedural"

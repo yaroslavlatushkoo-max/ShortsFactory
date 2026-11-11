@@ -12,18 +12,20 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import random
 import shutil
 import subprocess
+import sys
 import wave
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable, Optional
+from typing import Any, Optional
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-from ..blend3d.host.skins import SKIN64_REGIONS, region_px
+from ..blend3d.host.skins import region_px
 
 # ---------------------------------------------------------------------------
 # константы
@@ -38,6 +40,25 @@ DEFAULT_VOICE_RU_F = "ru_RU-irina-medium.onnx"
 DEFAULT_VOICE_EN = "en_US-ryan-high.onnx"
 DEFAULT_VOICE_EN_F = "en_US-libritts_r-medium.onnx"
 DEFAULT_PIPER_DIR = Path(__file__).resolve().parents[3] / "models" / "piper"
+
+
+def _ui_font(size: int) -> ImageFont.FreeTypeFont:
+    """Шрифт с кириллицей для титров. Montserrat лежит в fonts/ (OFL)."""
+    candidates: list[Path] = []
+    root_env = os.environ.get("SHORTSFACTORY_ROOT")
+    if root_env:
+        candidates.append(Path(root_env) / "fonts" / "Montserrat-Bold.ttf")
+    # src/shortsfactory/generative/story_film.py -> корень репо = parents[3]
+    candidates.append(Path(__file__).resolve().parents[3] / "fonts" / "Montserrat-Bold.ttf")
+    meipass = getattr(sys, "_MEIPASS", None)  # PyInstaller-сборка
+    if meipass:
+        candidates.append(Path(meipass) / "fonts" / "Montserrat-Bold.ttf")
+    for path in candidates:
+        try:
+            return ImageFont.truetype(str(path), size)
+        except OSError:
+            continue
+    return ImageFont.load_default()
 
 # палитры фонов по локациям (небо, земля, декор1, декор2, акцент)
 LOCATION_PALETTES: dict[str, tuple[tuple[int, int, int], ...]] = {
@@ -144,7 +165,6 @@ def _sprite_generic(char: str, *, scale: int, facing: str, leg_phase: float = 0.
 
     dark = (34, 28, 34)
     shirt_dark = tuple(max(0, c - 34) for c in shirt)
-    pants_dark = tuple(max(0, c - 30) for c in pants)
     hair_dark = tuple(max(0, c - 28) for c in hair)
     skin_dark = tuple(max(0, c - 26) for c in skin)
     shoes_dark = tuple(max(0, c - 22) for c in shoes)
@@ -292,7 +312,6 @@ def _sprite_from_skin(char: str, *, scale: int, skins_dir: Optional[Path], facin
     leg_l = _tile(tex, "leg_l", "front")
     leg_r = _tile(tex, "leg_r", "front")
     # фазы шага: одна нога приподнята и укорочена, вторая опорная
-    lift = int(abs(leg_phase) * b * 3)
     forward = int(leg_phase * b * 1.5)
     left_up = max(0, -forward)
     right_up = max(0, forward)
@@ -681,10 +700,9 @@ def compose_scene_frame(
     out = canvas.convert("RGB")
     draw = ImageDraw.Draw(out)
     # заголовок
-    try:
-        draw.text((40, 40), title, fill=(255, 255, 255), stroke_width=3, stroke_fill=(10, 10, 10))
-    except Exception:
-        pass
+    title_font = _ui_font(max(28, height // 16))
+    draw.text((40, 40), title, font=title_font, fill=(255, 255, 255),
+              stroke_width=3, stroke_fill=(10, 10, 10))
     if voice_line:
         # перенос строк
         words = voice_line.split()
@@ -699,8 +717,10 @@ def compose_scene_frame(
         if cur:
             lines.append(cur)
         y0 = int(height * 0.82)
+        line_font = _ui_font(max(22, height // 22))
         for li, ln in enumerate(lines[:4]):
-            draw.text((40, y0 + li * 56), ln, fill=(255, 255, 255), stroke_width=3, stroke_fill=(10, 10, 10))
+            draw.text((40, y0 + li * 56), ln, font=line_font, fill=(255, 255, 255),
+                      stroke_width=3, stroke_fill=(10, 10, 10))
     return out
 
 
@@ -929,9 +949,6 @@ def build_story_film(
 
     title0 = storyboard.get("title") or "История"
     voice_map = voice_map or {}
-    voices = {
-        "ru": str(out_dir.parents[0] if False else DEFAULT_PIPER_DIR / voice_map.get("ru", DEFAULT_VOICE_RU)),
-    }
     # голоса по умолчанию
     def pick_voice(char: Optional[str]) -> str:
         if char and voice_map.get(char):
@@ -1094,7 +1111,6 @@ def _slugify(text: str) -> str:
 
 def main(argv: Optional[list[str]] = None) -> int:
     import argparse
-    import sys
 
     from .blocky_story import generate_storyboard
 

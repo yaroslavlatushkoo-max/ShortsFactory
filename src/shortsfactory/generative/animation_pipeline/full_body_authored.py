@@ -18,12 +18,11 @@ from __future__ import annotations
 
 import json
 import subprocess
-from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from .locomotion import LocomotionError
-from .full_body_rig import FullBodyResult, detect_control_groups
+from .full_body_rig import FullBodyResult
 
 #: (parent, child) bone pairs for the authored rig. Order matters (root→leaf).
 AUTH_BONES: tuple[tuple[str, str], ...] = (
@@ -98,7 +97,6 @@ def build_authored_rig_script(
     diag = out_dir / f"{scenario}_diagnostics.json"
 
     total_dur = 10.0 if scenario == "joint" else 11.0
-    total_frames = int(round(total_dur * fps))
 
     L: list[str] = []
     L.append("import bpy, json, math, subprocess, os, sys")

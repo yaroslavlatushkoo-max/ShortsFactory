@@ -5,7 +5,6 @@
 (запрет «телепортации обратно»).
 """
 
-import pytest
 
 from shortsfactory.generative.blocky_continuity import (
     WorldState,

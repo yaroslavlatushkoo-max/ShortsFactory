@@ -1,25 +1,22 @@
 from __future__ import annotations
 
-import json
 import re
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps
 
 from .config import Config
 from .logging_setup import get_logger
 from .models import Plan, Project, Script, Source
 from .util import (
     atomic_write_json,
-    atomic_write_text,
     clean_text,
     ffmpeg_bin,
     ffprobe_json,
     normalize_match,
     now_iso,
     run,
-    safe_filename,
     sentence_split,
 )
 

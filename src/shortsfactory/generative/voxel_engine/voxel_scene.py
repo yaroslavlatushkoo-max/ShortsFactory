@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import random
 
-from .voxel_materials import DEFAULT_PALETTE
 
 
 def build_scene_source(seed: int = 20261023) -> str:

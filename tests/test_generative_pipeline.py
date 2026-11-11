@@ -6,6 +6,8 @@ import json
 import os
 from pathlib import Path
 
+import pytest
+
 from shortsfactory.config import Config
 from shortsfactory.generative.cinematic import plan_cinematic
 from shortsfactory.generative.models import ScenePlan
@@ -35,7 +37,7 @@ def test_presets_registry():
     assert get_preset("cinematic3d").id == "cinematic3d"
     try:
         get_preset("nope")
-        assert False, "should raise"
+        pytest.fail("should raise")
     except KeyError:
         pass
 
@@ -48,7 +50,7 @@ def test_planner_deterministic_fallback():
 def test_planner_rejects_empty():
     try:
         plan_story("   ", llm=None)
-        assert False
+        pytest.fail("expected ValueError")
     except ValueError:
         pass
 

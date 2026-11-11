@@ -12,7 +12,6 @@ This is the *asset-based* production path; it does not replace the lower-level
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
 
 from ..animation_plan import (
     ENGINE_ASSET,
@@ -24,7 +23,7 @@ from ..animation_plan import (
     PlanObject,
     PlanError,
 )
-from .assets_catalog import AssetCatalog, AssetError
+from .assets_catalog import AssetCatalog
 from .voxel_renderer import VoxelRenderResult, build_voxel_script, render_voxel
 
 #: Default camera shots (start_frac, end_frac) mapped to catalog shot ids.

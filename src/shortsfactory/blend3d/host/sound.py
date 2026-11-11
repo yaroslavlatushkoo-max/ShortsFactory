@@ -142,7 +142,6 @@ def events_from_timings(timings, chords=None):
         root_f = note_freq(root)
         events.append({'t': t0, 'kind': 'bass', 'freq': root[:-1] + str(int(root[-1]) - 1),
                        'dur': 2.0, 'gain': 0.1})
-        third = 4 if kind == 'maj' else 3
         for k, semi in enumerate((0, 7, 12)):
             events.append({'t': t0 + k * 0.34, 'kind': 'bell',
                            'freq': _hz(root_f, semi), 'dur': 1.4,

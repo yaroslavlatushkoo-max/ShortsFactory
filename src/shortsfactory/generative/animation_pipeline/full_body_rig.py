@@ -30,7 +30,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .locomotion import LocomotionError, render_locomotion
+from .locomotion import LocomotionError
 
 
 @dataclass

@@ -30,7 +30,6 @@ from .locomotion import (
     LocomotionError,
     Phase,
     compute_phases,
-    render_locomotion,
 )
 from .importer import inspect_model
 

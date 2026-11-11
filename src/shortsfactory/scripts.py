@@ -436,7 +436,6 @@ class ScriptService:
         per_low, per_high = scene_word_targets(self.config, lang, plan.duration, SCENE_TARGET)
         prompt = self._prompt(plan, sources, lang, low, high, per_low, per_high)
         errors: list[str] = []
-        engine = "ollama"
         model = ""
         for attempt in range(int(self.config.get("llm", "max_retries", 1)) + 1):
             try:

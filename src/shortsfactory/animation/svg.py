@@ -25,7 +25,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 from PIL import Image, ImageColor, ImageDraw
 
@@ -514,7 +514,7 @@ def _resolve_color(value: str, palette: dict[str, str]) -> str:
     def token(match: re.Match[str]) -> str:
         key = match.group(1)
         if key not in palette:
-            raise SvgError(f"В палитре нет цвета {{%s}}." % key)
+            raise SvgError("В палитре нет цвета {%s}." % key)
         return str(palette[key])
 
     resolved = re.sub(r"\{\{(\w+)\}\}", token, value)
@@ -635,7 +635,6 @@ def render_svg(
 
     canvas = Image.new("RGBA", (width * supersample, height * supersample),
                        background or (0, 0, 0, 0))
-    draw = ImageDraw.Draw(canvas, "RGBA")
     gradients = _gradients(root)
     ss_matrix = _scale(supersample, supersample)
 

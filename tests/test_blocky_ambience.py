@@ -6,10 +6,24 @@ import struct
 import wave
 from pathlib import Path
 
+import pytest
+
 from shortsfactory.generative.blocky_scene import BlockyScene
 from shortsfactory.generative.blocky_voice import MixInput, mix_report, mix_scene_audio
 
 AUDIO_RATE = 48000
+
+
+@pytest.fixture(autouse=True)
+def _isolated_audio_config(monkeypatch):
+    """Тесты амбиенса не должны зависеть от config/config.toml."""
+    import shortsfactory.generative.blocky_scene as bs
+
+    class _StubConfig:
+        def get(self, section, key, default=None):
+            return default  # audio.music -> False, music_volume -> дефолт
+
+    monkeypatch.setattr(bs, "load_config", lambda *a, **k: _StubConfig())
 
 
 def _scene(*, ambience: str = "", duration: float = 2.0) -> BlockyScene:

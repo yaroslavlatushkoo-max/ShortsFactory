@@ -8,7 +8,7 @@ height is anchored at ``HIP_Z`` so the feet stay on the ground.
 
 from __future__ import annotations
 
-from .voxel_rig import HIP_Z, STAGE_W
+from .voxel_rig import HIP_Z
 
 
 def _S(v: float) -> str:

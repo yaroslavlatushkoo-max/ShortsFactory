@@ -7,19 +7,21 @@ name = "shortsfactory"
 version = "1.0.0"
 description = "ShortsFactory: генерация коротких блочных мультфильмов (тема → история → видео)"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "Proprietary/CC0 assets" }
 dependencies = [
     "numpy",
     "Pillow",
     "requests",
     "piper-tts",
-    "imagemagick",
 ]
 
 [project.optional-dependencies]
 desktop = ["pyinstaller"]
-dev = ["pytest"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+shortsfactory = "shortsfactory.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -30,4 +32,17 @@ pythonpath = ["src"]
 markers = [
     "integration: тесты, которые запускают реальный Blender-рендер (медленные)",
     "slow: медленные тесты (полный smoke/рендер)",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+ignore = [
+    "E501",
+    # массовые шумные, не влияют на корректность
+    "F403", "F405", "E701", "E702", "B905", "B007", "B023",
+    "E731", "E741", "B024",
 ]

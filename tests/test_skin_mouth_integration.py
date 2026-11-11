@@ -1,7 +1,6 @@
 """Integration tests: mouth_skin actor key -> payload['mouth_states']."""
 from __future__ import annotations
 
-import pytest
 
 from shortsfactory.generative.animation_pipeline import blocky_hero as bh
 

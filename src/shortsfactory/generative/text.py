@@ -8,7 +8,6 @@ so LLM is never required.
 from __future__ import annotations
 
 import os
-from pathlib import Path
 from typing import Any
 
 from .http_utils import request_with_retry
@@ -88,7 +87,7 @@ class GeminiTextProvider(TextProvider):
         try:
             text = data["candidates"][0]["content"]["parts"][0]["text"]
         except (KeyError, IndexError, TypeError):
-            raise ValueError(f"Неожиданный ответ Gemini: {str(data)[:300]}")
+            raise ValueError(f"Неожиданный ответ Gemini: {str(data)[:300]}") from None
         return text
 
     def generate_structured(
@@ -333,7 +332,7 @@ class OpenAICompatibleTextProvider(TextProvider):
         try:
             return data["choices"][0]["message"]["content"]
         except (KeyError, IndexError, TypeError):
-            raise ValueError(f"Неожиданный ответ API: {str(data)[:300]}")
+            raise ValueError(f"Неожиданный ответ API: {str(data)[:300]}") from None
 
     def generate_structured(
         self,

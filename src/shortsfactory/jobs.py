@@ -35,11 +35,11 @@ from .models import (
 from .music import MusicService
 from .quality import QualityService
 from .reporting import ReportService
-from .research import ResearchError, ResearchResult, ResearchService
+from .research import ResearchResult, ResearchService
 from .scripts import ScriptService
 from .storage import Storage
 from .subtitles import build_subtitles
-from .timeline import Timeline, TimelineError, build as build_timeline, write_narration
+from .timeline import Timeline, build as build_timeline, write_narration
 from .topics import choose_topic, detect_profile, is_generic_topic, normalize_topic
 from .tts import TTSService, load_manifest
 from .util import (
@@ -48,10 +48,8 @@ from .util import (
     atomic_write_text,
     now_iso,
     project_id,
-    relative_to_root,
     safe_filename,
     slugify,
-    word_count,
 )
 from .visuals import VisualService
 
@@ -764,7 +762,6 @@ class JobService:
 
     # ------------------------------------------------------------------ finish
     def _finish(self, project: Project, plan: Plan) -> None:
-        output = Path(project.output)
         qcs = [self._load_qc(project, lang) for lang in plan.languages]
         present = [qc for qc in qcs if qc is not None]
         if not present:
@@ -1085,9 +1082,17 @@ class JobService:
         self.store.import_workspace_projects()
         self.store.recover_interrupted()
         projects = self.store.list_projects(statuses=[STATUS_INTERRUPTED, STATUS_QUEUED])
+        resumed: list[Project] = []
         for project in projects:
-            self.prepare_retry(project)
-            self.run(project)
+            try:
+                self.prepare_retry(project)
+                self.run(project)
+                resumed.append(project)
+            except JobError as exc:
+                get_logger().error(
+                    "Не удалось продолжить проект %s: %s", project.id, exc
+                )
+                continue
         return projects
 
     def close(self) -> None:

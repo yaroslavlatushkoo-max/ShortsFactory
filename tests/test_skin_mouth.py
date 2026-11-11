@@ -9,7 +9,6 @@ from __future__ import annotations
 import io
 from pathlib import Path
 
-import pytest
 from PIL import Image
 
 from shortsfactory.generative.animation_pipeline.skin_mouth import (

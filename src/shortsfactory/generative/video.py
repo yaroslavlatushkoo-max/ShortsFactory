@@ -7,17 +7,14 @@ unchanged and remains the object the pipeline actually drives.
 
 from __future__ import annotations
 
-import os
 from typing import Any
 
 from .backend import (
-    BackendNotConfigured,
     VideoBackend,
     backend_names,
     create_backend,
 )
-from .models import BackendCapabilities
-from .registry import AIProvider, AvailabilityResult, Capability, CapabilityReport, registry
+from .registry import AIProvider, AvailabilityResult, Capability, registry
 
 _VIDEO_CAP_MAP = {
     "supports_t2v": Capability.VIDEO_GENERATION,

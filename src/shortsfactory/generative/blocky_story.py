@@ -15,7 +15,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
-from typing import Any, Callable, Sequence
+from typing import Any, Callable
 
 from ..llm import LLMError, OllamaClient, extract_json
 from ..config import Config, load_config
