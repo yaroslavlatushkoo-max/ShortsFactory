@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "name": "simple_walk",
+  "fps": 30,
+  "duration_seconds": 3.5,
+  "characters": {
+    "walker": {
+      "character_id": "walker",
+      "position": {
+        "x": 0.1,
+        "y": 0.5
+      },
+      "rotation": 90.0,
+      "root_velocity": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "scale": 1.0,
+      "emotion": "neutral",
+      "gaze_target": null,
+      "current_action": "idle",
+      "pose_id": null,
+      "visibility": "visible"
+    }
+  },
+  "props": {},
+  "motion_segments": [
+    {
+      "id": "walk_1",
+      "character_id": "walker",
+      "action_type": "walk",
+      "start_time": 0.0,
+      "end_time": 3.0,
+      "start_state": {
+        "character_id": "walker",
+        "position": {
+          "x": 0.1,
+          "y": 0.5
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "walk",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "walker",
+        "position": {
+          "x": 0.8,
+          "y": 0.5
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "idle",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "ease_in_out",
+        "max_speed": null
+      },
+      "easing": "ease_in_out",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    }
+  ],
+  "interactions": [],
+  "poses": []
+}

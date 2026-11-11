@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "scene": {
+    "id": "pilot_room_v4",
+    "title": "Светящийся шарик — пилот v4",
+    "duration": 20.0,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "seed": 20261027,
+    "blend": 0.16,
+    "environment": "room",
+    "background": {
+      "table_x": 0.5,
+      "table_y": 0.66
+    }
+  },
+  "characters": [
+    {
+      "id": "milo",
+      "name": "Мило",
+      "look": "milo",
+      "x": 0.16,
+      "y": 1.0,
+      "scale": 0.85,
+      "facing": 1,
+      "z": 20
+    },
+    {
+      "id": "nina",
+      "name": "Нина",
+      "look": "nina",
+      "x": 0.72,
+      "y": 1.0,
+      "scale": 0.84,
+      "facing": -1,
+      "z": 22
+    }
+  ],
+  "objects": [
+    {
+      "id": "orb",
+      "kind": "orb",
+      "z": 15,
+      "appear_at": 0.0,
+      "color": "#ffd257",
+      "keyframes": [
+        { "t": 0.0, "x": 0.52, "y": 0.63, "scale": 1.0, "rotation": 0.0 },
+        { "t": 20.0, "x": 0.52, "y": 0.63, "scale": 1.0, "rotation": 0.0 }
+      ]
+    }
+  ],
+  "beats": [
+    { "id": "m_walk", "actor": "milo", "do": "walk_to", "x": 0.28, "duration": 1.2, "cycles": 1.4, "stride": 0.4, "start": 0.2 },
+    { "id": "m_take", "actor": "milo", "do": "take", "object": "orb", "duration": 1.2, "after": ["m_walk"], "gap": 0.1, "attach_at": 0.75, "intensity": 0.95 },
+    { "id": "m_say1", "actor": "milo", "do": "say", "text": "Смотри, что я нашёл! Оно светится!", "duration": 2.4, "start": 2.9 },
+    { "id": "m_show", "actor": "milo", "do": "offer", "object": "orb", "duration": 1.6, "start": 3.1, "intensity": 0.9 },
+    { "id": "n_say1", "actor": "nina", "do": "say", "text": "Ух ты! Дай посмотреть!", "duration": 1.9, "start": 5.2 },
+    { "id": "n_reach", "actor": "nina", "do": "reach", "object": "orb", "duration": 1.6, "start": 5.8, "intensity": 0.95 },
+    { "id": "m_give", "actor": "milo", "do": "give", "object": "orb", "to": "nina", "duration": 1.6, "start": 6.0, "transfer_at": 0.25, "intensity": 0.95 },
+    { "id": "n_drop", "actor": "nina", "do": "drop", "object": "orb", "duration": 0.5, "start": 7.9, "detach_at": 0.2, "velocity": [-0.058, 0.008], "spin": 240.0, "intensity": 0.2 },
+    { "id": "m_surprise", "actor": "milo", "do": "surprise", "duration": 1.4, "start": 8.1, "intensity": 0.6 },
+    { "id": "n_surprise", "actor": "nina", "do": "surprise", "duration": 1.3, "start": 8.0, "intensity": 0.6 },
+    { "id": "n_say2", "actor": "nina", "do": "say", "text": "Ой! Оно выскользнуло!", "duration": 1.8, "start": 8.2 },
+    { "id": "m_run", "actor": "milo", "do": "run_to", "x": 0.18, "duration": 1.4, "cycles": 2.2, "stride": 0.7, "start": 9.2 },
+    { "id": "n_watch", "actor": "nina", "do": "look_around", "duration": 1.6, "start": 9.4 },
+    { "id": "m_take2", "actor": "milo", "do": "take", "object": "orb", "duration": 1.4, "start": 10.8, "attach_at": 0.7, "intensity": 0.95 },
+    { "id": "m_walk3", "actor": "milo", "do": "walk_to", "x": 0.28, "duration": 1.4, "cycles": 2.0, "stride": 0.5, "start": 12.4 },
+    { "id": "m_carry", "actor": "milo", "do": "carry", "object": "orb", "duration": 1.2, "start": 13.4 },
+    { "id": "m_say3", "actor": "milo", "do": "say", "text": "Ага! Поймал!", "duration": 1.6, "start": 13.7 },
+    { "id": "n_joy", "actor": "nina", "do": "joy", "duration": 1.6, "start": 13.0 },
+    { "id": "n_reach2", "actor": "nina", "do": "reach", "object": "orb", "duration": 1.6, "start": 14.6, "intensity": 0.95 },
+    { "id": "m_give2", "actor": "milo", "do": "give", "object": "orb", "to": "nina", "duration": 1.6, "start": 14.7, "transfer_at": 0.31, "intensity": 0.95 },
+    { "id": "n_carry2", "actor": "nina", "do": "carry", "object": "orb", "duration": 1.2, "start": 16.4 },
+    { "id": "n_say4", "actor": "nina", "do": "say", "text": "Теперь держу крепко!", "duration": 1.9, "start": 16.6 },
+    { "id": "m_joy", "actor": "milo", "do": "joy", "duration": 1.6, "start": 17.6, "intensity": 0.6 },
+    { "id": "n_joy2", "actor": "nina", "do": "joy", "duration": 1.6, "start": 17.8, "intensity": 0.6 }
+  ],
+  "camera": [
+    { "t": 0.0, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 2.6, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 5.4, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 7.6, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 9.8, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 12.4, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 15.4, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 17.8, "x": 0.50, "y": 0.52, "zoom": 1.02 },
+    { "t": 20.0, "x": 0.50, "y": 0.52, "zoom": 1.02 }
+  ],
+  "blink_times": [1.1, 3.0, 4.9, 6.6, 8.0, 9.6, 11.2, 12.9, 14.9, 16.4, 18.1, 19.2],
+  "contact_times": [1.4, 3.5, 6.4, 8.1, 9.6, 11.2, 13.8, 15.2, 18.2],
+  "voice": {
+    "lang": "ru",
+    "gain": 0.9
+  }
+}

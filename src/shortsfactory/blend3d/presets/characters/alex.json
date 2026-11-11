@@ -1,0 +1,23 @@
+{
+  "id": "alex",
+  "label": "Алекс",
+  "style": "minecraft_blocky",
+  "height_m": 1.98,
+  "slim_arms": true,
+  "colors": {
+    "skin": "E0A882",
+    "shirt": "6FA84E",
+    "pants": "9A8B6F",
+    "shoes": "5E5244",
+    "hair": "C97E28",
+    "pupil": "4E8C3A"
+  },
+  "hair_style": "alex",
+  "emotes": ["neutral", "happy", "soft", "scared", "worried", "determ", "sheepish"],
+  "motion": {
+    "walk_stride_m": 0.55,
+    "walk_leg_amp": 0.55,
+    "walk_arm_amp": 0.34
+  },
+  "proven_in": ["Алмаз (Minecraft short, 2026-11-01)"]
+}

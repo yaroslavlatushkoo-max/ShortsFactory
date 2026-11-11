@@ -1,0 +1,54 @@
+{
+  "title": "Оно дышит",
+  "duration": 12.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "forest",
+  "ambience": "forest",
+  "lang": "ru",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.45, 0.9, 0.0],
+      "duration": 12.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 0.8},
+        {"action": "talk", "start": 0.8, "duration": 2.6, "params": {"emotion": "surprised", "emotion_intensity": 0.7}},
+        {"action": "idle", "start": 3.4, "duration": 4.0},
+        {"action": "talk", "start": 7.4, "duration": 2.6, "params": {"emotion": "worried", "emotion_intensity": 0.8}},
+        {"action": "idle", "start": 10.0, "duration": 2.0}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.45, 0.9, 0.0],
+      "duration": 12.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 4.2},
+        {"action": "talk", "start": 4.2, "duration": 2.4, "params": {"emotion": "confused", "emotion_intensity": 0.9}},
+        {"action": "idle", "start": 6.6, "duration": 5.4}
+      ]
+    }
+  ],
+  "dialogue": [
+    {"character": "steve", "text": "Смотри! Вот здесь. Тут что-то есть.", "start": 0.8, "duration": 2.6},
+    {"character": "alex", "text": "Где? Я ничего не вижу, Стив.", "start": 4.2, "duration": 2.4},
+    {"character": "steve", "text": "Тише... Слышишь? Оно дышит.", "start": 7.4, "duration": 2.6}
+  ],
+  "props": [
+    {"preset": "tree", "x": -1.7, "y": 2.5},
+    {"preset": "tree", "x": 1.7, "y": 2.1},
+    {"preset": "rock", "x": 0.2, "y": 1.6},
+    {"preset": "grass", "x": -0.9, "y": 0.8},
+    {"preset": "glowing_cube", "x": -1.35, "y": 1.5, "z": 0.5, "size": 0.28, "flash_frame": 250}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, 0.0, 0.95], "height": 3.2},
+    {"frame": 40, "center": [-0.45, 0.0, 1.45], "height": 1.35},
+    {"frame": 130, "center": [0.45, 0.0, 1.45], "height": 1.35},
+    {"frame": 225, "center": [-0.45, 0.0, 1.45], "height": 1.2}
+  ],
+  "sfx_events": [[7.4, "sparkle"]]
+}

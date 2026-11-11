@@ -1,0 +1,23 @@
+{
+  "id": "steve",
+  "label": "Стив",
+  "style": "minecraft_blocky",
+  "height_m": 1.98,
+  "slim_arms": false,
+  "colors": {
+    "skin": "C98F6B",
+    "shirt": "00A8A8",
+    "pants": "4A4AC4",
+    "shoes": "4C4C4C",
+    "hair": "3B2A1E",
+    "pupil": "523DA3"
+  },
+  "hair_style": "steve",
+  "emotes": ["neutral", "happy", "soft", "scared", "worried", "determ", "sheepish"],
+  "motion": {
+    "walk_stride_m": 0.6,
+    "walk_leg_amp": 0.55,
+    "walk_arm_amp": 0.38
+  },
+  "proven_in": ["Алмаз (Minecraft short, 2026-11-01)"]
+}

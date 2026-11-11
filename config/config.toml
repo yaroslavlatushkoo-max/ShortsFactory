@@ -1,0 +1,93 @@
+[app]
+name = "ShortsFactory Pro"
+version = "1.0.0"
+timezone = "local"
+
+[video]
+width = 1080
+height = 1920
+fps = 30
+video_codec = "libx264"
+crf = 18
+preset = "medium"
+pix_fmt = "yuv420p"
+audio_codec = "aac"
+audio_bitrate = "192k"
+sample_rate = 48000
+channels = 2
+target_tolerance = 0.12
+transition = 0.4
+lead_in = 0.15
+scene_tail = 0.6
+last_scene_tail = 1.4
+outro = 0.8
+
+[paths]
+fonts = "fonts"
+models = "models/piper"
+workspace = "workspace"
+output = "output"
+database = "database/shortsfactory.db"
+logs = "logs"
+input = "input"
+
+[llm]
+enabled = true
+base_url = "http://127.0.0.1:11434"
+model = "qwen2.5:7b"
+fallback_models = ["gemma3:4b"]
+temperature = 0.55
+num_ctx = 6144
+num_predict = 1100
+timeout = 300
+keep_alive = "30m"
+max_retries = 2
+
+[tts]
+engine = "piper"
+voice_ru = "ru_RU-dmitri-medium.onnx"
+voice_en = "en_US-libritts_r-medium.onnx"
+length_scale_ru = 1.08
+length_scale_en = 1.10
+sentence_pause = 0.10
+speaker_en = 0
+max_length_scale = 1.15
+min_length_scale = 0.98
+cache = true
+
+[research]
+max_sources = 3
+max_chars_per_source = 6000
+request_timeout = 25
+user_agent = "ShortsFactoryPro/1.0 (local educational video production)"
+cache_hours = 168
+
+[media]
+max_download_mb = 30
+min_width = 800
+min_height = 600
+candidates = 8
+cache = true
+nasa_enabled = true
+openverse_enabled = true
+commons_enabled = true
+
+[audio]
+music_volume = 0.16
+# Ч2.4: процедурная музыкальная подложка в blocky-сценах. По умолчанию
+# выключена — существующие «золотые» фильмы не должны меняться без
+# явного согласия владельца.
+music = true
+target_lufs = -14.0
+true_peak = -1.5
+
+[quality]
+duration_tolerance = 0.12
+black_start_max = 0.25
+black_end_max = 0.25
+min_audio_lufs = -24.0
+max_audio_lufs = -9.0
+manual_visual_review = true
+
+[ui]
+open_folder = true

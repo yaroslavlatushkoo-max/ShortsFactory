@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <!-- flared skirt -->
+  <path d="M34 10 C45 16 75 16 86 10 L108 78 C92 90 28 90 12 78 Z"
+        fill="{{shirt}}" stroke="{{outline}}" stroke-width="1.9" stroke-linejoin="round"/>
+  <!-- pleats -->
+  <path d="M40 16 L26 84 M60 18 L60 87 M80 16 L94 84" fill="none" stroke="{{shirt_dark}}" stroke-width="1.5" opacity="0.6"/>
+  <path d="M49 17 L43 86 M71 17 L77 86" fill="none" stroke="{{shirt_light}}" stroke-width="1.3" opacity="0.45"/>
+  <!-- hem -->
+  <path d="M13 78 C30 90 90 90 107 78 L108 86 C90 97 30 97 12 86 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.6"/>
+  <!-- waistband -->
+  <path d="M34 10 C45 16 75 16 86 10 L87 20 C75 26 45 26 33 20 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.5"/>
+</svg>

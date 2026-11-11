@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 85">
+  <!-- sole -->
+  <path d="M10 58 C8 70 14 78 28 79 L120 79 C134 79 141 72 141 64 C141 58 136 55 128 55 L24 55 Z"
+        fill="{{sole}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M14 70 L136 70" stroke="{{shoe_dark}}" stroke-width="1.8" opacity="0.55"/>
+  <path d="M14 74 L136 74" stroke="{{shoe_dark}}" stroke-width="1.2" opacity="0.3"/>
+  <!-- upper -->
+  <path d="M18 54 C14 40 18 26 30 20 C40 15 52 16 60 22 C72 18 92 22 108 30
+           C122 36 132 48 134 56 L134 62 L18 62 Z"
+        fill="{{shoe}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- toe cap -->
+  <path d="M106 32 C120 38 130 48 132 60 L106 60 C108 50 108 40 106 32 Z"
+        fill="{{shoe_light}}" stroke="{{outline}}" stroke-width="1.7"/>
+  <!-- white toe bumper -->
+  <path d="M124 55 C134 56 140 60 141 65 C141 71 136 76 128 77 L120 77 C126 70 128 62 124 55 Z"
+        fill="{{sole}}" stroke="{{outline}}" stroke-width="1.6"/>
+  <!-- ankle collar -->
+  <path d="M19 30 C20 18 28 11 40 11 C50 11 56 16 58 24 L54 32 C46 26 32 25 24 32 Z"
+        fill="{{shoe_dark}}" stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- tongue -->
+  <path d="M48 26 C54 16 66 14 74 20 L72 38 L52 38 Z"
+        fill="{{shoe_light}}" stroke="{{outline}}" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- laces -->
+  <path d="M58 28 L94 38 M56 37 L97 47 M58 46 L100 55" stroke="{{sole}}" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M58 28 L94 38 M56 37 L97 47 M58 46 L100 55" stroke="{{outline}}" stroke-width="1.1" opacity="0.25"/>
+  <circle cx="58" cy="28" r="2.2" fill="{{outline}}"/>
+  <circle cx="94" cy="38" r="2.2" fill="{{outline}}"/>
+  <circle cx="56" cy="37" r="2.2" fill="{{outline}}"/>
+  <circle cx="97" cy="47" r="2.2" fill="{{outline}}"/>
+  <circle cx="58" cy="46" r="2.2" fill="{{outline}}"/>
+  <circle cx="100" cy="55" r="2.2" fill="{{outline}}"/>
+  <!-- stitching -->
+  <path d="M24 50 C40 45 58 45 72 50 C90 55 108 56 124 54" fill="none"
+        stroke="{{shoe_dark}}" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.7"/>
+  <!-- highlight -->
+  <path d="M28 24 C34 18 42 17 48 20 C40 21 34 25 30 30 Z" fill="{{sole}}" opacity="0.35"/>
+</svg>

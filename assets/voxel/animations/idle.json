@@ -1,0 +1,19 @@
+{
+  "schema": "voxel-clip-1.0",
+  "id": "idle",
+  "action": "idle",
+  "rig": "humanoid_v1",
+  "status": "basic-verified",
+  "transition": {
+    "from": "neutral",
+    "to": "neutral"
+  },
+  "duration_seconds": [
+    0.5,
+    10
+  ],
+  "params": [
+    "sway"
+  ],
+  "notes": "prepared/reusable clip for the hero_v1 rig"
+}

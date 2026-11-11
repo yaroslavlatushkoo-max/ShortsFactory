@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 165">
+  <!-- neck -->
+  <path d="M36 2 L64 2 L64 24 C58 29 42 29 36 24 Z" fill="{{skin}}" stroke="{{outline}}" stroke-width="1.5"/>
+  <path d="M37 20 C43 26 57 26 63 20 L63 25 C57 30 43 30 37 25 Z" fill="{{skin_shadow}}" opacity="0.8"/>
+  <!-- hood roll behind the neck -->
+  <path d="M24 20 C32 8 68 8 76 20 C80 27 76 35 66 36 L34 36 C24 35 20 27 24 20 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- hoodie body: broad shoulders, soft taper to the hem -->
+  <path d="M32 32 C20 32 12 34 2 40 L11 120 C11 136 14 150 24 158 L76 158
+           C86 150 89 136 89 120 L98 40 C88 34 80 32 68 32 C58 38 42 38 32 32 Z"
+        fill="{{shirt}}" stroke="{{outline}}" stroke-width="1.9" stroke-linejoin="round"/>
+  <!-- shoulder seams -->
+  <path d="M26 36 C21 50 20 64 20 78" fill="none" stroke="{{shirt_dark}}" stroke-width="1.4" opacity="0.45"/>
+  <path d="M74 36 C79 50 80 64 80 78" fill="none" stroke="{{shirt_dark}}" stroke-width="1.4" opacity="0.45"/>
+  <!-- side shading -->
+  <path d="M8 60 L11 120 C11 135 14 148 23 156 L24 76 C24 70 14 65 8 60 Z"
+        fill="{{shirt_dark}}" opacity="0.26"/>
+  <!-- kangaroo pocket -->
+  <path d="M35 110 C41 106 59 106 65 110 L66 138 C58 143 42 143 34 138 Z"
+        fill="{{shirt}}" stroke="{{shirt_dark}}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M35 110 C41 115 59 115 65 110" fill="none" stroke="{{shirt_dark}}" stroke-width="1.5"/>
+  <!-- ribbed hem -->
+  <path d="M12 134 C28 143 72 143 88 134 L88 144 C88 154 82 159 74 160 L26 160
+           C18 159 12 154 12 144 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.6"/>
+  <path d="M20 140 L20 157 M32 143 L32 159 M44 144 L44 160 M56 144 L56 160 M68 143 L68 159 M80 140 L80 157"
+        stroke="{{shirt}}" stroke-width="1.2" opacity="0.4"/>
+  <!-- hood collar -->
+  <path d="M32 32 C40 43 60 43 68 32 C68 42 58 48 50 48 C42 48 32 42 32 32 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M35 34 C42 41 58 41 65 34" fill="none" stroke="{{shirt_light}}" stroke-width="1.6" opacity="0.5"/>
+  <!-- drawstrings -->
+  <path d="M41 45 C40 56 39 62 41 68" fill="none" stroke="{{accent}}" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M59 45 C60 54 61 59 59 65" fill="none" stroke="{{accent}}" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="41" cy="70" r="2.6" fill="{{accent}}" stroke="{{outline}}" stroke-width="1"/>
+  <circle cx="59" cy="67" r="2.6" fill="{{accent}}" stroke="{{outline}}" stroke-width="1"/>
+</svg>

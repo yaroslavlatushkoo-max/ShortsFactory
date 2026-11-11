@@ -1,0 +1,21 @@
+{
+  "id": "cave_night",
+  "description": "Ночная пещера/шахта: холодный заполняющий + тёплые факелы + мотивированные практические источники.",
+  "lights": {
+    "cave_fill": {"type": "AREA", "energy": 52, "color": "8FA0C8", "size": 6.0, "aim_down": true},
+    "hero_fill": {"type": "AREA", "energy": 22, "color": "9FA8C8", "size": 2.6},
+    "torch": {"type": "POINT", "energy": 26, "color": "FFB45A", "shadow_soft_size": 0.12},
+    "lava": {"type": "POINT", "energy": 14, "color": "FF8A30", "shadow_soft_size": 0.7},
+    "face_warm": {"type": "POINT", "energy": 10, "color": "FFC46A", "shadow_soft_size": 0.3}
+  },
+  "world_gradient": {
+    "top": "1B2450", "mid": "0F1633", "bottom": "060A1E", "strength": 0.5
+  },
+  "view_exposure": 0.45,
+  "lessons": [
+    "Точечные источники ставьте минимум за 0.1 м от стены, иначе половина света замуровывается",
+    "Тёплый практический свет у лица персонажа спасает читаемость в холодной сцене",
+    "Экспозиция +0.4..0.5 компенсирует тёмные материалы блоков"
+  ],
+  "proven_in": ["Алмаз (Minecraft short)"]
+}

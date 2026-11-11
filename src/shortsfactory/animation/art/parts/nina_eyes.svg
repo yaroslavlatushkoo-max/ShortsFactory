@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 85">
+  <g id="open">
+    <path d="M14 42 C14 27 28 16 47 16 C66 16 80 27 80 42 C80 58 66 68 47 68 C28 68 14 58 14 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <path d="M110 42 C110 27 124 16 143 16 C162 16 176 27 176 42 C176 58 162 68 143 68 C124 68 110 58 110 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <g id="iris_l">
+      <circle cx="48" cy="44" r="16" fill="{{iris}}"/>
+      <circle cx="48" cy="44" r="8" fill="{{pupil}}"/>
+      <circle cx="42" cy="37" r="5.5" fill="{{eye_white}}"/>
+      <circle cx="53" cy="50" r="2.8" fill="{{eye_white}}" opacity="0.9"/>
+    </g>
+    <g id="iris_r">
+      <circle cx="142" cy="44" r="16" fill="{{iris}}"/>
+      <circle cx="142" cy="44" r="8" fill="{{pupil}}"/>
+      <circle cx="148" cy="37" r="5.5" fill="{{eye_white}}"/>
+      <circle cx="135" cy="50" r="2.8" fill="{{eye_white}}" opacity="0.9"/>
+    </g>
+    <path d="M13 41 C20 24 33 16 47 16 C61 16 74 24 81 41" fill="none" stroke="{{outline}}" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M109 41 C116 24 129 16 143 16 C157 16 170 24 177 41" fill="none" stroke="{{outline}}" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M10 38 L1 32 M11 44 L2 43 M179 38 L188 32 M178 44 L187 43"
+          stroke="{{outline}}" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <g id="wide">
+    <path d="M11 42 C11 24 27 12 47 12 C67 12 83 24 83 42 C83 61 67 72 47 72 C27 72 11 61 11 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <path d="M107 42 C107 24 123 12 143 12 C163 12 179 24 179 42 C179 61 163 72 143 72 C123 72 107 61 107 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <g id="iris_l">
+      <circle cx="48" cy="45" r="12" fill="{{iris}}"/>
+      <circle cx="48" cy="45" r="6" fill="{{pupil}}"/>
+      <circle cx="43" cy="40" r="4.2" fill="{{eye_white}}"/>
+    </g>
+    <g id="iris_r">
+      <circle cx="142" cy="45" r="12" fill="{{iris}}"/>
+      <circle cx="142" cy="45" r="6" fill="{{pupil}}"/>
+      <circle cx="147" cy="40" r="4.2" fill="{{eye_white}}"/>
+    </g>
+    <path d="M12 38 C20 20 33 12 47 12 C61 12 74 20 82 38" fill="none" stroke="{{outline}}" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M108 38 C116 20 129 12 143 12 C157 12 170 20 178 38" fill="none" stroke="{{outline}}" stroke-width="3.2" stroke-linecap="round"/>
+  </g>
+  <g id="half">
+    <path d="M14 42 C14 27 28 16 47 16 C66 16 80 27 80 42 C80 58 66 68 47 68 C28 68 14 58 14 42 Z"
+          fill="{{eye_white}}"/>
+    <path d="M110 42 C110 27 124 16 143 16 C162 16 176 27 176 42 C176 58 162 68 143 68 C124 68 110 58 110 42 Z"
+          fill="{{eye_white}}"/>
+    <g id="iris_l">
+      <circle cx="48" cy="49" r="14" fill="{{iris}}"/>
+      <circle cx="48" cy="49" r="7.5" fill="{{pupil}}"/>
+      <circle cx="43" cy="44" r="4.8" fill="{{eye_white}}"/>
+    </g>
+    <g id="iris_r">
+      <circle cx="142" cy="49" r="14" fill="{{iris}}"/>
+      <circle cx="142" cy="49" r="7.5" fill="{{pupil}}"/>
+      <circle cx="147" cy="44" r="4.8" fill="{{eye_white}}"/>
+    </g>
+    <path d="M9 44 C14 29 30 19 47 19 C64 19 80 29 85 44 C78 38 64 34 47 34 C30 34 16 38 9 44 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M105 44 C110 29 126 19 143 19 C160 19 176 29 181 44 C174 38 160 34 143 34 C126 34 112 38 105 44 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.4" stroke-linejoin="round"/>
+  </g>
+  <g id="closed">
+    <path d="M16 42 C26 51 38 55 48 55 C58 55 70 51 79 42" fill="none" stroke="{{outline}}" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M112 42 C122 51 134 55 144 55 C154 55 166 51 175 42" fill="none" stroke="{{outline}}" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M14 42 L6 37 M178 42 L186 37" stroke="{{outline}}" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <g id="happy">
+    <path d="M15 50 C24 33 40 28 48 44 C56 28 72 33 81 50" fill="none" stroke="{{outline}}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M111 50 C120 33 136 28 144 44 C152 28 168 33 177 50" fill="none" stroke="{{outline}}" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g id="sad">
+    <path d="M14 42 C14 27 28 16 47 16 C66 16 80 27 80 42 C80 58 66 68 47 68 C28 68 14 58 14 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <path d="M110 42 C110 27 124 16 143 16 C162 16 176 27 176 42 C176 58 162 68 143 68 C124 68 110 58 110 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <g id="iris_l">
+      <circle cx="47" cy="48" r="15" fill="{{iris}}"/>
+      <circle cx="47" cy="48" r="8" fill="{{pupil}}"/>
+      <circle cx="42" cy="42" r="5.2" fill="{{eye_white}}"/>
+    </g>
+    <g id="iris_r">
+      <circle cx="143" cy="48" r="15" fill="{{iris}}"/>
+      <circle cx="143" cy="48" r="8" fill="{{pupil}}"/>
+      <circle cx="148" cy="42" r="5.2" fill="{{eye_white}}"/>
+    </g>
+    <path d="M12 37 C22 23 34 19 47 19 C60 19 72 23 82 37 C70 33 58 31 47 31 C36 31 24 33 12 37 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M108 37 C118 23 130 19 143 19 C156 19 168 23 178 37 C166 33 154 31 143 31 C132 31 120 33 108 37 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+  </g>
+  <g id="angry">
+    <path d="M14 42 C14 27 28 16 47 16 C66 16 80 27 80 42 C80 58 66 68 47 68 C28 68 14 58 14 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <path d="M110 42 C110 27 124 16 143 16 C162 16 176 27 176 42 C176 58 162 68 143 68 C124 68 110 58 110 42 Z"
+          fill="{{eye_white}}" stroke="{{outline}}" stroke-width="1.8"/>
+    <g id="iris_l">
+      <circle cx="48" cy="45" r="15" fill="{{iris}}"/>
+      <circle cx="48" cy="45" r="8" fill="{{pupil}}"/>
+      <circle cx="43" cy="40" r="5" fill="{{eye_white}}"/>
+    </g>
+    <g id="iris_r">
+      <circle cx="142" cy="45" r="15" fill="{{iris}}"/>
+      <circle cx="142" cy="45" r="8" fill="{{pupil}}"/>
+      <circle cx="147" cy="40" r="5" fill="{{eye_white}}"/>
+    </g>
+    <path d="M11 32 C23 35 35 41 47 47 L47 31 C35 25 23 25 11 32 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M179 32 C167 35 155 41 143 47 L143 31 C155 25 167 25 179 32 Z"
+          fill="{{skin}}" stroke="{{outline}}" stroke-width="2.2" stroke-linejoin="round"/>
+  </g>
+</svg>

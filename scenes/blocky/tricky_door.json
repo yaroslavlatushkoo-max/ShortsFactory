@@ -1,0 +1,64 @@
+{
+  "title": "Коварная дверь",
+  "duration": 10.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "meadow",
+  "actors": [
+    {
+      "character": "alex",
+      "origin": [-0.35, 0.9, 0.0],
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 0.3},
+        {"action": "walk", "start": 0.3, "duration": 2.2},
+        {"action": "idle", "start": 2.5, "duration": 0.9},
+        {"action": "turn_in_place", "start": 3.4, "duration": 0.8,
+         "params": {"angle": 3.14159}},
+        {"action": "walk", "start": 4.2, "duration": 0.8},
+        {"action": "idle", "start": 5.0, "duration": 0.1},
+        {"action": "interact", "start": 5.1, "duration": 0.7,
+         "params": {"prop": "Door"}},
+        {"action": "surprised", "start": 5.9, "duration": 1.0},
+        {"action": "confused", "start": 7.0, "duration": 0.9},
+        {"action": "happy", "start": 8.0, "duration": 0.9},
+        {"action": "idle", "start": 8.9, "duration": 1.1}
+      ],
+      "hops": [{"start": 5.5, "duration": 0.45, "height": 0.17, "back": -0.26}]
+    },
+    {
+      "character": "steve",
+      "origin": [0.35, 0.9, 0.0],
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 2.0},
+        {"action": "walk", "start": 2.0, "duration": 2.2},
+        {"action": "idle", "start": 4.2, "duration": 0.9},
+        {"action": "surprised", "start": 5.2, "duration": 1.0},
+        {"action": "happy", "start": 6.4, "duration": 1.2},
+        {"action": "idle", "start": 7.6, "duration": 2.4}
+      ]
+    }
+  ],
+  "props": [
+    {"preset": "door", "name": "Door", "x": -0.10, "y": 0.78,
+     "open_frame": 155, "angle": 1.9, "end_frame": 300},
+    {"preset": "spring_box", "name": "SpringBox", "x": -0.10, "y": 0.95,
+     "pos_track": [[1, [-0.10, 0.95, 0.35]], [156, [-0.10, 0.95, 0.35]],
+                   [161, [-0.10, 0.45, 1.15]], [166, [-0.10, -0.15, 0.40]],
+                   [300, [-0.10, -0.15, 0.40]]]},
+    {"preset": "tree", "x": -1.2, "y": 2.6},
+    {"preset": "tree", "x": 1.25, "y": 2.9},
+    {"preset": "rock", "x": 1.0, "y": 0.4},
+    {"preset": "rock", "x": -1.05, "y": -0.6},
+    {"preset": "grass", "x": 0.7, "y": -0.3},
+    {"preset": "grass", "x": -0.9, "y": -0.1},
+    {"preset": "grass", "x": 0.6, "y": -1.6}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, -0.1, 0.95], "height": 3.4, "lens": 42.0, "fit": 0.85},
+    {"frame": 106, "center": [-0.30, 0.35, 0.95], "height": 2.50, "lens": 42.0, "fit": 0.85},
+    {"frame": 195, "center": [0.0, -0.10, 0.90], "height": 2.9, "lens": 42.0, "fit": 0.85}
+  ],
+  "sfx_events": [[5.15, "pop"], [5.3, "boing"]]
+}

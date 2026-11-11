@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shortsfactory"
+version = "1.0.0"
+description = "ShortsFactory: генерация коротких блочных мультфильмов (тема → история → видео)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary/CC0 assets" }
+dependencies = [
+    "numpy",
+    "Pillow",
+    "requests",
+    "piper-tts",
+    "imagemagick",
+]
+
+[project.optional-dependencies]
+desktop = ["pyinstaller"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: тесты, которые запускают реальный Blender-рендер (медленные)",
+    "slow: медленные тесты (полный smoke/рендер)",
+]

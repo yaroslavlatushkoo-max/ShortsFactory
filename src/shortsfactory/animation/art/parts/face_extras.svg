@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 20">
+  <g id="blush" fill="{{blush}}" opacity="0.55">
+    <ellipse cx="12" cy="10" rx="11" ry="6"/>
+    <ellipse cx="29" cy="10" rx="10" ry="5.5"/>
+  </g>
+  <g id="sweat" fill="{{accent}}" stroke="{{outline}}" stroke-width="1.4">
+    <path d="M32 2 C35 7 36 10 34 13 C31 15 28 13 28 10 C28 7 30 5 32 2 Z"/>
+  </g>
+</svg>

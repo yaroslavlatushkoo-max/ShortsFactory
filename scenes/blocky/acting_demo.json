@@ -1,0 +1,50 @@
+{
+  "title": "Кто съел печенье",
+  "duration": 14.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "meadow",
+  "ambience": "meadow",
+  "lang": "ru",
+  "auto_act": true,
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.6, 0.95, 0.0],
+      "duration": 14.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 14.0}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.6, 0.95, 0.0],
+      "duration": 14.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 14.0}
+      ]
+    }
+  ],
+  "dialogue": [
+    {"character": "steve", "text": "Алекс, ты не видел мой алмаз?", "start": 0.8, "duration": 2.0, "emotion": "confused", "emotion_intensity": 0.8},
+    {"character": "alex", "text": "Нет. Я вообще не заходил в дом.", "start": 3.2, "duration": 2.2, "emotion": "worried", "emotion_intensity": 0.7},
+    {"character": "steve", "text": "А это что за крошки на столе?", "start": 5.8, "duration": 2.2, "emotion": "surprised", "emotion_intensity": 0.9},
+    {"character": "alex", "text": "Ладно, ладно. Это был я.", "start": 8.4, "duration": 2.0, "emotion": "sad", "emotion_intensity": 0.8}
+  ],
+  "props": [
+    {"preset": "stump", "x": 0.0, "y": 1.5},
+    {"preset": "grass", "x": -1.2, "y": 0.9},
+    {"preset": "rock", "x": 1.4, "y": 1.9}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, 0.0, 0.95], "height": 3.0},
+    {"frame": 25, "center": [-0.6, 0.0, 1.4], "height": 1.5},
+    {"frame": 100, "center": [0.6, 0.0, 1.4], "height": 1.5},
+    {"frame": 175, "center": [-0.6, 0.0, 1.4], "height": 1.45},
+    {"frame": 250, "center": [0.6, 0.0, 1.4], "height": 1.45},
+    {"frame": 330, "center": [0.0, 0.0, 0.95], "height": 3.0}
+  ],
+  "sfx_events": [[5.8, "pop"]]
+}

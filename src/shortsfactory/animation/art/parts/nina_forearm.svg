@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 112">
+  <path d="M9 0 L43 0 L43 24 L41 100 C41 107 36 111 30 111 L22 111
+           C16 111 11 107 11 100 L9 24 Z"
+        fill="{{skin}}"/>
+  <path d="M9 0 L9 24 L11 100 C11 107 16 111 22 111" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M43 0 L43 24 L41 100 C41 107 36 111 30 111" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M11 26 L14 98 C14 104 17 108 22 109 L22 28 C18 24 14 23 11 26 Z"
+        fill="{{skin_shadow}}" opacity="0.40"/>
+  <path d="M16 84 C22 81 30 81 36 84" fill="none" stroke="{{skin_shadow}}" stroke-width="1.2" opacity="0.6"/>
+</svg>

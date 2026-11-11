@@ -1,0 +1,69 @@
+{
+  "title": "Потерянный алмаз",
+  "duration": 10.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "forest",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.35, 0.9, 0.0],
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 0.3},
+        {"action": "walk", "start": 0.3, "duration": 2.0},
+        {"action": "idle", "start": 2.3, "duration": 1.1},
+        {"action": "gesture", "start": 3.4, "duration": 0.9,
+         "params": {"prop": "Diamond"}},
+        {"action": "idle", "start": 4.3, "duration": 0.9},
+        {"action": "walk", "start": 5.2, "duration": 1.2},
+        {"action": "interact", "start": 6.5, "duration": 0.9,
+         "params": {"prop": "Diamond"}},
+        {"action": "surprised", "start": 7.5, "duration": 0.9},
+        {"action": "happy", "start": 8.5, "duration": 0.9},
+        {"action": "idle", "start": 9.4, "duration": 0.6}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.35, 0.9, 0.0],
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 3.4},
+        {"action": "walk", "start": 3.5, "duration": 2.4},
+        {"action": "idle", "start": 5.9, "duration": 0.5},
+        {"action": "interact", "start": 6.5, "duration": 0.9,
+         "params": {"prop": "Diamond"}},
+        {"action": "surprised", "start": 7.5, "duration": 0.9},
+        {"action": "happy", "start": 8.5, "duration": 0.9},
+        {"action": "idle", "start": 9.4, "duration": 0.6}
+      ]
+    }
+  ],
+  "props": [
+    {"preset": "stump", "name": "Stump", "x": -0.66, "y": -2.15, "height": 0.78},
+    {"name": "Diamond", "center": [-0.66, -2.15, 0.86], "size": [0.16, 0.16, 0.16],
+     "rgb": [0.25, 0.5, 0.85], "roughness": 0.2, "emissive": true,
+     "emission_rgb": [0.45, 0.85, 1.0],
+     "emission_track": [[1, 1.2], [200, 1.4], [219, 2.0], [221, 7.0], [226, 4.0], [240, 3.0], [300, 2.5]]},
+    {"name": "DiamondLight", "type": "light", "center": [-0.66, -2.15, 0.96],
+     "rgb": [0.5, 0.85, 1.0],
+     "energy_track": [[1, 1.5], [214, 2.0], [221, 50.0], [230, 20.0], [300, 12.0]]},
+    {"preset": "tree", "x": -1.15, "y": 2.3},
+    {"preset": "tree", "x": 1.2, "y": 2.7},
+    {"preset": "tree", "x": 0.95, "y": 3.3},
+    {"preset": "rock", "x": 0.95, "y": -1.2},
+    {"preset": "rock", "x": -1.05, "y": 0.2},
+    {"preset": "grass", "x": 0.75, "y": 0.3},
+    {"preset": "grass", "x": -0.85, "y": -0.9},
+    {"preset": "grass", "x": 0.65, "y": -2.0},
+    {"preset": "grass", "x": -0.75, "y": 1.4}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, -0.5, 0.95], "height": 3.4, "lens": 42.0, "fit": 0.85},
+    {"frame": 111, "center": [-0.66, -2.15, 0.80], "height": 1.35, "lens": 50.0,
+     "fit": 0.85, "yaw": 0.5},
+    {"frame": 191, "center": [0.0, -1.25, 0.9], "height": 2.6, "lens": 42.0, "fit": 0.85}
+  ],
+  "sfx_events": [[3.6, "pop"], [7.45, "sparkle"]]
+}

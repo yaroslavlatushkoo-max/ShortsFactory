@@ -1,0 +1,59 @@
+{
+  "title": "Странная дверь",
+  "duration": 12.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "forest",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.45, 0.9, 0.0],
+      "duration": 12.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 1.2},
+        {"action": "talk", "start": 1.2, "duration": 1.6, "params": {"emotion": "worried"}},
+        {"action": "idle", "start": 2.8, "duration": 1.6},
+        {"action": "talk", "start": 4.4, "duration": 1.6, "params": {"emotion": "surprised"}},
+        {"action": "idle", "start": 6.0, "duration": 1.6},
+        {"action": "talk", "start": 7.6, "duration": 1.8, "params": {"emotion": "worried"}},
+        {"action": "happy", "start": 9.4, "duration": 2.6}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.45, 0.9, 0.0],
+      "duration": 12.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 3.0},
+        {"action": "talk", "start": 3.0, "duration": 1.2, "params": {"emotion": "confused"}},
+        {"action": "worried", "start": 4.2, "duration": 2.0},
+        {"action": "talk", "start": 6.2, "duration": 1.2, "params": {"emotion": "surprised"}},
+        {"action": "surprised", "start": 7.4, "duration": 2.2},
+        {"action": "talk", "start": 9.6, "duration": 1.4, "params": {"emotion": "angry"}},
+        {"action": "idle", "start": 11.0, "duration": 1.0}
+      ]
+    }
+  ],
+  "dialogue": [
+    {"character": "steve", "text": "Алекс, я нашёл кое-что странное.", "start": 1.2, "duration": 1.6},
+    {"character": "alex", "text": "Опять твой светящийся куб?", "start": 3.0, "duration": 1.2},
+    {"character": "steve", "text": "Нет! На этот раз — дверь.", "start": 4.4, "duration": 1.6},
+    {"character": "alex", "text": "Дверь? В лесу?", "start": 6.2, "duration": 1.2},
+    {"character": "steve", "text": "Она открывается сама.", "start": 7.6, "duration": 1.8},
+    {"character": "alex", "text": "Не открывай!", "start": 9.6, "duration": 1.4}
+  ],
+  "props": [
+    {"preset": "tree", "x": -1.6, "y": 2.6},
+    {"preset": "tree", "x": 1.7, "y": 2.1},
+    {"preset": "rock", "x": 0.2, "y": 1.6},
+    {"preset": "door", "x": 0.55, "y": 1.5, "open_frame": 290, "end_frame": 340}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, 0.0, 0.95], "height": 3.4},
+    {"frame": 100, "center": [-0.05, 0.0, 1.15], "height": 2.3},
+    {"frame": 200, "center": [-0.45, 0.0, 1.55], "height": 1.0}
+  ],
+  "sfx_events": [[9.7, "boing"], [11.4, "sparkle"]]
+}

@@ -1,0 +1,404 @@
+[science]
+label_ru = "Наука и космос"
+label_en = "Science & Space"
+tone_ru = "увлечённый, но точный; объясняй сложное простыми словами"
+tone_en = "curious and precise; explain complex ideas in plain language"
+style = "scientific"
+pace = "medium"
+music = "wonder"
+palette = ["#07111F", "#123B5C", "#57C7FF", "#FFD166", "#FFFFFF"]
+accent = "#57C7FF"
+keywords_ru = ["космос", "наука", "астроном", "планет", "звезд", "физик", "хими", "биолог", "вселенн", "сатурн", "марс", "черная дыра", "темная материя"]
+keywords_en = ["space", "science", "astronomy", "planet", "star", "physics", "chemistry", "biology", "universe", "saturn", "mars", "black hole"]
+hashtags_ru = ["#наука", "#космос", "#образование"]
+hashtags_en = ["#science", "#space", "#education"]
+
+[[science.seeds]]
+ru = "Почему у Сатурна есть кольца"
+en = "Why Saturn has rings"
+query_ru = "Кольца Сатурна"
+query_en = "Rings of Saturn"
+
+[[science.seeds]]
+ru = "Что находится внутри чёрной дыры"
+en = "What is inside a black hole"
+query_ru = "Чёрная дыра"
+query_en = "Black hole"
+
+[[science.seeds]]
+ru = "Как рождаются звёзды"
+en = "How stars are born"
+query_ru = "Звёздообразование"
+query_en = "Star formation"
+
+[[science.seeds]]
+ru = "Почему Марс красный"
+en = "Why Mars is red"
+query_ru = "Марс"
+query_en = "Mars"
+
+[[science.seeds]]
+ru = "Что такое тёмная материя"
+en = "What is dark matter"
+query_ru = "Тёмная материя"
+query_en = "Dark matter"
+
+[tech]
+label_ru = "Технологии и ИИ"
+label_en = "Technology & AI"
+tone_ru = "энергичный, практичный, без хайпа"
+tone_en = "energetic, practical, no hype"
+style = "explainer"
+pace = "fast"
+music = "pulse"
+palette = ["#081018", "#14324A", "#3DE1C5", "#FFB347", "#F7FBFF"]
+accent = "#3DE1C5"
+keywords_ru = ["технолог", "искусственн", "нейросет", "компьютер", "интернет", "гаджет", "робот", "квантов", "gps", "транзистор", "код", "алгоритм"]
+keywords_en = ["technology", "artificial intelligence", "neural", "computer", "internet", "gadget", "robot", "quantum", "gps", "transistor", "code", "algorithm"]
+hashtags_ru = ["#технологии", "#наука", "#будущее"]
+hashtags_en = ["#technology", "#science", "#future"]
+
+[[tech.seeds]]
+ru = "Как GPS находит нас"
+en = "How GPS finds us"
+query_ru = "GPS"
+query_en = "Global Positioning System"
+
+[[tech.seeds]]
+ru = "История транзистора"
+en = "The history of the transistor"
+query_ru = "Транзистор"
+query_en = "Transistor"
+
+[[tech.seeds]]
+ru = "Как интернет находит сайты"
+en = "How the internet finds websites"
+query_ru = "DNS"
+query_en = "Domain Name System"
+
+[[tech.seeds]]
+ru = "Как учатся нейросети"
+en = "How neural networks learn"
+query_ru = "Нейронная сеть"
+query_en = "Neural network"
+
+[[tech.seeds]]
+ru = "Почему квантовые компьютеры особенные"
+en = "Why quantum computers are different"
+query_ru = "Квантовый компьютер"
+query_en = "Quantum computing"
+
+[history]
+label_ru = "История"
+label_en = "History"
+tone_ru = "кинематографично, с уважением к фактам и контексту"
+tone_en = "cinematic, respectful of facts and context"
+style = "historical"
+pace = "medium"
+music = "historic"
+palette = ["#1A120B", "#3E2723", "#D4A373", "#E9C46A", "#F5F0E6"]
+accent = "#E9C46A"
+keywords_ru = ["истори", "древн", "импери", "войн", "рим", "египет", "средневек", "археолог", "помпе", "шелков"]
+keywords_en = ["history", "ancient", "empire", "war", "rome", "egypt", "medieval", "archaeology", "pompeii", "silk road"]
+hashtags_ru = ["#история", "#образование", "#древниймир"]
+hashtags_en = ["#history", "#education", "#ancientworld"]
+
+[[history.seeds]]
+ru = "Дороги Римской империи"
+en = "The roads of the Roman Empire"
+query_ru = "Римские дороги"
+query_en = "Roman roads"
+
+[[history.seeds]]
+ru = "Александрийская библиотека"
+en = "The Library of Alexandria"
+query_ru = "Александрийская библиотека"
+query_en = "Library of Alexandria"
+
+[[history.seeds]]
+ru = "Великий шёлковый путь"
+en = "The Silk Road"
+query_ru = "Великий шёлковый путь"
+query_en = "Silk Road"
+
+[[history.seeds]]
+ru = "Печатный станок Гутенберга"
+en = "Gutenberg's printing press"
+query_ru = "Печатный станок"
+query_en = "Printing press"
+
+[[history.seeds]]
+ru = "Последний день Помпей"
+en = "The last day of Pompeii"
+query_ru = "Помпеи"
+query_en = "Pompeii"
+
+[nature]
+label_ru = "Природа и животные"
+label_en = "Nature & Wildlife"
+tone_ru = "тёплый, наблюдательный, с ощущением открытия"
+tone_en = "warm, observant, with a sense of discovery"
+style = "documentary"
+pace = "medium"
+music = "calm"
+palette = ["#0B1F16", "#1E4D3A", "#7BD389", "#F2C14E", "#F6FFF8"]
+accent = "#7BD389"
+keywords_ru = ["природ", "животн", "океан", "птиц", "лес", "биолог", "осьминог", "баобаб", "колибри", "миграц"]
+keywords_en = ["nature", "animal", "ocean", "bird", "forest", "biology", "octopus", "baobab", "hummingbird", "migration"]
+hashtags_ru = ["#природа", "#животные", "#планета"]
+hashtags_en = ["#nature", "#animals", "#planet"]
+
+[[nature.seeds]]
+ru = "Как осьминоги меняют цвет"
+en = "How octopuses change color"
+query_ru = "Осьминоги"
+query_en = "Octopus"
+
+[[nature.seeds]]
+ru = "Перелёт бабочек монархов"
+en = "The migration of monarch butterflies"
+query_ru = "Данаида монарх"
+query_en = "Monarch butterfly"
+
+[[nature.seeds]]
+ru = "Почему баобабы живут так долго"
+en = "Why baobabs live so long"
+query_ru = "Баобаб"
+query_en = "Adansonia"
+
+[[nature.seeds]]
+ru = "Колибри — единственные птицы-вертолёты"
+en = "Hummingbirds: nature's helicopters"
+query_ru = "Колибри"
+query_en = "Hummingbird"
+
+[[nature.seeds]]
+ru = "Жизнь на дне океана"
+en = "Life in the deep ocean"
+query_ru = "Глубоководные организмы"
+query_en = "Deep sea"
+
+[geography]
+label_ru = "География и путешествия"
+label_en = "Geography & Travel"
+tone_ru = "атмосферно, как путевые заметки исследователя"
+tone_en = "atmospheric, like an explorer's field notes"
+style = "cinematic"
+pace = "medium"
+music = "wonder"
+palette = ["#071A2B", "#0E4D64", "#5BC0BE", "#F4A261", "#F8F9FA"]
+accent = "#5BC0BE"
+keywords_ru = ["географ", "путешеств", "озер", "пустын", "океан", "остров", "гор", "байкал", "сахара", "атaкама", "исланд"]
+keywords_en = ["geography", "travel", "lake", "desert", "ocean", "island", "mountain", "baikal", "sahara", "atacama", "iceland"]
+hashtags_ru = ["#география", "#путешествия", "#планета"]
+hashtags_en = ["#geography", "#travel", "#planet"]
+
+[[geography.seeds]]
+ru = "Байкал — самое глубокое озеро"
+en = "Lake Baikal: the deepest lake"
+query_ru = "Байкал"
+query_en = "Lake Baikal"
+
+[[geography.seeds]]
+ru = "Почему Атакама такая сухая"
+en = "Why the Atacama is so dry"
+query_ru = "Атакама"
+query_en = "Atacama Desert"
+
+[[geography.seeds]]
+ru = "Исландия: остров двух плит"
+en = "Iceland: an island of two plates"
+query_ru = "Исландия"
+query_en = "Iceland"
+
+[[geography.seeds]]
+ru = "Марианская впадина"
+en = "The Mariana Trench"
+query_ru = "Марианская впадина"
+query_en = "Mariana Trench"
+
+[[geography.seeds]]
+ru = "Как образовалась Сахара"
+en = "How the Sahara formed"
+query_ru = "Сахара"
+query_en = "Sahara"
+
+[explainer]
+label_ru = "Объяснения"
+label_en = "Explained"
+tone_ru = "дружелюбно и наглядно; один вопрос — один ясный ответ"
+tone_en = "friendly and visual; one question, one clear answer"
+style = "explainer"
+pace = "medium"
+music = "pulse"
+palette = ["#10131A", "#232A3B", "#F4A261", "#8ECAE6", "#FFFFFF"]
+accent = "#F4A261"
+keywords_ru = ["почему", "как работает", "объясн", "физик", "явлен", "механизм", "небо", "лёд", "молния", "батарейк"]
+keywords_en = ["why", "how does", "explained", "physics", "phenomenon", "mechanism", "sky", "ice", "lightning", "battery"]
+hashtags_ru = ["#объяснение", "#наука", "#любопытство"]
+hashtags_en = ["#explained", "#science", "#curiosity"]
+
+[[explainer.seeds]]
+ru = "Почему небо голубое"
+en = "Why the sky is blue"
+query_ru = "Рэлеевское рассеяние"
+query_en = "Rayleigh scattering"
+
+[[explainer.seeds]]
+ru = "Почему лёд не тонет"
+en = "Why ice floats"
+query_ru = "Плотность"
+query_en = "Ice"
+
+[[explainer.seeds]]
+ru = "Как работает активное шумоподавление"
+en = "How active noise cancellation works"
+query_ru = "Активное шумоподавление"
+query_en = "Active noise control"
+
+[[explainer.seeds]]
+ru = "Как батарейки хранят энергию"
+en = "How batteries store energy"
+query_ru = "Электрическая батарея"
+query_en = "Electric battery"
+
+[[explainer.seeds]]
+ru = "Почему мы видим молнию раньше грома"
+en = "Why we see lightning before thunder"
+query_ru = "Молния"
+query_en = "Lightning"
+
+[biography]
+label_ru = "Биографии"
+label_en = "Biographies"
+tone_ru = "личный, драматичный, но без домыслов"
+tone_en = "personal and dramatic, without invented details"
+style = "cinematic"
+pace = "medium"
+music = "historic"
+palette = ["#15121F", "#312244", "#E0A458", "#B8B8FF", "#FDF7FF"]
+accent = "#B8B8FF"
+keywords_ru = ["биограф", "учен", "изобретател", "писател", "жизн", "кюри", "лавлейс", "тесла", "джонсон", "баттута"]
+keywords_en = ["biography", "scientist", "inventor", "writer", "life", "curie", "lovelace", "tesla", "johnson", "battuta"]
+hashtags_ru = ["#биография", "#история", "#люди"]
+hashtags_en = ["#biography", "#history", "#people"]
+
+[[biography.seeds]]
+ru = "Мария Кюри: жизнь в науке"
+en = "Marie Curie: a life in science"
+query_ru = "Мария Кюри"
+query_en = "Marie Curie"
+
+[[biography.seeds]]
+ru = "Ада Лавлейс — первый программист"
+en = "Ada Lovelace: the first programmer"
+query_ru = "Ада Лавлейс"
+query_en = "Ada Lovelace"
+
+[[biography.seeds]]
+ru = "Ибн Баттута — самый известный путешественник"
+en = "Ibn Battuta: the great traveler"
+query_ru = "Ибн Баттута"
+query_en = "Ibn Battuta"
+
+[[biography.seeds]]
+ru = "Кэтрин Джонсон: математика, которая отправила людей в космос"
+en = "Katherine Johnson: the mathematician who sent people to space"
+query_ru = "Кэтрин Джонсон"
+query_en = "Katherine Johnson"
+
+[[biography.seeds]]
+ru = "Никола Тесла: человек, который опередил время"
+en = "Nikola Tesla: ahead of his time"
+query_ru = "Никола Тесла"
+query_en = "Nikola Tesla"
+
+[culture]
+label_ru = "Культура"
+label_en = "Culture"
+tone_ru = "любопытно и живо, через конкретные детали"
+tone_en = "curious and lively, grounded in concrete details"
+style = "mixed"
+pace = "medium"
+music = "warm"
+palette = ["#1C1018", "#4A1E2B", "#E76F51", "#F4D35E", "#FFF8F0"]
+accent = "#F4D35E"
+keywords_ru = ["культур", "искусств", "музык", "традиц", "праздник", "чай", "карнавал", "письменност", "шахмат", "син"]
+keywords_en = ["culture", "art", "music", "tradition", "festival", "tea", "carnival", "writing", "chess", "blue"]
+hashtags_ru = ["#культура", "#история", "#интересное"]
+hashtags_en = ["#culture", "#history", "#interesting"]
+
+[[culture.seeds]]
+ru = "История чая"
+en = "The history of tea"
+query_ru = "Чай"
+query_en = "Tea"
+
+[[culture.seeds]]
+ru = "Карнавал в Рио"
+en = "The Rio Carnival"
+query_ru = "Карнавал в Рио-де-Жанейро"
+query_en = "Rio Carnival"
+
+[[culture.seeds]]
+ru = "Как появилась письменность"
+en = "The invention of writing"
+query_ru = "Письменность"
+query_en = "Writing"
+
+[[culture.seeds]]
+ru = "Почему синий цвет был дорогим"
+en = "Why blue used to be so expensive"
+query_ru = "Синий"
+query_en = "Blue"
+
+[[culture.seeds]]
+ru = "История шахмат"
+en = "The history of chess"
+query_ru = "Шахматы"
+query_en = "Chess"
+
+[gaming]
+label_ru = "Игры"
+label_en = "Gaming"
+tone_ru = "динамично и по делу; только проверяемые факты"
+tone_en = "energetic and factual; verified details only"
+style = "mixed"
+pace = "fast"
+music = "pulse"
+palette = ["#0B0F1A", "#1B2A41", "#7B61FF", "#00E5A8", "#FFFFFF"]
+accent = "#00E5A8"
+keywords_ru = ["игр", "гейм", "киберспорт", "тетрис", "спидран", "уровн", "физика в играх", "консол"]
+keywords_en = ["game", "gaming", "esports", "tetris", "speedrun", "level design", "console"]
+hashtags_ru = ["#игры", "#технологии", "#история"]
+hashtags_en = ["#gaming", "#technology", "#history"]
+
+[[gaming.seeds]]
+ru = "История Тетриса"
+en = "The history of Tetris"
+query_ru = "Тетрис"
+query_en = "Tetris"
+
+[[gaming.seeds]]
+ru = "Как работает физика в играх"
+en = "How video game physics works"
+query_ru = "Игровая физика"
+query_en = "Video game physics"
+
+[[gaming.seeds]]
+ru = "Почему уровни в играх учат без слов"
+en = "How game levels teach without words"
+query_ru = "Level design"
+query_en = "Level design"
+
+[[gaming.seeds]]
+ru = "Спидраннинг: искусство ломать игры"
+en = "Speedrunning: the art of breaking games"
+query_ru = "Спидраннинг"
+query_en = "Speedrunning"
+
+[[gaming.seeds]]
+ru = "Как появились киберспортивные турниры"
+en = "How esports tournaments began"
+query_ru = "Киберспорт"
+query_en = "Esports"

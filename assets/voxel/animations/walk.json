@@ -1,0 +1,21 @@
+{
+  "schema": "voxel-clip-1.0",
+  "id": "walk",
+  "action": "walk",
+  "rig": "humanoid_v1",
+  "status": "basic-verified",
+  "transition": {
+    "from": "neutral",
+    "to": "walking"
+  },
+  "duration_seconds": [
+    0.8,
+    6
+  ],
+  "params": [
+    "to_x",
+    "cycles",
+    "stride"
+  ],
+  "notes": "prepared/reusable clip for the hero_v1 rig"
+}

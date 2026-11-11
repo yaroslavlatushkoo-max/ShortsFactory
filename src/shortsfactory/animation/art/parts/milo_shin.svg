@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 163">
+  <path d="M10 0 L44 0 L44 24 L42 132 C42 142 37 149 30 151 L24 151
+           C17 149 12 142 12 132 L10 24 Z"
+        fill="{{pants}}"/>
+  <path d="M10 0 L10 24 L12 132 C12 142 17 149 24 151" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M44 0 L44 24 L42 132 C42 142 37 149 30 151" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M12 26 L15 130 C15 139 18 144 22 147 L22 28 C18 24 14 23 12 26 Z"
+        fill="{{pants_dark}}" opacity="0.40"/>
+  <!-- rolled cuff -->
+  <path d="M12 132 C20 136 34 136 42 132 L42 148 C35 153 19 153 12 148 Z"
+        fill="{{pants_dark}}" stroke="{{outline}}" stroke-width="1.6"/>
+</svg>

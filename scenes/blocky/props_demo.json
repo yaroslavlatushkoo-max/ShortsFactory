@@ -1,0 +1,206 @@
+{
+  "title": "Тёплый ящик",
+  "duration": 8.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "cave",
+  "ambience": "cave",
+  "lang": "ru",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [
+        -0.6,
+        0.9,
+        0.0
+      ],
+      "duration": 8.0,
+      "actions": [
+        {
+          "action": "idle",
+          "start": 0.0,
+          "duration": 0.8
+        },
+        {
+          "action": "grab",
+          "start": 0.8,
+          "duration": 1.0
+        },
+        {
+          "action": "hold",
+          "start": 1.8,
+          "duration": 2.4
+        },
+        {
+          "action": "release",
+          "start": 4.2,
+          "duration": 1.0
+        },
+        {
+          "action": "idle",
+          "start": 5.2,
+          "duration": 2.8
+        }
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [
+        0.7,
+        0.9,
+        0.0
+      ],
+      "duration": 8.0,
+      "actions": [
+        {
+          "action": "look_at",
+          "start": 0.0,
+          "duration": 1.5,
+          "params": {
+            "direction": -1.0
+          }
+        },
+        {
+          "action": "listen",
+          "start": 1.5,
+          "duration": 2.0,
+          "params": {
+            "direction": -1.0
+          }
+        },
+        {
+          "action": "react",
+          "start": 3.5,
+          "duration": 1.1
+        },
+        {
+          "action": "talk",
+          "start": 4.6,
+          "duration": 1.2,
+          "params": {
+            "emotion": "scared",
+            "emotion_intensity": 0.9
+          }
+        },
+        {
+          "action": "idle",
+          "start": 5.8,
+          "duration": 2.2
+        }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "character": "steve",
+      "text": "Он тёплый... и гудит.",
+      "start": 2.2,
+      "duration": 1.6
+    },
+    {
+      "character": "alex",
+      "text": "Брось его!",
+      "start": 4.6,
+      "duration": 1.2,
+      "emotion": "scared"
+    }
+  ],
+  "props": [
+    {
+      "preset": "spring_box",
+      "x": -0.6,
+      "y": 0.35,
+      "rgb": [
+        0.9,
+        0.55,
+        0.18
+      ],
+      "carry": {
+        "character": "steve",
+        "bone": "hand_R",
+        "start": 1.0,
+        "approach": 0.3,
+        "release": 4.4,
+        "grip": [
+          0.0,
+          0.0,
+          0.16
+        ],
+        "ground": 0.0
+      }
+    },
+    {
+      "preset": "rock",
+      "x": 1.5,
+      "y": 1.9
+    },
+    {
+      "preset": "grass",
+      "x": -1.3,
+      "y": 0.9
+    }
+  ],
+  "camera_cuts": [
+    {
+      "frame": 1,
+      "center": [
+        0.05,
+        0.0,
+        0.95
+      ],
+      "height": 4.2
+    },
+    {
+      "frame": 25,
+      "center": [
+        -0.6,
+        0.0,
+        1.1
+      ],
+      "height": 2.0
+    },
+    {
+      "frame": 100,
+      "center": [
+        -0.6,
+        0.35,
+        1.15
+      ],
+      "height": 1.6
+    },
+    {
+      "frame": 165,
+      "center": [
+        -0.78,
+        0.45,
+        1.0
+      ],
+      "height": 2.4
+    },
+    {
+      "frame": 205,
+      "center": [
+        0.05,
+        0.0,
+        0.95
+      ],
+      "height": 4.2
+    }
+  ],
+  "sfx_events": [
+    [
+      1.0,
+      "pop"
+    ],
+    [
+      1.8,
+      "boing"
+    ],
+    [
+      5.15,
+      "boing"
+    ]
+  ]
+}

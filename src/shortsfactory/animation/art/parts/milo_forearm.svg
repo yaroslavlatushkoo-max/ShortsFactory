@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 114">
+  <path d="M11 0 L44 0 L44 24 L42 88 C42 96 37 101 30 101 L25 101
+           C18 101 13 96 13 88 L11 24 Z"
+        fill="{{shirt}}"/>
+  <path d="M11 0 L11 24 L13 88 C13 96 18 101 25 101" fill="none"
+        stroke="{{outline}}" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M44 0 L44 24 L42 88 C42 96 37 101 30 101" fill="none"
+        stroke="{{outline}}" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M13 28 L16 88 C16 94 19 97 24 98 L24 30 C20 26 16 26 13 28 Z"
+        fill="{{shirt_dark}}" opacity="0.30"/>
+  <!-- ribbed cuff -->
+  <path d="M12 88 C20 92 35 92 43 88 L42 100 C36 105 19 105 13 100 Z"
+        fill="{{shirt_dark}}" stroke="{{outline}}" stroke-width="1.7"/>
+  <path d="M17 90 L17 102 M24 92 L24 104 M31 92 L31 104 M38 90 L38 102"
+        stroke="{{shirt}}" stroke-width="1.1" opacity="0.55"/>
+</svg>

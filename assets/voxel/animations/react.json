@@ -1,0 +1,19 @@
+{
+  "schema": "voxel-clip-1.0",
+  "id": "react",
+  "action": "react",
+  "rig": "humanoid_v1",
+  "status": "basic-verified",
+  "transition": {
+    "from": "neutral",
+    "to": "arms_up"
+  },
+  "duration_seconds": [
+    0.5,
+    2.0
+  ],
+  "params": [
+    "intensity"
+  ],
+  "notes": "prepared/reusable clip for the hero_v1 rig"
+}

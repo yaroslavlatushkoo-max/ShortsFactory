@@ -1,0 +1,63 @@
+{
+  "title": "Живой куб",
+  "duration": 11.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "cave",
+  "ambience": "cave",
+  "lang": "ru",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.45, 0.9, 0.0],
+      "duration": 11.0,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 0.6},
+        {"action": "point", "start": 0.6, "duration": 1.0},
+        {"action": "grab", "start": 1.6, "duration": 1.0},
+        {"action": "hold", "start": 2.6, "duration": 1.4},
+        {"action": "talk", "start": 4.0, "duration": 1.4, "params": {"emotion": "happy", "emotion_intensity": 0.7}},
+        {"action": "stumble", "start": 5.4, "duration": 0.8},
+        {"action": "scared", "start": 6.2, "duration": 1.2, "params": {"emotion": "scared", "emotion_intensity": 0.9}},
+        {"action": "release", "start": 7.4, "duration": 1.0},
+        {"action": "recover", "start": 8.4, "duration": 1.2},
+        {"action": "idle", "start": 9.6, "duration": 1.4}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.45, 0.9, 0.0],
+      "duration": 11.0,
+      "actions": [
+        {"action": "look_at", "start": 0.0, "duration": 1.4},
+        {"action": "listen", "start": 1.4, "duration": 1.4},
+        {"action": "shrug", "start": 2.8, "duration": 1.2},
+        {"action": "shake_head", "start": 4.0, "duration": 1.2},
+        {"action": "talk", "start": 5.4, "duration": 1.2, "params": {"emotion": "confused", "emotion_intensity": 0.8}},
+        {"action": "scared", "start": 6.6, "duration": 1.2, "params": {"emotion": "scared", "emotion_intensity": 0.8}},
+        {"action": "listen", "start": 7.8, "duration": 1.6},
+        {"action": "idle", "start": 9.4, "duration": 1.6}
+      ]
+    }
+  ],
+  "dialogue": [
+    {"character": "steve", "text": "Смотри, какой куб! Он тёплый.", "start": 4.0, "duration": 1.4},
+    {"character": "alex", "text": "Он живой, Стив.", "start": 5.4, "duration": 1.2}
+  ],
+  "props": [
+    {"preset": "glowing_cube", "x": -0.1, "y": 1.35, "z": 0.55, "size": 0.26, "flash_frame": 200},
+    {"preset": "rock", "x": 1.0, "y": 1.9},
+    {"preset": "tree", "x": -1.8, "y": 2.4}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, 0.0, 0.95], "height": 3.0},
+    {"frame": 20, "center": [-0.45, 0.0, 1.40], "height": 1.55},
+    {"frame": 95, "center": [0.45, 0.0, 1.40], "height": 1.5},
+    {"frame": 165, "center": [0.0, 0.0, 0.95], "height": 3.0},
+    {"frame": 195, "center": [-0.45, 0.0, 1.30], "height": 1.7},
+    {"frame": 255, "center": [0.0, 0.0, 0.95], "height": 3.0}
+  ],
+  "sfx_events": [[1.6, "pop"], [4.0, "sparkle"], [5.4, "boing"], [6.2, "pop"]]
+}

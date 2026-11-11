@@ -1,0 +1,752 @@
+{
+  "$defs": {
+    "CharacterState": {
+      "additionalProperties": false,
+      "description": "Snapshot of a character at one instant of time.\n\n* ``position`` — normalized scene coordinates, unitless ([0,1] both axes).\n* ``rotation`` — degrees, clockwise on screen.\n* ``root_velocity`` — normalized scene units per second.",
+      "properties": {
+        "character_id": {
+          "minLength": 1,
+          "title": "Character Id",
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/$defs/Vec2Field"
+        },
+        "rotation": {
+          "default": 0.0,
+          "title": "Rotation",
+          "type": "number"
+        },
+        "root_velocity": {
+          "$ref": "#/$defs/Vec2Field",
+          "default": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "scale": {
+          "default": 1.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "emotion": {
+          "default": "neutral",
+          "enum": [
+            "neutral",
+            "happy",
+            "sad",
+            "surprised",
+            "angry",
+            "afraid",
+            "curious"
+          ],
+          "title": "Emotion",
+          "type": "string"
+        },
+        "gaze_target": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Vec2Field"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "current_action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Current Action"
+        },
+        "pose_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pose Id"
+        },
+        "visibility": {
+          "default": "visible",
+          "enum": [
+            "visible",
+            "hidden",
+            "faded"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "character_id",
+        "position"
+      ],
+      "title": "CharacterState",
+      "type": "object"
+    },
+    "Interaction": {
+      "additionalProperties": false,
+      "description": "A timed interaction event (pickup / attach / transfer / detach / release).\n\nPreconditions are checked by :mod:`animation_lab.interaction` at plan\nbuild time; a violated precondition raises\n:class:`animation_lab.interaction.InteractionError` — the planner never\nsilently repairs broken data.",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "pickup",
+            "attach",
+            "transfer",
+            "detach",
+            "release",
+            "handoff"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "time": {
+          "minimum": 0.0,
+          "title": "Time",
+          "type": "number"
+        },
+        "actor_id": {
+          "minLength": 1,
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "prop_id": {
+          "minLength": 1,
+          "title": "Prop Id",
+          "type": "string"
+        },
+        "receiver_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Receiver Id"
+        },
+        "attachment_point": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attachment Point"
+        },
+        "preconditions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/InteractionPrecondition"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "expected_prop_state_after": {
+          "enum": [
+            "free",
+            "approaching",
+            "attached",
+            "transferring",
+            "released"
+          ],
+          "title": "Expected Prop State After",
+          "type": "string"
+        },
+        "expected_owner_after": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Owner After"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "time",
+        "actor_id",
+        "prop_id",
+        "expected_prop_state_after"
+      ],
+      "title": "Interaction",
+      "type": "object"
+    },
+    "InteractionPrecondition": {
+      "additionalProperties": false,
+      "description": "A single precondition check attached to an interaction event.",
+      "properties": {
+        "check": {
+          "enum": [
+            "actor_holds_prop",
+            "actor_near_prop",
+            "prop_is_free",
+            "receiver_defined",
+            "owner_is_actor",
+            "prop_in_scene"
+          ],
+          "title": "Check",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "check"
+      ],
+      "title": "InteractionPrecondition",
+      "type": "object"
+    },
+    "Keyframe": {
+      "additionalProperties": false,
+      "description": "A sampled full-scene snapshot at a specific time.",
+      "properties": {
+        "time": {
+          "minimum": 0.0,
+          "title": "Time",
+          "type": "number"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "characters": {
+          "additionalProperties": {
+            "$ref": "#/$defs/CharacterState"
+          },
+          "title": "Characters",
+          "type": "object"
+        },
+        "props": {
+          "additionalProperties": {
+            "$ref": "#/$defs/PropState"
+          },
+          "title": "Props",
+          "type": "object"
+        }
+      },
+      "required": [
+        "time"
+      ],
+      "title": "Keyframe",
+      "type": "object"
+    },
+    "MotionConstraints": {
+      "additionalProperties": false,
+      "properties": {
+        "max_speed": {
+          "default": 0.5,
+          "exclusiveMinimum": 0.0,
+          "title": "Max Speed",
+          "type": "number"
+        },
+        "max_acceleration": {
+          "default": 2.0,
+          "exclusiveMinimum": 0.0,
+          "title": "Max Acceleration",
+          "type": "number"
+        },
+        "keep_in_bounds": {
+          "default": true,
+          "title": "Keep In Bounds",
+          "type": "boolean"
+        }
+      },
+      "title": "MotionConstraints",
+      "type": "object"
+    },
+    "MotionSegment": {
+      "additionalProperties": false,
+      "description": "A timed slice of one character's motion.\n\n``start_state``/``end_state`` carry full :class:`CharacterState` snapshots;\nthe segment evaluates the trajectory between them for ``t`` in\n``[start_time, end_time]``.  ``end_state`` of a segment and ``start_state``\nof the following one must agree (continuity is validated separately and\nreported as a diagnostic when broken).",
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "character_id": {
+          "minLength": 1,
+          "title": "Character Id",
+          "type": "string"
+        },
+        "action_type": {
+          "enum": [
+            "idle",
+            "walk",
+            "run",
+            "turn",
+            "reach",
+            "hold",
+            "speak",
+            "react",
+            "jump",
+            "fall",
+            "land",
+            "sit",
+            "stand",
+            "step_back",
+            "handoff"
+          ],
+          "title": "Action Type",
+          "type": "string"
+        },
+        "start_time": {
+          "minimum": 0.0,
+          "title": "Start Time",
+          "type": "number"
+        },
+        "end_time": {
+          "exclusiveMinimum": 0.0,
+          "title": "End Time",
+          "type": "number"
+        },
+        "start_state": {
+          "$ref": "#/$defs/CharacterState"
+        },
+        "end_state": {
+          "$ref": "#/$defs/CharacterState"
+        },
+        "trajectory": {
+          "$ref": "#/$defs/TrajectorySpec",
+          "default": {
+            "kind": "linear",
+            "control_points": [],
+            "easing": "linear",
+            "max_speed": null
+          }
+        },
+        "easing": {
+          "default": "linear",
+          "enum": [
+            "linear",
+            "ease_in",
+            "ease_out",
+            "ease_in_out"
+          ],
+          "title": "Easing",
+          "type": "string"
+        },
+        "constraints": {
+          "$ref": "#/$defs/MotionConstraints",
+          "default": {
+            "max_speed": 0.5,
+            "max_acceleration": 2.0,
+            "keep_in_bounds": true
+          }
+        },
+        "dependencies": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "character_id",
+        "action_type",
+        "start_time",
+        "end_time",
+        "start_state",
+        "end_state"
+      ],
+      "title": "MotionSegment",
+      "type": "object"
+    },
+    "PropState": {
+      "additionalProperties": false,
+      "description": "State of a prop (item) at one instant.\n\n``position`` is normalized; ``velocity`` is normalized units/second.\n``attachment_point`` names a rig anchor (e.g. ``hand_r``) when owned.",
+      "properties": {
+        "prop_id": {
+          "minLength": 1,
+          "title": "Prop Id",
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/$defs/Vec2Field"
+        },
+        "rotation": {
+          "default": 0.0,
+          "title": "Rotation",
+          "type": "number"
+        },
+        "owner_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Id"
+        },
+        "attachment_point": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attachment Point"
+        },
+        "velocity": {
+          "$ref": "#/$defs/Vec2Field",
+          "default": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "state": {
+          "default": "free",
+          "enum": [
+            "free",
+            "approaching",
+            "attached",
+            "transferring",
+            "released"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "glowing": {
+          "default": false,
+          "title": "Glowing",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "prop_id",
+        "position"
+      ],
+      "title": "PropState",
+      "type": "object"
+    },
+    "TrajectorySpec": {
+      "additionalProperties": false,
+      "description": "Trajectory definition attached to a motion segment.\n\n* ``kind=\"linear\"`` — eased straight line from start to end state.\n* ``kind=\"bezier3\"`` — cubic Bézier through ``control_points`` (1 or 2\n  controls, first segment start, last segment end).\n* ``kind=\"waypoints\"`` — pass through ``control_points`` in order with\n  per-leg easing.\n* ``kind=\"hold\"`` — stay at ``start`` position for the whole segment.",
+      "properties": {
+        "kind": {
+          "default": "linear",
+          "enum": [
+            "linear",
+            "bezier3",
+            "waypoints",
+            "hold",
+            "arc"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "control_points": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Vec2Field"
+          },
+          "title": "Control Points",
+          "type": "array"
+        },
+        "easing": {
+          "default": "linear",
+          "enum": [
+            "linear",
+            "ease_in",
+            "ease_out",
+            "ease_in_out"
+          ],
+          "title": "Easing",
+          "type": "string"
+        },
+        "max_speed": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Speed"
+        }
+      },
+      "title": "TrajectorySpec",
+      "type": "object"
+    },
+    "ValidationIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error",
+            "critical"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "time": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Id"
+        },
+        "subject_kind": {
+          "anyOf": [
+            {
+              "enum": [
+                "character",
+                "prop",
+                "segment",
+                "interaction"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subject Kind"
+        },
+        "related_events": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Related Events",
+          "type": "array"
+        },
+        "suggestion": {
+          "default": "",
+          "title": "Suggestion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "severity",
+        "code",
+        "message"
+      ],
+      "title": "ValidationIssue",
+      "type": "object"
+    },
+    "ValidationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "pass",
+            "warnings",
+            "fail"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "issues": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ValidationIssue"
+          },
+          "title": "Issues",
+          "type": "array"
+        },
+        "checked_at_plan_version": {
+          "default": "1.0.0",
+          "title": "Checked At Plan Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ValidationReport",
+      "type": "object"
+    },
+    "Vec2Field": {
+      "additionalProperties": false,
+      "description": "A point or vector in normalized scene space (unit: scene, [0,1]).",
+      "properties": {
+        "x": {
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "Vec2Field",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Fully resolved, machine-readable output of the motion planner.\n\nExported as versioned JSON (see schemas/motion_plan.schema.json).  All\npositions are normalized scene coordinates; velocities are scene\nunits/second; times are seconds.",
+  "properties": {
+    "schema_version": {
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "name": {
+      "default": "untitled",
+      "title": "Name",
+      "type": "string"
+    },
+    "fps": {
+      "default": 30,
+      "maximum": 240,
+      "minimum": 1,
+      "title": "Fps",
+      "type": "integer"
+    },
+    "duration_seconds": {
+      "exclusiveMinimum": 0.0,
+      "title": "Duration Seconds",
+      "type": "number"
+    },
+    "units": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Units",
+      "type": "object"
+    },
+    "characters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/CharacterState"
+      },
+      "title": "Characters",
+      "type": "object"
+    },
+    "props": {
+      "additionalProperties": {
+        "$ref": "#/$defs/PropState"
+      },
+      "title": "Props",
+      "type": "object"
+    },
+    "motion_segments": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/MotionSegment"
+      },
+      "title": "Motion Segments",
+      "type": "array"
+    },
+    "interactions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Interaction"
+      },
+      "title": "Interactions",
+      "type": "array"
+    },
+    "keyframes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Keyframe"
+      },
+      "title": "Keyframes",
+      "type": "array"
+    },
+    "validation_report": {
+      "$ref": "#/$defs/ValidationReport",
+      "default": {
+        "status": "pass",
+        "issues": [],
+        "checked_at_plan_version": "1.0.0"
+      }
+    },
+    "timeline": {
+      "items": {
+        "$ref": "#/$defs/Keyframe"
+      },
+      "title": "Timeline",
+      "type": "array"
+    }
+  },
+  "required": [
+    "duration_seconds"
+  ],
+  "title": "MotionPlan",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

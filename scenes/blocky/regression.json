@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "scenes": {
+    "acting_demo": {
+      "duration": 14.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 4,
+      "props": 3,
+      "shots": 6,
+      "cut_frames": [
+        1,
+        25,
+        100,
+        175,
+        250,
+        330
+      ],
+      "auto_act": true,
+      "auto_camera": false
+    },
+    "animation_v2_demo": {
+      "duration": 11.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 2,
+      "props": 6,
+      "shots": 6,
+      "cut_frames": [
+        1,
+        20,
+        95,
+        165,
+        195,
+        255
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "camera_demo": {
+      "duration": 13.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 4,
+      "props": 5,
+      "shots": 10,
+      "cut_frames": [
+        1,
+        21,
+        51,
+        93,
+        121,
+        165,
+        191,
+        237,
+        270,
+        284
+      ],
+      "auto_act": true,
+      "auto_camera": true
+    },
+    "dialogue_demo": {
+      "duration": 12.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 6,
+      "props": 8,
+      "shots": 3,
+      "cut_frames": [
+        1,
+        100,
+        200
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "honey_trouble": {
+      "duration": 28.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 0,
+      "props": 20,
+      "shots": 8,
+      "cut_frames": [
+        1,
+        106,
+        196,
+        296,
+        331,
+        516,
+        648,
+        712
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "lipsync_demo": {
+      "duration": 12.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 3,
+      "props": 10,
+      "shots": 4,
+      "cut_frames": [
+        1,
+        40,
+        130,
+        225
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "lost_diamond": {
+      "duration": 10.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 0,
+      "props": 18,
+      "shots": 3,
+      "cut_frames": [
+        1,
+        111,
+        191
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "props_demo": {
+      "duration": 8.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 2,
+      "props": 3,
+      "shots": 5,
+      "cut_frames": [
+        1,
+        25,
+        100,
+        165,
+        205
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "tricky_door": {
+      "duration": 10.0,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 0,
+      "props": 13,
+      "shots": 3,
+      "cut_frames": [
+        1,
+        106,
+        195
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    },
+    "voice_engine_demo": {
+      "duration": 16.6,
+      "fps": 30,
+      "actors": [
+        "alex",
+        "steve"
+      ],
+      "dialogue": 6,
+      "props": 11,
+      "shots": 4,
+      "cut_frames": [
+        1,
+        180,
+        330,
+        450
+      ],
+      "auto_act": false,
+      "auto_camera": false
+    }
+  },
+  "errors": []
+}

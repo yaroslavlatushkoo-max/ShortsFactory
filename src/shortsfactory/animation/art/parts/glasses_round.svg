@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225 100">
+  <g fill="none" stroke="{{outline}}" stroke-width="5" stroke-linejoin="round">
+    <circle cx="58" cy="50" r="37"/>
+    <circle cx="167" cy="50" r="37"/>
+    <path d="M95 48 C104 42 121 42 130 48"/>
+    <path d="M21 44 L2 38"/>
+    <path d="M204 44 L223 38"/>
+  </g>
+  <g fill="{{lens}}" opacity="0.18">
+    <circle cx="58" cy="50" r="34"/>
+    <circle cx="167" cy="50" r="34"/>
+  </g>
+  <g fill="none" stroke="{{eye_white}}" stroke-width="3" stroke-linecap="round" opacity="0.65">
+    <path d="M40 30 C46 25 54 24 60 27"/>
+    <path d="M149 30 C155 25 163 24 169 27"/>
+  </g>
+</svg>

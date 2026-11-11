@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 85">
+  <path d="M14 60 C12 72 18 80 30 80 L116 80 C130 80 137 73 137 65 C137 59 132 56 124 56 L26 56 Z"
+        fill="{{sole}}" stroke="{{outline}}" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M18 71 L130 71" stroke="{{shoe_dark}}" stroke-width="1.6" opacity="0.45"/>
+  <path d="M22 24 C30 10 48 8 58 18 C63 24 65 34 65 46 L65 56 L24 56
+           C18 47 16 34 18 29 Z"
+        fill="{{shoe}}" stroke="{{outline}}" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M61 32 C72 28 94 28 112 34 C125 39 132 47 132 56 L65 56
+           C65 47 64 38 61 32 Z"
+        fill="{{shoe}}" stroke="{{outline}}" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M22 24 C30 10 48 8 58 18 L54 22 C45 14 33 15 27 27 Z"
+        fill="{{shoe_dark}}" opacity="0.5"/>
+  <!-- mary-jane strap -->
+  <path d="M44 30 C54 24 70 24 80 30 L80 38 C68 32 54 32 44 38 Z"
+        fill="{{shoe_dark}}" stroke="{{outline}}" stroke-width="1.6"/>
+  <circle cx="62" cy="33" r="3" fill="{{sole}}" stroke="{{outline}}" stroke-width="1"/>
+  <path d="M104 38 C115 42 123 48 126 56 L108 56 C107 48 106 42 104 38 Z"
+        fill="{{shoe_dark}}" opacity="0.35"/>
+  <path d="M30 22 C36 16 44 15 51 18 C44 19 38 22 34 27 Z" fill="{{sole}}" opacity="0.30"/>
+</svg>

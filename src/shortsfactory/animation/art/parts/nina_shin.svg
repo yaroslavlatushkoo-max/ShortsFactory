@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 160">
+  <path d="M8 0 L42 0 L42 24 L40 144 C40 152 35 157 29 157 L21 157
+           C15 157 10 152 10 144 L8 24 Z"
+        fill="{{pants}}"/>
+  <path d="M8 0 L8 24 L10 144 C10 152 15 157 21 157" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M42 0 L42 24 L40 144 C40 152 35 157 29 157" fill="none"
+        stroke="{{outline}}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M10 26 L13 142 C13 149 16 153 20 155 L20 28 C16 24 12 23 10 26 Z"
+        fill="{{pants_dark}}" opacity="0.36"/>
+  <ellipse cx="25" cy="152" rx="11" ry="4" fill="{{pants_dark}}" opacity="0.4"/>
+</svg>

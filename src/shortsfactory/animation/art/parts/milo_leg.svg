@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 176">
+  <path d="M30 4 C43 4 52 14 52 30 L49 164 L11 164 L8 30 C8 14 17 4 30 4 Z"
+        fill="{{pants}}"/>
+  <path d="M30 4 C43 4 52 14 52 30 L49 164" fill="none" stroke="{{outline}}"
+        stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30 4 C17 4 8 14 8 30 L11 164" fill="none" stroke="{{outline}}"
+        stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M10 34 L13 160 L25 160 L25 36 C20 30 14 30 10 34 Z"
+        fill="{{pants_dark}}" opacity="0.40"/>
+  <!-- knee creases -->
+  <path d="M15 134 C24 130 38 130 45 134" fill="none" stroke="{{pants_dark}}" stroke-width="1.4" opacity="0.7"/>
+  <path d="M14 142 C23 139 37 139 44 142" fill="none" stroke="{{pants_dark}}" stroke-width="1.1" opacity="0.45"/>
+</svg>

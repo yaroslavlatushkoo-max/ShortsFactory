@@ -1,0 +1,51 @@
+# Secrets — never commit
+.env
+!.env.example
+
+# Private local state
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Python tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Runtime artifacts
+logs/
+output/
+workspace/
+database/
+*.db
+previews/
+
+# Build artifacts (PyInstaller)
+build/
+dist/
+*.egg-info/
+
+# Agent / tool state
+.sharrowkin/
+.claude/
+
+# Sub-project (Animation_Intelligence_Lab) local venv/caches
+Animation_Intelligence_Lab/.venv/
+Animation_Intelligence_Lab/.pytest_cache/
+Animation_Intelligence_Lab/__pycache__/
+
+# TTS voice models — not committed, downloadable separately (see README)
+models/piper/*.onnx
+models/piper/*.onnx.json
+
+# OS / tooling
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+models/piper/MODEL_CARD

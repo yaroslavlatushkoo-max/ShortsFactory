@@ -1,0 +1,321 @@
+{
+  "version": 2,
+  "id": "milo",
+  "name": "Мило",
+  "rig": "humanoid_v1",
+  "proportions": {
+    "build": 1.0,
+    "head": 1.05,
+    "legs": 1.0
+  },
+  "palette": {
+    "skin": "#f2c49b",
+    "skin_light": "#ffdcb9",
+    "skin_shadow": "#d79b6d",
+    "shirt": "#2aa7b8",
+    "shirt_light": "#45c6d4",
+    "shirt_dark": "#1b7f8e",
+    "pants": "#3b4a63",
+    "pants_dark": "#2a3547",
+    "shoe": "#f2c53d",
+    "shoe_dark": "#c79a22",
+    "sole": "#f7f4ea",
+    "hair": "#3a2a20",
+    "hair_dark": "#241811",
+    "hair_light": "#5a4130",
+    "outline": "#17212b",
+    "eye_white": "#ffffff",
+    "iris": "#3f7f8a",
+    "pupil": "#16202a",
+    "mouth": "#7c3030",
+    "tongue": "#d9737a",
+    "teeth": "#fffdf7",
+    "blush": "#eda49a",
+    "accent": "#f4d35e",
+    "collar": "#dff3f5",
+    "lens": "#cfe9ee",
+    "shoe_light": "#ffdc6a"
+  },
+  "hair": {
+    "style": "spiky",
+    "color": ""
+  },
+  "face": {
+    "eye": "round",
+    "brow": "thick",
+    "nose": "button",
+    "mouth": "wide",
+    "freckles": false
+  },
+  "outfit": {
+    "style": "hoodie",
+    "sleeve": "short",
+    "collar": true
+  },
+  "accessories": [],
+  "graphics": {
+    "version": 1,
+    "style": "cel_v3",
+    "parts": {
+      "head": {
+        "asset": "milo_head.svg",
+        "size": [
+          0.281,
+          0.3
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "hair_back": {
+        "asset": "milo_hair_back.svg",
+        "size": [
+          0.31,
+          0.335
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "hair_front": {
+        "asset": "milo_hair_front.svg",
+        "size": [
+          0.31,
+          0.335
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "torso": {
+        "asset": "milo_torso.svg",
+        "size": [
+          0.25,
+          0.335
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "pelvis": {
+        "asset": "milo_pelvis.svg",
+        "size": [
+          0.21,
+          0.13
+        ],
+        "anchor": [
+          0.5,
+          0.265
+        ]
+      },
+      "upper_arm": {
+        "asset": "milo_arm.svg",
+        "size": [
+          0.095,
+          0.18
+        ],
+        "anchor": [
+          0.5,
+          0.01
+        ]
+      },
+      "forearm": {
+        "asset": "milo_forearm.svg",
+        "size": [
+          0.085,
+          0.17
+        ],
+        "anchor": [
+          0.5,
+          0.06
+        ]
+      },
+      "hand": {
+        "asset": "hand.svg",
+        "size": [
+          0.1,
+          0.115
+        ],
+        "anchor": [
+          0.5,
+          0.07
+        ]
+      },
+      "thigh": {
+        "asset": "milo_leg.svg",
+        "size": [
+          0.108,
+          0.28
+        ],
+        "anchor": [
+          0.5,
+          0.02
+        ]
+      },
+      "shin": {
+        "asset": "milo_shin.svg",
+        "size": [
+          0.104,
+          0.25
+        ],
+        "anchor": [
+          0.5,
+          0.03
+        ]
+      },
+      "shoe": {
+        "asset": "milo_shoe.svg",
+        "size": [
+          0.16,
+          0.11
+        ],
+        "anchor": [
+          0.207,
+          0.212
+        ],
+        "rest": 1.15
+      }
+    },
+    "face": {
+      "eyes": {
+        "asset": "milo_eyes.svg",
+        "size": [
+          0.205,
+          0.088
+        ],
+        "offset": [
+          0.0,
+          -0.03
+        ]
+      },
+      "brows": {
+        "asset": "milo_brows.svg",
+        "size": [
+          0.205,
+          0.05
+        ],
+        "offset": [
+          0.0,
+          -0.075
+        ]
+      },
+      "nose": {
+        "asset": "milo_nose.svg",
+        "size": [
+          0.036,
+          0.03
+        ],
+        "offset": [
+          0.0,
+          0.014
+        ]
+      },
+      "mouth": {
+        "asset": "milo_mouth.svg",
+        "size": [
+          0.12,
+          0.075
+        ],
+        "offset": [
+          0.0,
+          0.052
+        ]
+      }
+    },
+    "expressions": {
+      "neutral": {
+        "eyes": "open",
+        "brows": "neutral",
+        "mouth": "smile"
+      },
+      "joy": {
+        "eyes": "happy",
+        "brows": "raised",
+        "mouth": "grin",
+        "blush": true
+      },
+      "surprise": {
+        "eyes": "wide",
+        "brows": "raised",
+        "mouth": "o"
+      },
+      "confused": {
+        "eyes": "open",
+        "brows": "curious",
+        "mouth": "smirk"
+      },
+      "annoyed": {
+        "eyes": "half",
+        "brows": "angry",
+        "mouth": "frown"
+      },
+      "sad": {
+        "eyes": "sad",
+        "brows": "sad",
+        "mouth": "frown"
+      },
+      "laugh": {
+        "eyes": "happy",
+        "brows": "raised",
+        "mouth": "laugh",
+        "blush": true
+      },
+      "cry": {
+        "eyes": "sad",
+        "brows": "sad",
+        "mouth": "wail"
+      },
+      "determined": {
+        "eyes": "angry",
+        "brows": "angry",
+        "mouth": "grit"
+      },
+      "thinking": {
+        "eyes": "half",
+        "brows": "curious",
+        "mouth": "smirk"
+      }
+    },
+    "layers": [
+      "far_leg",
+      "far_arm",
+      "pelvis",
+      "torso",
+      "head",
+      "near_leg",
+      "near_arm"
+    ],
+    "angles": [
+      "front",
+      "three_quarter"
+    ],
+    "actions": [
+      "idle",
+      "walk",
+      "stop",
+      "turn",
+      "wave",
+      "reach",
+      "offer",
+      "carry",
+      "point",
+      "react",
+      "surprise",
+      "joy",
+      "confused",
+      "annoyed"
+    ],
+    "rig_limits": {
+      "elbow_min": -2.6,
+      "elbow_max": 0.25,
+      "knee_min": 0.0,
+      "knee_max": 2.4,
+      "arm_raise": 2.9
+    },
+    "sleeve_color": "shirt"
+  }
+}

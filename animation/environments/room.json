@@ -1,0 +1,35 @@
+{
+  "id": "room",
+  "name": "Комната Мило и Нины",
+  "version": 1,
+  "layers": [
+    {"id": "back", "depth": 0.42},
+    {"id": "mid", "depth": 0.86},
+    {"id": "front", "depth": 1.16}
+  ],
+  "anchors": {
+    "table": {"x": 0.50, "y": 0.735},
+    "window": {"x": 0.20, "y": 0.25},
+    "shelf": {"x": 0.18, "y": 0.60}
+  },
+  "bounds": {"x_min": 0.06, "x_max": 0.94},
+  "light": {"direction": "left", "color": "#fff3cf", "strength": 0.18},
+  "palette": {
+    "wall_top": "#f2e4d2",
+    "wall_bottom": "#e2cdb4",
+    "floor": "#c9a276",
+    "floor_line": "#b08a60",
+    "skirting": "#a9835e",
+    "rug": "#d8b7a0",
+    "rug_border": "#b9876f",
+    "window": "#bfe4f2",
+    "window_frame": "#f7f0e4",
+    "frame": "#8a6a45",
+    "table": "#8a5a38",
+    "table_top": "#b57a4a",
+    "shelf": "#a9794f",
+    "plant": "#5f9e63",
+    "plant_pot": "#c4704e",
+    "accent": "#e8713c"
+  }
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 55">
+  <g id="neutral">
+    <path d="M24 34 C40 26 60 26 78 34" fill="none" stroke="{{hair_dark}}" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M122 34 C140 26 160 26 176 34" fill="none" stroke="{{hair_dark}}" stroke-width="7.5" stroke-linecap="round"/>
+  </g>
+  <g id="raised">
+    <path d="M20 26 C38 14 60 14 78 24" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+    <path d="M122 24 C140 14 162 14 180 26" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g id="angry">
+    <path d="M20 24 C38 30 58 36 78 38" fill="none" stroke="{{hair_dark}}" stroke-width="10" stroke-linecap="round"/>
+    <path d="M122 38 C142 36 162 30 180 24" fill="none" stroke="{{hair_dark}}" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g id="sad">
+    <path d="M20 38 C38 34 58 26 78 20" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+    <path d="M122 20 C142 26 162 34 180 38" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g id="curious">
+    <path d="M22 36 C38 28 58 28 76 34" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+    <path d="M124 20 C142 12 162 12 178 22" fill="none" stroke="{{hair_dark}}" stroke-width="9" stroke-linecap="round"/>
+  </g>
+</svg>

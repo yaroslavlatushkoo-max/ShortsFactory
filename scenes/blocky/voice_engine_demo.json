@@ -1,0 +1,65 @@
+{
+  "title": "Странный звук",
+  "duration": 16.6,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "forest",
+  "ambience": "forest",
+  "lang": "ru",
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [-0.55, 0.9, 0.0],
+      "duration": 16.6,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 1.0},
+        {"action": "talk", "start": 1.0, "duration": 2.6, "params": {"emotion": "worried", "emotion_intensity": 0.8}},
+        {"action": "idle", "start": 3.6, "duration": 3.0},
+        {"action": "talk", "start": 6.6, "duration": 2.5, "params": {"emotion": "surprised", "emotion_intensity": 0.9}},
+        {"action": "gesture", "start": 9.1, "duration": 2.7},
+        {"action": "talk", "start": 11.8, "duration": 2.2, "params": {"emotion": "worried", "emotion_intensity": 0.7}},
+        {"action": "surprised", "start": 14.0, "duration": 1.3},
+        {"action": "happy", "start": 15.3, "duration": 1.3}
+      ]
+    },
+    {
+      "character": "alex",
+      "origin": [0.55, 0.9, 0.0],
+      "duration": 16.6,
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 3.8},
+        {"action": "talk", "start": 3.8, "duration": 2.6, "params": {"emotion": "confused", "emotion_intensity": 1.0}},
+        {"action": "confused", "start": 6.4, "duration": 2.9},
+        {"action": "talk", "start": 9.3, "duration": 2.3, "params": {"emotion": "neutral", "emotion_intensity": 0.0}},
+        {"action": "idle", "start": 11.6, "duration": 2.6},
+        {"action": "talk", "start": 14.2, "duration": 1.9, "params": {"emotion": "surprised", "emotion_intensity": 1.0}},
+        {"action": "surprised", "start": 16.1, "duration": 0.5}
+      ]
+    }
+  ],
+  "dialogue": [
+    {"character": "steve", "text": "Алекс, ты слышишь этот звук?", "start": 1.0, "duration": 2.6},
+    {"character": "alex", "text": "Какой звук? Я ничего не слышу.", "start": 3.8, "duration": 2.6},
+    {"character": "steve", "text": "Вот! Опять! Он идёт из-за дерева.", "start": 6.6, "duration": 2.5},
+    {"character": "alex", "text": "Может, это просто ветер?", "start": 9.3, "duration": 2.3},
+    {"character": "steve", "text": "Ветер так не шепчет. Смотри!", "start": 11.8, "duration": 2.2},
+    {"character": "alex", "text": "Ой! Оно светится!", "start": 14.2, "duration": 1.9}
+  ],
+  "props": [
+    {"preset": "tree", "x": -1.9, "y": 2.7},
+    {"preset": "tree", "x": 1.9, "y": 2.2},
+    {"preset": "rock", "x": 0.4, "y": 1.7},
+    {"preset": "grass", "x": -1.0, "y": 0.9},
+    {"preset": "grass", "x": 1.2, "y": 1.0},
+    {"preset": "glowing_cube", "x": 1.75, "y": 2.0, "z": 0.55, "size": 0.3, "flash_frame": 426}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.0, 0.0, 0.95], "height": 3.4},
+    {"frame": 180, "center": [0.0, 0.0, 1.15], "height": 2.4},
+    {"frame": 330, "center": [-0.30, 0.0, 1.35], "height": 1.9},
+    {"frame": 450, "center": [-0.55, 0.0, 1.45], "height": 1.5}
+  ],
+  "sfx_events": [[14.2, "sparkle"]]
+}

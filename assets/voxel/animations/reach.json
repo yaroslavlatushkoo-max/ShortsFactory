@@ -1,0 +1,19 @@
+{
+  "schema": "voxel-clip-1.0",
+  "id": "reach",
+  "action": "reach",
+  "rig": "humanoid_v1",
+  "status": "basic-verified",
+  "transition": {
+    "from": "neutral",
+    "to": "arm_extended"
+  },
+  "duration_seconds": [
+    0.5,
+    1.8
+  ],
+  "params": [
+    "intensity"
+  ],
+  "notes": "prepared/reusable clip for the hero_v1 rig"
+}

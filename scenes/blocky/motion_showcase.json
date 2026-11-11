@@ -1,0 +1,63 @@
+{
+  "title": "Витрина движений",
+  "duration": 88.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "samples": 32,
+  "environment": "cave",
+  "ambience": "",
+  "lang": "ru",
+  "auto_act": false,
+  "auto_camera": false,
+  "actors": [
+    {
+      "character": "steve",
+      "origin": [0.0, 0.9, 0.0],
+      "actions": [
+        {"action": "idle", "start": 0.0, "duration": 2.5},
+        {"action": "walk", "start": 2.5, "duration": 2.5, "params": {"target": [0.4, 0.0]}},
+        {"action": "run", "start": 5.0, "duration": 2.5, "params": {"target": [0.4, 0.0]}},
+        {"action": "crouch", "start": 7.5, "duration": 2.5},
+        {"action": "reach", "start": 10.0, "duration": 2.5},
+        {"action": "pickup", "start": 12.5, "duration": 2.5},
+        {"action": "interact", "start": 15.0, "duration": 2.5},
+        {"action": "react", "start": 17.5, "duration": 2.5},
+        {"action": "joy", "start": 20.0, "duration": 2.5},
+        {"action": "celebrate", "start": 22.5, "duration": 2.5},
+        {"action": "wave", "start": 25.0, "duration": 2.5},
+        {"action": "talk", "start": 27.5, "duration": 2.5},
+        {"action": "turn", "start": 30.0, "duration": 2.5},
+        {"action": "stop", "start": 32.5, "duration": 2.5},
+        {"action": "look_at", "start": 35.0, "duration": 2.5},
+        {"action": "listen", "start": 37.5, "duration": 2.5},
+        {"action": "listen_nod", "start": 40.0, "duration": 2.5},
+        {"action": "nod", "start": 42.5, "duration": 2.5},
+        {"action": "shake_head", "start": 45.0, "duration": 2.5},
+        {"action": "shrug", "start": 47.5, "duration": 2.5},
+        {"action": "point", "start": 50.0, "duration": 2.5},
+        {"action": "grab", "start": 52.5, "duration": 2.5},
+        {"action": "hold", "start": 55.0, "duration": 2.5},
+        {"action": "release", "start": 57.5, "duration": 2.5},
+        {"action": "scared", "start": 60.0, "duration": 2.5},
+        {"action": "stumble", "start": 62.5, "duration": 2.5},
+        {"action": "fall", "start": 65.0, "duration": 2.5},
+        {"action": "recover", "start": 67.5, "duration": 2.5},
+        {"action": "neutral", "start": 70.0, "duration": 2.5},
+        {"action": "happy", "start": 72.5, "duration": 2.5},
+        {"action": "sad", "start": 75.0, "duration": 2.5},
+        {"action": "angry", "start": 77.5, "duration": 2.5},
+        {"action": "confused", "start": 80.0, "duration": 2.5},
+        {"action": "worried", "start": 82.5, "duration": 2.5},
+        {"action": "surprised", "start": 85.0, "duration": 2.5}
+      ]
+    }
+  ],
+  "props": [
+    {"preset": "tree", "x": 1.7, "y": 2.6},
+    {"preset": "rock", "x": -1.7, "y": 2.3}
+  ],
+  "camera_cuts": [
+    {"frame": 1, "center": [0.35, 0.0, 0.95], "height": 4.5}
+  ]
+}

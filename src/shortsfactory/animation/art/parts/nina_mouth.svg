@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 75">
+  <g id="smile">
+    <path d="M32 30 C42 45 73 45 83 30" fill="none" stroke="{{outline}}" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M36 32 C45 39 70 39 79 32" fill="none" stroke="{{mouth}}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M47 46 C52 49 63 49 68 46 C62 44 53 44 47 46 Z" fill="{{mouth}}" opacity="0.45"/>
+  </g>
+  <g id="grin">
+    <path d="M28 27 C40 50 75 50 87 27 C72 35 43 35 28 27 Z"
+          fill="{{mouth}}" stroke="{{outline}}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M33 29 C45 35 70 35 82 29 C71 32 44 32 33 29 Z" fill="{{teeth}}"/>
+    <path d="M46 43 C52 48 63 48 69 43 C62 41 53 41 46 43 Z" fill="{{tongue}}"/>
+  </g>
+  <g id="open">
+    <path d="M42 22 C52 19 63 19 73 22 C75 36 68 48 57 49 C46 48 40 36 42 22 Z"
+          fill="{{mouth}}" stroke="{{outline}}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M45 24 C52 22 63 22 70 24 C66 28 49 28 45 24 Z" fill="{{teeth}}"/>
+    <path d="M49 41 C53 45 61 45 65 41 C60 39 54 39 49 41 Z" fill="{{tongue}}"/>
+  </g>
+  <g id="o">
+    <ellipse cx="57" cy="37" rx="10" ry="13" fill="{{mouth}}" stroke="{{outline}}" stroke-width="3"/>
+    <ellipse cx="57" cy="43" rx="5.5" ry="4.5" fill="{{tongue}}" opacity="0.85"/>
+  </g>
+  <g id="frown">
+    <path d="M33 46 C42 32 72 32 82 46" fill="none" stroke="{{outline}}" stroke-width="4.6" stroke-linecap="round"/>
+  </g>
+  <g id="smirk">
+    <path d="M32 35 C42 47 62 49 80 34" fill="none" stroke="{{outline}}" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M78 34 L85 28" stroke="{{outline}}" stroke-width="3.6" stroke-linecap="round"/>
+  </g>
+  <g id="wail">
+    <path d="M36 21 C47 16 67 16 78 21 C82 40 72 58 57 59 C42 58 32 40 36 21 Z"
+          fill="{{mouth}}" stroke="{{outline}}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M39 23 C49 20 65 20 75 23 C71 28 43 28 39 23 Z" fill="{{teeth}}"/>
+    <path d="M48 49 C53 54 62 54 67 49 C60 46 54 46 48 49 Z" fill="{{tongue}}"/>
+  </g>
+  <g id="laugh">
+    <path d="M31 22 C44 17 70 17 83 22 C87 43 74 58 57 58 C40 58 27 43 31 22 Z"
+          fill="{{mouth}}" stroke="{{outline}}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M35 23 C47 20 68 20 79 23 C73 29 41 29 35 23 Z" fill="{{teeth}}"/>
+    <path d="M45 49 C51 55 63 55 69 49 C61 46 53 46 45 49 Z" fill="{{tongue}}"/>
+  </g>
+  <g id="grit">
+    <path d="M33 25 C46 22 68 22 81 25 C83 38 80 47 78 49 C66 52 46 52 35 49 C33 47 31 38 33 25 Z"
+          fill="{{mouth}}" stroke="{{outline}}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M36 27 C48 25 66 25 78 27 L78 35 C66 33 48 33 36 35 Z" fill="{{teeth}}"/>
+    <path d="M36 42 C48 40 66 40 78 42 L78 47 C66 49 48 49 36 47 Z" fill="{{teeth}}"/>
+  </g>
+</svg>

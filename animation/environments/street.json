@@ -1,0 +1,37 @@
+{
+  "id": "street",
+  "name": "Улица",
+  "version": 1,
+  "layers": [
+    {"id": "back", "depth": 0.32},
+    {"id": "mid", "depth": 0.82},
+    {"id": "front", "depth": 1.18}
+  ],
+  "anchors": {
+    "bench": {"x": 0.72, "y": 0.82},
+    "lamp": {"x": 0.18, "y": 0.58}
+  },
+  "bounds": {"x_min": 0.05, "x_max": 0.95},
+  "light": {"direction": "right", "color": "#ffe9b8", "strength": 0.22},
+  "palette": {
+    "sky_top": "#9ed6ef",
+    "sky_bottom": "#e9f4e4",
+    "sun": "#fff2ae",
+    "cloud": "#ffffff",
+    "building_far": "#b9c9cf",
+    "building_near": "#8fa9b4",
+    "window_light": "#f7e6a8",
+    "road": "#6f7784",
+    "road_line": "#e9e2c8",
+    "sidewalk": "#cfc6b4",
+    "sidewalk_line": "#b5aa96",
+    "curb": "#a99f8b",
+    "lamp": "#3d4a54",
+    "lamp_light": "#ffe08a",
+    "bench": "#9b6a43",
+    "bench_dark": "#7a4f31",
+    "plant": "#5f9e63",
+    "plant_pot": "#c4704e",
+    "railing": "#3d4a54"
+  }
+}

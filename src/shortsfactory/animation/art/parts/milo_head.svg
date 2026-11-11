@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 107">
+  <!-- ears behind the face -->
+  <ellipse cx="13" cy="65" rx="8.5" ry="11.5" fill="{{skin}}" stroke="{{outline}}" stroke-width="1.4"/>
+  <ellipse cx="87" cy="65" rx="8.5" ry="11.5" fill="{{skin}}" stroke="{{outline}}" stroke-width="1.4"/>
+  <ellipse cx="13" cy="66" rx="3.4" ry="6.2" fill="{{skin_shadow}}"/>
+  <ellipse cx="87" cy="66" rx="3.4" ry="6.2" fill="{{skin_shadow}}"/>
+  <!-- face -->
+  <path d="M50 19 C27 19 12 33 12 56 C12 79 28 99 50 103 C72 99 88 79 88 56 C88 33 73 19 50 19 Z"
+        fill="{{skin}}" stroke="{{outline}}" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- cel shadow along the jaw and temple -->
+  <path d="M15 60 C17 83 31 99 50 103 C38 95 28 80 25 60 Z" fill="{{skin_shadow}}" opacity="0.45"/>
+  <path d="M84 44 C86 37 80 27 69 22 C79 31 80 39 79 45 Z" fill="{{skin_shadow}}" opacity="0.30"/>
+  <!-- soft warmth on the cheeks (very light, no makeup look) -->
+  <ellipse cx="26" cy="78" rx="6.5" ry="3.4" fill="{{blush}}" opacity="0.10"/>
+  <ellipse cx="74" cy="78" rx="6.5" ry="3.4" fill="{{blush}}" opacity="0.10"/>
+  <!-- chin highlight -->
+  <path d="M40 92 C45 96 55 96 60 92" fill="none" stroke="{{skin_shadow}}" stroke-width="1.1" opacity="0.5"/>
+</svg>

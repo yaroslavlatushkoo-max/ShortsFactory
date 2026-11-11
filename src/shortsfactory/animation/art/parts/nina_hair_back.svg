@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 122">
+  <!-- hair mass behind the head, ending at ear level -->
+  <path d="M55 14 C31 14 16 30 16 54 C16 68 20 79 26 88 L34 82
+           C28 72 26 62 29 52 C36 60 45 64 55 64 C65 64 74 60 81 52
+           C84 62 82 72 76 82 L84 88 C90 79 94 68 94 54 C94 30 79 14 55 14 Z"
+        fill="{{hair_dark}}" stroke="{{outline}}" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- high bun sitting on the crown -->
+  <circle cx="55" cy="20" r="13" fill="{{hair_dark}}" stroke="{{outline}}" stroke-width="1.7"/>
+  <path d="M46 17 C49 11 56 9 62 13 C56 13 51 16 49 21 Z" fill="{{hair_light}}" opacity="0.5"/>
+  <path d="M43 27 C47 32 51 34 55 34 C59 34 63 32 67 27" fill="none" stroke="{{hair}}" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- hair tie -->
+  <path d="M43 27 C48 31 62 31 67 27" fill="none" stroke="{{accent}}" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

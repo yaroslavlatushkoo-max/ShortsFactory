@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+# Project outputs (generated diagnostics and exports)
+output/
+!examples/*.json
+# OS junk
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 120">
+  <path d="M30 6 C42 6 51 16 51 30 L47 112 L13 112 L9 30 C9 16 18 6 30 6 Z"
+        fill="{{shirt}}"/>
+  <path d="M30 6 C18 6 9 16 9 30 L13 112" fill="none" stroke="{{outline}}"
+        stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30 6 C42 6 51 16 51 30 L47 112" fill="none" stroke="{{outline}}"
+        stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- sleeve shading -->
+  <path d="M12 34 L16 104 L25 108 L25 34 C22 30 16 30 12 34 Z"
+        fill="{{shirt_dark}}" opacity="0.32"/>
+  <!-- elbow fold -->
+  <path d="M17 100 C24 96 36 96 43 100" fill="none" stroke="{{shirt_dark}}" stroke-width="1.4" opacity="0.7"/>
+  <path d="M18 106 C25 103 35 103 42 106" fill="none" stroke="{{shirt_dark}}" stroke-width="1.2" opacity="0.45"/>
+</svg>

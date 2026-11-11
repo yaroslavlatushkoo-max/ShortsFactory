@@ -1,0 +1,22 @@
+{
+  "id": "blocky_walk_v1",
+  "description": "Цикл ходьбы блочного персонажа: синус на бёдрах/плечах, боб корпуса, клавиша свея.",
+  "formula": {
+    "leg_rotX": "sin(phase) * leg_amp",
+    "arm_rotX": "sin(phase + pi) * arm_amp (если рука не занята действием)",
+    "body_bob_z": "abs(sin(phase)) * 0.035",
+    "body_sway_rotZ": "0.03 * sin(phase)",
+    "phase": "path_dist / stride_m * pi"
+  },
+  "defaults": {
+    "leg_amp": 0.55,
+    "arm_amp": 0.38,
+    "stride_m": 0.6,
+    "step_interval_s": 0.31
+  },
+  "notes": [
+    "Фаза от пройденной дистанции (не от времени) — шаги не скользят при смене скорости",
+    "Рука, держащая предмет, исключается из свинга и берётся из расписания действия"
+  ],
+  "proven_in": ["Алмаз (Minecraft short)"]
+}

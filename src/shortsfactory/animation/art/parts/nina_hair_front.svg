@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 122">
+  <!-- side-swept fringe -->
+  <path d="M12 56 C10 36 24 20 44 15 C38 24 38 30 42 34 C50 20 62 13 74 12
+           C69 22 70 28 76 32 C86 26 95 26 99 32 C92 38 90 46 92 54
+           C86 48 80 44 74 42 C63 38 50 38 40 42 C30 46 23 52 20 60 Z"
+        fill="{{hair}}" stroke="{{outline}}" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M24 52 C31 45 40 41 50 40 C57 39 64 40 70 42 C60 44 50 48 43 55 C37 58 30 57 24 52 Z"
+        fill="{{hair_dark}}" opacity="0.45"/>
+  <path d="M72 16 C76 22 77 27 75 33 C73 26 71 21 68 18 Z" fill="{{hair_light}}" opacity="0.55"/>
+  <path d="M88 28 C91 33 91 38 89 43 C87 37 86 32 85 30 Z" fill="{{hair_light}}" opacity="0.40"/>
+  <!-- side curls -->
+  <path d="M16 52 C10 62 11 74 17 82 C15 72 16 62 21 55 Z" fill="{{hair}}" stroke="{{outline}}" stroke-width="1.3"/>
+  <path d="M94 52 C100 62 99 74 93 82 C95 72 94 62 89 55 Z" fill="{{hair}}" stroke="{{outline}}" stroke-width="1.3"/>
+</svg>

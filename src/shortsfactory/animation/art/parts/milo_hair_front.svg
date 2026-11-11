@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 120">
+  <!-- spiky fringe silhouette -->
+  <path d="M12 62 C10 40 24 20 44 13 C40 24 42 28 47 31 C51 19 59 10 71 6
+           C68 18 70 23 75 26 C82 17 91 14 98 16 C92 25 92 33 95 39
+           C99 47 100 55 99 63 C92 56 84 50 76 46 C68 40 58 38 48 40
+           C37 42 29 48 24 56 C20 61 16 63 12 62 Z"
+        fill="{{hair}}" stroke="{{outline}}" stroke-width="1.7" stroke-linejoin="round"/>
+  <!-- cel shading on the fringe -->
+  <path d="M24 56 C29 48 37 42 48 40 C54 39 60 39 66 41 C56 44 48 49 43 57 C37 60 30 60 24 56 Z"
+        fill="{{hair_dark}}" opacity="0.55"/>
+  <!-- glossy streak -->
+  <path d="M60 14 C65 22 66 27 64 34 C62 27 60 21 57 16 Z" fill="{{hair_light}}" opacity="0.55"/>
+  <path d="M83 19 C86 25 86 30 84 36 C82 30 81 25 80 21 Z" fill="{{hair_light}}" opacity="0.40"/>
+</svg>

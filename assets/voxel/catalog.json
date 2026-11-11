@@ -1,0 +1,81 @@
+{
+  "schema": "voxel-asset-catalog-1.0",
+  "characters": {
+    "hero_v1": {
+      "id": "hero_v1",
+      "type": "character",
+      "source": "voxel_character.build_hero_source",
+      "format": "blender-generated (bpy)",
+      "version": "1.0",
+      "license": "original/synthetic (ShortsFactory)",
+      "rig": "humanoid_v1",
+      "palette": ["hero_skin", "hero_hair", "hero_shirt", "hero_pants", "hero_eyes", "hero_shoes", "hero_trim"],
+      "status": "basic-verified",
+      "notes": "Reusable original cubic hero; face eyes/brows/mouth; hip-height rig."
+    }
+  },
+  "environments": {
+    "forest_blocky": {
+      "id": "forest_blocky",
+      "type": "environment",
+      "source": "voxel_scene.build_scene_source",
+      "format": "blender-generated (bpy)",
+      "version": "1.0",
+      "license": "original/synthetic (ShortsFactory)",
+      "status": "basic-verified",
+      "notes": "Blocky twilight forest: ground, grass, trees, rocks, sky, lights."
+    }
+  },
+  "props": {
+    "cube": {
+      "id": "cube",
+      "type": "prop",
+      "source": "voxel_interactions.interaction_source",
+      "format": "blender-generated (bpy)",
+      "version": "1.0",
+      "license": "original/synthetic (ShortsFactory)",
+      "interaction_point": "hand_r",
+      "status": "basic-verified"
+    },
+    "glow_cube": {
+      "id": "glow_cube",
+      "type": "prop",
+      "source": "voxel_interactions.interaction_source",
+      "format": "blender-generated (bpy)",
+      "version": "1.0",
+      "license": "original/synthetic (ShortsFactory)",
+      "emission": true,
+      "interaction_point": "hand_r",
+      "status": "basic-verified"
+    },
+    "platform": {
+      "id": "platform",
+      "type": "prop",
+      "source": "voxel_scene.build_scene_source",
+      "format": "blender-generated (bpy)",
+      "version": "1.0",
+      "license": "original/synthetic (ShortsFactory)",
+      "status": "basic-verified"
+    }
+  },
+  "clips": {
+    "idle": {"id": "idle", "file": "assets/voxel/animations/idle.json"},
+    "walk": {"id": "walk", "file": "assets/voxel/animations/walk.json"},
+    "turn": {"id": "turn", "file": "assets/voxel/animations/turn.json"},
+    "stop": {"id": "stop", "file": "assets/voxel/animations/stop.json"},
+    "bend": {"id": "bend", "file": "assets/voxel/animations/bend.json"},
+    "reach": {"id": "reach", "file": "assets/voxel/animations/reach.json"},
+    "pickup": {"id": "pickup", "file": "assets/voxel/animations/pickup.json"},
+    "hold": {"id": "hold", "file": "assets/voxel/animations/hold.json"},
+    "react": {"id": "react", "file": "assets/voxel/animations/react.json"},
+    "look_at": {"id": "look_at", "file": "assets/voxel/animations/look_at.json"}
+  },
+  "shots": {
+    "wide": {"id": "wide", "kind": "wide", "lens": 26, "offset": [2.0, 7.5, 1.4], "note": "establishing/full scene"},
+    "medium": {"id": "medium", "kind": "medium", "lens": 30, "offset": [1.6, 6.0, 1.1], "note": "full figure + environment"},
+    "three_quarter": {"id": "three_quarter", "kind": "three_quarter", "lens": 32, "offset": [1.6, 6.0, 1.1], "note": "main readable angle"},
+    "closeup": {"id": "closeup", "kind": "closeup", "lens": 60, "offset": [0.7, 2.6, 1.25], "note": "face/torso reaction"},
+    "follow": {"id": "follow", "kind": "follow", "lens": 30, "offset": [1.7, 6.2, 1.15], "note": "tracks moving hero"},
+    "reaction": {"id": "reaction", "kind": "reaction", "lens": 52, "offset": [1.0, 3.6, 1.2], "note": "surprise beat"}
+  }
+}

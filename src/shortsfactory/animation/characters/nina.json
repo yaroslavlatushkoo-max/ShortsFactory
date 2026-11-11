@@ -1,0 +1,357 @@
+{
+  "version": 2,
+  "id": "nina",
+  "name": "Нина",
+  "rig": "humanoid_v1",
+  "proportions": {
+    "build": 1.0,
+    "head": 1.12,
+    "legs": 0.96
+  },
+  "palette": {
+    "skin": "#f7d3b2",
+    "skin_light": "#ffe4c9",
+    "skin_shadow": "#dda57f",
+    "shirt": "#e8713c",
+    "shirt_light": "#ff8f5c",
+    "shirt_dark": "#c4552a",
+    "pants": "#6b4a7a",
+    "pants_dark": "#523760",
+    "shoe": "#5a3b6b",
+    "shoe_dark": "#40284f",
+    "sole": "#f4efe8",
+    "hair": "#8a3d22",
+    "hair_dark": "#612714",
+    "hair_light": "#b05a34",
+    "outline": "#20161c",
+    "eye_white": "#fffdf6",
+    "iris": "#6b8f5e",
+    "pupil": "#22301f",
+    "mouth": "#8a3a3a",
+    "tongue": "#d9808a",
+    "teeth": "#fffdf7",
+    "blush": "#e89a8f",
+    "accent": "#7bc4a4",
+    "collar": "#fff8ef",
+    "lens": "#dfeef2",
+    "shoe_light": "#8a5f9e"
+  },
+  "hair": {
+    "style": "bun",
+    "color": ""
+  },
+  "face": {
+    "eye": "almond",
+    "brow": "soft",
+    "nose": "button",
+    "mouth": "small",
+    "freckles": true
+  },
+  "outfit": {
+    "style": "dress",
+    "sleeve": "short",
+    "collar": true
+  },
+  "accessories": [
+    "glasses"
+  ],
+  "graphics": {
+    "version": 1,
+    "style": "cel_v3",
+    "parts": {
+      "head": {
+        "asset": "nina_head.svg",
+        "size": [
+          0.281,
+          0.3
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "hair_back": {
+        "asset": "nina_hair_back.svg",
+        "size": [
+          0.31,
+          0.335
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "hair_front": {
+        "asset": "nina_hair_front.svg",
+        "size": [
+          0.31,
+          0.335
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "torso": {
+        "asset": "nina_torso.svg",
+        "size": [
+          0.25,
+          0.34
+        ],
+        "anchor": [
+          0.5,
+          1.0
+        ]
+      },
+      "pelvis": {
+        "asset": "milo_pelvis.svg",
+        "size": [
+          0.2,
+          0.13
+        ],
+        "anchor": [
+          0.5,
+          0.265
+        ]
+      },
+      "skirt": {
+        "asset": "nina_skirt.svg",
+        "size": [
+          0.245,
+          0.205
+        ],
+        "anchor": [
+          0.5,
+          0.18
+        ]
+      },
+      "upper_arm": {
+        "asset": "nina_arm.svg",
+        "size": [
+          0.088,
+          0.18
+        ],
+        "anchor": [
+          0.5,
+          0.01
+        ]
+      },
+      "forearm": {
+        "asset": "nina_forearm.svg",
+        "size": [
+          0.078,
+          0.17
+        ],
+        "anchor": [
+          0.5,
+          0.06
+        ]
+      },
+      "hand": {
+        "asset": "nina_hand.svg",
+        "size": [
+          0.095,
+          0.11
+        ],
+        "anchor": [
+          0.5,
+          0.07
+        ]
+      },
+      "thigh": {
+        "asset": "nina_leg.svg",
+        "size": [
+          0.103,
+          0.28
+        ],
+        "anchor": [
+          0.5,
+          0.02
+        ]
+      },
+      "shin": {
+        "asset": "nina_shin.svg",
+        "size": [
+          0.1,
+          0.25
+        ],
+        "anchor": [
+          0.5,
+          0.03
+        ]
+      },
+      "shoe": {
+        "asset": "nina_shoe.svg",
+        "size": [
+          0.155,
+          0.105
+        ],
+        "anchor": [
+          0.207,
+          0.212
+        ],
+        "rest": 1.15
+      }
+    },
+    "face": {
+      "eyes": {
+        "asset": "nina_eyes.svg",
+        "size": [
+          0.2,
+          0.086
+        ],
+        "offset": [
+          0.0,
+          -0.03
+        ]
+      },
+      "brows": {
+        "asset": "nina_brows.svg",
+        "size": [
+          0.2,
+          0.048
+        ],
+        "offset": [
+          0.0,
+          -0.072
+        ]
+      },
+      "nose": {
+        "asset": "milo_nose.svg",
+        "size": [
+          0.036,
+          0.03
+        ],
+        "offset": [
+          0.0,
+          0.014
+        ]
+      },
+      "mouth": {
+        "asset": "nina_mouth.svg",
+        "size": [
+          0.115,
+          0.072
+        ],
+        "offset": [
+          0.0,
+          0.052
+        ]
+      },
+      "glasses": {
+        "asset": "glasses_round.svg",
+        "size": [
+          0.19,
+          0.085
+        ],
+        "offset": [
+          0.0,
+          -0.012
+        ]
+      },
+      "extras": {
+        "asset": "face_extras.svg",
+        "size": [
+          0.22,
+          0.11
+        ],
+        "offset": [
+          0.0,
+          0.028
+        ]
+      }
+    },
+    "expressions": {
+      "neutral": {
+        "eyes": "open",
+        "brows": "neutral",
+        "mouth": "smile"
+      },
+      "joy": {
+        "eyes": "happy",
+        "brows": "raised",
+        "mouth": "grin",
+        "blush": true
+      },
+      "surprise": {
+        "eyes": "wide",
+        "brows": "raised",
+        "mouth": "o"
+      },
+      "confused": {
+        "eyes": "open",
+        "brows": "curious",
+        "mouth": "smirk"
+      },
+      "annoyed": {
+        "eyes": "half",
+        "brows": "angry",
+        "mouth": "frown"
+      },
+      "sad": {
+        "eyes": "sad",
+        "brows": "sad",
+        "mouth": "frown"
+      },
+      "laugh": {
+        "eyes": "happy",
+        "brows": "raised",
+        "mouth": "laugh",
+        "blush": true
+      },
+      "cry": {
+        "eyes": "sad",
+        "brows": "sad",
+        "mouth": "wail"
+      },
+      "determined": {
+        "eyes": "angry",
+        "brows": "angry",
+        "mouth": "grit"
+      },
+      "thinking": {
+        "eyes": "half",
+        "brows": "curious",
+        "mouth": "smirk"
+      }
+    },
+    "layers": [
+      "far_leg",
+      "far_arm",
+      "pelvis",
+      "skirt",
+      "torso",
+      "head",
+      "near_leg",
+      "near_arm"
+    ],
+    "angles": [
+      "front",
+      "three_quarter"
+    ],
+    "actions": [
+      "idle",
+      "walk",
+      "stop",
+      "turn",
+      "wave",
+      "reach",
+      "offer",
+      "carry",
+      "point",
+      "react",
+      "surprise",
+      "joy",
+      "confused",
+      "annoyed"
+    ],
+    "rig_limits": {
+      "elbow_min": -2.6,
+      "elbow_max": 0.25,
+      "knee_min": 0.0,
+      "knee_max": 2.4,
+      "arm_raise": 2.9
+    },
+    "sleeve_color": "skin"
+  }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 120">
+  <!-- back mass of the spiky haircut -->
+  <path d="M55 12 C28 12 10 30 10 56 C10 61 12 65 16 68 L30 64
+           C26 59 26 55 28 51 C35 57 44 60 55 60 C66 60 75 57 82 51
+           C84 55 84 59 80 64 L94 68 C98 65 100 61 100 56 C100 30 82 12 55 12 Z"
+        fill="{{hair_dark}}" stroke="{{outline}}" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- soft shadow under the fringe -->
+  <path d="M30 42 C42 36 68 36 80 42 C72 48 60 50 55 50 C48 50 38 48 30 42 Z"
+        fill="{{hair}}" opacity="0.55"/>
+</svg>

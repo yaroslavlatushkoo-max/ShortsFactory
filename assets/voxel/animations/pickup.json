@@ -1,0 +1,19 @@
+{
+  "schema": "voxel-clip-1.0",
+  "id": "pickup",
+  "action": "pickup",
+  "rig": "humanoid_v1",
+  "status": "basic-verified",
+  "transition": {
+    "from": "bent",
+    "to": "holding"
+  },
+  "duration_seconds": [
+    1.0,
+    2.6
+  ],
+  "params": [
+    "intensity"
+  ],
+  "notes": "prepared/reusable clip for the hero_v1 rig"
+}

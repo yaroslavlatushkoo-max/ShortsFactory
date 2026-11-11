@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "id": "pilot_room_v1",
+  "title": "Пилот Animation Engine v1 — комната с двумя персонажами",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration": 13.0,
+  "seed": 20261023,
+  "blend": 0.18,
+  "background": {
+    "wall_top": "#d7ecf6",
+    "wall_bottom": "#a2c8de",
+    "floor": "#cba06a",
+    "skirting": "#8a6a45",
+    "rug": "#d9664f",
+    "window": "#b6e2f2",
+    "window_frame": "#7a5a3a",
+    "frame": "#6b4a2f",
+    "accent": "#f2d06b"
+  },
+  "foreground": {},
+  "characters": [
+    {
+      "id": "milo",
+      "name": "Мило",
+      "rig": "humanoid_v1",
+      "x": 0.16,
+      "y": 0.93,
+      "scale": 1.0,
+      "facing": 1,
+      "z": 20,
+      "appear_at": 0.0,
+      "palette": {
+        "skin": "#f4c9a3",
+        "shirt": "#27a9c0",
+        "pants": "#33405c",
+        "shoe": "#1f2430",
+        "hair": "#5a3b26",
+        "outline": "#1b2230"
+      }
+    },
+    {
+      "id": "nina",
+      "name": "Нина",
+      "rig": "humanoid_v1",
+      "x": 0.80,
+      "y": 0.94,
+      "scale": 1.06,
+      "facing": -1,
+      "z": 25,
+      "appear_at": 0.0,
+      "palette": {
+        "skin": "#f6d3b0",
+        "shirt": "#ef7a35",
+        "pants": "#3b4a6b",
+        "shoe": "#242a36",
+        "hair": "#2b2b33",
+        "outline": "#1b2230"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "orb",
+      "kind": "orb",
+      "z": 12,
+      "appear_at": 0.0,
+      "color": "#ffd257",
+      "keyframes": [
+        { "t": 0.0, "x": 0.62, "y": 0.695, "scale": 1.0, "rotation": 0.0 },
+        { "t": 6.0, "x": 0.62, "y": 0.695, "scale": 1.0, "rotation": 0.0 },
+        { "t": 6.6, "x": 0.61, "y": 0.640, "scale": 1.08, "rotation": 0.0 },
+        { "t": 8.0, "x": 0.55, "y": 0.420, "scale": 1.45, "rotation": 0.0 },
+        { "t": 10.0, "x": 0.50, "y": 0.300, "scale": 1.60, "rotation": 0.0 },
+        { "t": 11.6, "x": 0.50, "y": 0.270, "scale": 1.35, "rotation": 0.0 },
+        { "t": 13.0, "x": 0.50, "y": 0.300, "scale": 1.30, "rotation": 0.0 }
+      ]
+    }
+  ],
+  "actions": [
+    { "character": "milo", "action": "idle", "start": 0.0, "duration": 1.6, "params": {} },
+    { "character": "milo", "action": "walk", "start": 1.6, "duration": 3.0, "params": { "to_x": 0.30, "cycles": 4, "stride": 0.6 } },
+    { "character": "milo", "action": "stop", "start": 4.6, "duration": 0.5, "params": {} },
+    { "character": "milo", "action": "reach", "start": 5.1, "duration": 1.2, "params": {} },
+    { "character": "milo", "action": "react", "start": 6.8, "duration": 1.4, "params": {} },
+    { "character": "milo", "action": "point", "start": 8.4, "duration": 1.0, "params": {} },
+    { "character": "milo", "action": "wave", "start": 9.6, "duration": 1.4, "params": {} },
+    { "character": "milo", "action": "idle", "start": 11.0, "duration": 2.0, "params": {} },
+    { "character": "nina", "action": "idle", "start": 0.0, "duration": 5.6, "params": {} },
+    { "character": "nina", "action": "react", "start": 5.6, "duration": 1.3, "params": {} },
+    { "character": "nina", "action": "point", "start": 7.0, "duration": 1.4, "params": {} },
+    { "character": "nina", "action": "wave", "start": 8.6, "duration": 1.3, "params": {} },
+    { "character": "nina", "action": "react", "start": 10.0, "duration": 1.4, "params": {} },
+    { "character": "nina", "action": "idle", "start": 11.4, "duration": 1.6, "params": {} }
+  ],
+  "camera": [
+    { "t": 0.0, "x": 0.50, "y": 0.50, "zoom": 1.0 },
+    { "t": 5.0, "x": 0.50, "y": 0.51, "zoom": 1.02 },
+    { "t": 7.0, "x": 0.47, "y": 0.52, "zoom": 1.10 },
+    { "t": 9.5, "x": 0.50, "y": 0.52, "zoom": 1.06 },
+    { "t": 13.0, "x": 0.52, "y": 0.51, "zoom": 1.02 }
+  ],
+  "blink_times": [2.2, 4.9, 6.2, 8.4, 10.5, 12.2],
+  "contact_times": [0.7, 2.6, 4.0, 5.7, 6.4, 7.6, 8.6, 9.8, 12.3],
+  "voice": {
+    "lang": "ru",
+    "gain": 0.9,
+    "lines": [
+      { "character": "nina", "text": "Мило, посмотри на стол. Там что-то светится.", "start": 2.4, "voice": "" },
+      { "character": "milo", "text": "Ой! Оно летит!", "start": 6.9, "voice": "" },
+      { "character": "nina", "text": "Не трогай! Оно живое!", "start": 9.0, "voice": "" }
+    ]
+  }
+}

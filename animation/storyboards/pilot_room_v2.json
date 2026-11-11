@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "scene": {
+    "id": "pilot_room_v2",
+    "title": "Светящийся шар — пилот v2",
+    "duration": 17.0,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "seed": 20261025,
+    "blend": 0.18,
+    "background": {
+      "table_x": 0.50,
+      "table_y": 0.84
+    }
+  },
+  "characters": [
+    {
+      "id": "milo",
+      "name": "Мило",
+      "look": "milo",
+      "x": 0.10,
+      "y": 1.0,
+      "scale": 1.0,
+      "facing": 1,
+      "z": 20
+    },
+    {
+      "id": "nina",
+      "name": "Нина",
+      "look": "nina",
+      "x": 0.72,
+      "y": 1.0,
+      "scale": 0.98,
+      "facing": -1,
+      "z": 22
+    }
+  ],
+  "objects": [
+    {
+      "id": "orb",
+      "kind": "orb",
+      "z": 15,
+      "appear_at": 0.0,
+      "color": "#ffd257",
+      "keyframes": [
+        {"t": 0.0, "x": 0.50, "y": 0.80, "scale": 1.0, "rotation": 0.0},
+        {"t": 17.0, "x": 0.50, "y": 0.80, "scale": 1.0, "rotation": 0.0}
+      ]
+    }
+  ],
+  "beats": [
+    {"id": "m_walk", "actor": "milo", "do": "walk_to", "x": 0.26, "duration": 2.6, "cycles": 2.2, "stride": 0.5},
+    {"id": "m_stop", "actor": "milo", "do": "stop", "duration": 0.6, "after": ["m_walk"]},
+    {"id": "m_reach", "actor": "milo", "do": "take", "object": "orb", "duration": 1.3, "after": ["m_stop"], "attach_at": 0.8, "intensity": 0.5},
+    {"id": "m_carry", "actor": "milo", "do": "carry", "object": "orb", "duration": 1.0, "after": ["m_reach"]},
+
+    {"id": "n_notice", "actor": "nina", "do": "surprise", "duration": 0.9, "start": 4.2},
+    {"id": "n_point", "actor": "nina", "do": "point", "object": "orb", "duration": 1.0, "start": 5.2},
+    {"id": "m_line1", "actor": "milo", "do": "say", "text": "Смотри, какой тёплый свет!", "duration": 2.0, "start": 5.6},
+
+    {"id": "m_offer", "actor": "milo", "do": "give", "object": "orb", "to": "nina", "duration": 1.4, "start": 7.0, "transfer_at": 0.9, "intensity": 0.55},
+    {"id": "n_reach", "actor": "nina", "do": "reach", "object": "orb", "duration": 1.3, "start": 7.4, "intensity": 0.55},
+    {"id": "n_line2", "actor": "nina", "do": "say", "text": "Где ты это взял?", "duration": 2.0, "start": 8.8},
+    {"id": "n_carry", "actor": "nina", "do": "carry", "object": "orb", "duration": 1.2, "start": 8.7},
+    {"id": "n_walk", "actor": "nina", "do": "walk_to", "x": 0.60, "duration": 1.4, "cycles": 1.6, "stride": 0.45, "start": 9.9},
+    {"id": "n_joy", "actor": "nina", "do": "joy", "duration": 1.3, "start": 11.4},
+
+    {"id": "m_line3", "actor": "milo", "do": "say", "text": "Теперь он твой.", "duration": 1.6, "start": 12.2},
+    {"id": "n_drop", "actor": "nina", "do": "drop", "object": "orb", "duration": 1.2, "start": 12.9, "detach_at": 0.35,
+     "velocity": [0.03, 0.05], "spin": 20.0, "intensity": 0.6},
+    {"id": "m_surprise", "actor": "milo", "do": "surprise", "duration": 1.0, "start": 13.5},
+    {"id": "n_joy2", "actor": "nina", "do": "joy", "duration": 1.4, "start": 14.2},
+    {"id": "m_point", "actor": "milo", "do": "point", "object": "orb", "duration": 1.2, "start": 14.8},
+    {"id": "n_point2", "actor": "nina", "do": "point", "object": "orb", "duration": 1.0, "start": 15.4}
+  ],
+  "camera": [
+    {"t": 0.0, "x": 0.46, "y": 0.50, "zoom": 1.0},
+    {"t": 4.5, "x": 0.46, "y": 0.57, "zoom": 1.08},
+    {"t": 8.3, "x": 0.50, "y": 0.57, "zoom": 1.10},
+    {"t": 11.5, "x": 0.52, "y": 0.57, "zoom": 1.06},
+    {"t": 17.0, "x": 0.50, "y": 0.50, "zoom": 1.0}
+  ],
+  "blink_times": [1.4, 3.7, 6.2, 8.9, 10.8, 13.1, 15.2, 16.4],
+  "contact_times": [2.9, 4.35, 5.6, 7.4, 8.26, 9.6, 11.6, 13.35, 15.6],
+  "voice": {
+    "lang": "ru",
+    "gain": 0.9
+  }
+}

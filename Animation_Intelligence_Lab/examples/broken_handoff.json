@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0.0",
+  "name": "broken_handoff_negative_test",
+  "fps": 30,
+  "duration_seconds": 4.0,
+  "characters": {
+    "char_a": {
+      "character_id": "char_a",
+      "position": {
+        "x": 0.1,
+        "y": 0.8
+      },
+      "rotation": 90.0,
+      "root_velocity": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "scale": 1.0,
+      "emotion": "neutral",
+      "gaze_target": null,
+      "current_action": "idle",
+      "pose_id": null,
+      "visibility": "visible"
+    },
+    "char_b": {
+      "character_id": "char_b",
+      "position": {
+        "x": 0.2,
+        "y": 0.4
+      },
+      "rotation": 90.0,
+      "root_velocity": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "scale": 1.0,
+      "emotion": "neutral",
+      "gaze_target": null,
+      "current_action": "idle",
+      "pose_id": null,
+      "visibility": "visible"
+    }
+  },
+  "props": {
+    "orb_glow": {
+      "prop_id": "orb_glow",
+      "position": {
+        "x": 0.55,
+        "y": 0.6
+      },
+      "rotation": 0.0,
+      "owner_id": null,
+      "attachment_point": null,
+      "velocity": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "state": "free",
+      "glowing": true
+    }
+  },
+  "motion_segments": [
+    {
+      "id": "b_walk",
+      "character_id": "char_b",
+      "action_type": "walk",
+      "start_time": 0.0,
+      "end_time": 1.0,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.2,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "walk",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.5,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "walk",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    },
+    {
+      "id": "teleport",
+      "character_id": "char_b",
+      "action_type": "walk",
+      "start_time": 1.0,
+      "end_time": 1.5,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.9,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "walk",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "walk",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    },
+    {
+      "id": "far_pickup",
+      "character_id": "char_b",
+      "action_type": "reach",
+      "start_time": 1.5,
+      "end_time": 2.0,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "reach",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "reach",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    },
+    {
+      "id": "b_hold",
+      "character_id": "char_b",
+      "action_type": "hold",
+      "start_time": 2.0,
+      "end_time": 2.5,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "hold",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "hold",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    },
+    {
+      "id": "ghost_hold",
+      "character_id": "char_b",
+      "action_type": "hold",
+      "start_time": 2.5,
+      "end_time": 3.0,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "hold",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "hold",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    },
+    {
+      "id": "idle_tail",
+      "character_id": "char_b",
+      "action_type": "idle",
+      "start_time": 3.0,
+      "end_time": 4.0,
+      "start_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "idle",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "end_state": {
+        "character_id": "char_b",
+        "position": {
+          "x": 0.92,
+          "y": 0.4
+        },
+        "rotation": 90.0,
+        "root_velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "scale": 1.0,
+        "emotion": "neutral",
+        "gaze_target": null,
+        "current_action": "idle",
+        "pose_id": null,
+        "visibility": "visible"
+      },
+      "trajectory": {
+        "kind": "linear",
+        "control_points": [],
+        "easing": "linear",
+        "max_speed": null
+      },
+      "easing": "linear",
+      "constraints": {
+        "max_speed": 0.5,
+        "max_acceleration": 2.0,
+        "keep_in_bounds": true
+      },
+      "dependencies": []
+    }
+  ],
+  "interactions": [
+    {
+      "id": "claim_a",
+      "kind": "pickup",
+      "time": 2.0,
+      "actor_id": "char_a",
+      "prop_id": "orb_glow",
+      "receiver_id": null,
+      "attachment_point": null,
+      "preconditions": [],
+      "expected_prop_state_after": "attached",
+      "expected_owner_after": "char_a"
+    },
+    {
+      "id": "claim_b",
+      "kind": "pickup",
+      "time": 2.0,
+      "actor_id": "char_b",
+      "prop_id": "orb_glow",
+      "receiver_id": null,
+      "attachment_point": null,
+      "preconditions": [],
+      "expected_prop_state_after": "attached",
+      "expected_owner_after": "char_b"
+    }
+  ],
+  "poses": []
+}

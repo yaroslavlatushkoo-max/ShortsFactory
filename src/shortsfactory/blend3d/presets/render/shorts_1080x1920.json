@@ -1,0 +1,14 @@
+{
+  "id": "shorts_1080x1920",
+  "engine": "BLENDER_EEVEE",
+  "resolution": [1080, 1920],
+  "fps": 30,
+  "taa_render_samples": 64,
+  "light_threshold": 0.02,
+  "view_transform": "Standard",
+  "frame_format": "JPEG",
+  "jpeg_quality": 93,
+  "exposure": 0.45,
+  "notes": "Vertical shorts preset. sensor AUTO in Blender 5.2 portrait yields v-FOV ~ 2*atan(10.125/lens): author focal lengths 24-44mm for medium/wide shots. Verified at ~1.5-2 s/frame on RTX 3050 Ti for a ~700-block scene.",
+  "proven_in": ["Маленький садовник", "Алмаз"]
+}
