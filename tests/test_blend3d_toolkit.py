@@ -62,20 +62,25 @@ def test_validate_rejects_overlap():
 def test_build_blender_argv(tmp_path):
     script = tmp_path / "driver.py"
     script.write_text("print('x')", encoding="utf-8")
-    argv = build_blender_argv(r"D:\Blender\blender.exe", script, "preview")
-    assert argv[0] == r"D:\Blender\blender.exe" and argv[1] == "-b"
+    fake_exe = tmp_path / "blender.exe"
+    fake_exe.write_bytes(b"MZ")
+    argv = build_blender_argv(fake_exe, script, "preview")
+    assert argv[0] == str(fake_exe) and argv[1] == "-b"
     assert argv[-1] == "preview" and "--" in argv
     for mode in MODES:
-        assert build_blender_argv(r"D:\Blender\blender.exe", script, mode)[-1] == mode
+        assert build_blender_argv(fake_exe, script, mode)[-1] == mode
 
 def test_build_argv_rejects_missing_script(tmp_path):
+    fake_exe = tmp_path / "blender.exe"
+    fake_exe.write_bytes(b"MZ")
     with pytest.raises(FileNotFoundError):
-        build_blender_argv(r"D:\Blender\blender.exe", tmp_path / "nope.py", "build")
+        build_blender_argv(fake_exe, tmp_path / "nope.py", "build")
 
 def test_build_argv_rejects_bad_mode(tmp_path):
     script = tmp_path / "driver.py"; script.write_text("x")
+    fake_exe = tmp_path / "blender.exe"; fake_exe.write_bytes(b"MZ")
     with pytest.raises(ValueError):
-        build_blender_argv(r"D:\Blender\blender.exe", script, "explode")
+        build_blender_argv(fake_exe, script, "explode")
 
 def test_build_argv_rejects_missing_blender(tmp_path):
     script = tmp_path / "driver.py"; script.write_text("x")
@@ -99,7 +104,10 @@ def test_frames_done_counts(tmp_path):
     assert frames_done(tmp_path / "absent") == 0
 
 def test_find_blender_available():
-    p = find_blender()   # this machine has D:\Blender\blender.exe
+    try:
+        p = find_blender()
+    except FileNotFoundError:
+        pytest.skip("Blender не установлен в этой среде")
     assert p.is_file()
 
 # ---------- qc: frames + wav ----------

@@ -1354,7 +1354,8 @@ def mux_audio(video: Path, wav_bytes: bytes, out: Path) -> Path:
     subprocess.run(
         ["ffmpeg", "-y", "-loglevel", "error",
          "-i", str(video), "-i", str(wav_path),
-         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", str(out)],
+         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+         "-ar", "48000", "-ac", "2", "-shortest", str(out)],
         check=True, shell=False,
     )
     return out

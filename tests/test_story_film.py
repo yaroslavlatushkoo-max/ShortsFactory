@@ -1,4 +1,5 @@
 import json
+import wave
 
 import numpy as np
 import pytest
@@ -9,6 +10,7 @@ from shortsfactory.generative.story_film import (
     render_character_sprite,
     render_background,
     write_srt,
+    loudnorm_two_pass,
 )
 
 
@@ -122,15 +124,6 @@ def test_build_story_film_smoke(tmp_path, needs_voices):
     # видео непустое и является mp4
     with open(final, "rb") as f:
         assert f.read(4) == b"\x00\x00\x00\x18" or final.suffix == ".mp4"
-
-import subprocess
-import wave
-from pathlib import Path
-
-import numpy as np
-import pytest
-
-from shortsfactory.generative.story_film import loudnorm_two_pass
 
 
 def test_idle_frames_differ_due_to_breathe_and_zoom():

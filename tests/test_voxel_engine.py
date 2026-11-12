@@ -103,7 +103,7 @@ def test_dispatcher_voxel_passes_video(monkeypatch):
     assert res.video == "out/final.mp4"
 
 
-def test_procedural_still_works(tmp_path):
+def test_procedural_still_works(tmp_path, needs_voices):
     # adding voxel must not break procedural routing (real small render)
     from shortsfactory.generative import engine_dispatcher
     from shortsfactory.config import load_config

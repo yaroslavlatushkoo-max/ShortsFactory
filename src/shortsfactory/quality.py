@@ -220,12 +220,13 @@ class QualityService:
             audio_ok,
             "интегральная громкость: " + (f"{input_i:.1f} LUFS (цель {self.target_lufs:.1f}±1.5)" if input_i is not None else "не определена"),
         )
-        tp_ok = input_tp is not None and input_tp <= -1.0
+        tp_ok = input_tp is not None and input_tp <= self.target_true_peak
         add(
             "true_peak",
-            "True peak имеет запас ниже 0 dBTP",
+            "True peak имеет запас ниже целевого порога",
             tp_ok,
-            (f"{input_tp:.2f} dBTP (нужно ≤ -1.0)" if input_tp is not None else "не измерен"),
+            (f"{input_tp:.2f} dBTP (нужно ≤ {self.target_true_peak:.1f})"
+             if input_tp is not None else "не измерен"),
         )
 
         black = run(

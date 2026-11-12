@@ -19,6 +19,7 @@ from typing import Any, Sequence
 from ..subtitles import Cue, write_srt
 from .blocky_scene import CHARACTERS, BlockyScene
 from .blocky_story import scene_files, write_storyboard
+from .story_film import ensure_film_loudness
 
 __all__ = [
     "concat_videos",
@@ -334,6 +335,7 @@ def produce_film(
         return report_out
 
     film = concat_videos(videos, out / "film.mp4")
+    film = ensure_film_loudness(film)
     duration = probe_duration(film)
     report_out["video"] = str(film)
     report_out["duration"] = round(duration, 3)

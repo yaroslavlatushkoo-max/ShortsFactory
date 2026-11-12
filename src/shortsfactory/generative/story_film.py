@@ -28,6 +28,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from ..blend3d.host.skins import region_px
+from .audio_timing import compress_silence, room_tone
+from .liveliness import camera_transform, idle_transform, speech_envelope
 
 # ---------------------------------------------------------------------------
 # константы
@@ -638,6 +640,7 @@ def compose_scene_frame(
     voice_line: str = "",
     t: float = 0.0,
     moves: Optional[list[dict[str, Any]]] = None,
+    speaking: float = 0.0,
 ) -> Image.Image:
     """Иллюстрация сцены: фон + персонажи (+ движения) + заголовок/реплика."""
     img = render_background(location, width, height, seed=seed)
@@ -693,6 +696,7 @@ def compose_scene_frame(
             phase = (zlib.crc32(char.encode("utf-8")) % 628) / 100.0
             bob = int(round(2.0 * math.sin(2 * math.pi * 0.4 * t + phase)))
             anchor_y += bob
+            spr = idle_transform(spr, t, char, speaking=speaking)
 
         canvas.alpha_composite(spr, (anchor_x, anchor_y))
 
@@ -728,13 +732,8 @@ def compose_scene_frame(
         for li, ln in enumerate(lines[:4]):
             draw.text((40, y0 + li * 56), ln, font=line_font, fill=(255, 255, 255),
                       stroke_width=3, stroke_fill=(10, 10, 10))
-    # медленный зум камеры (+1.5% к концу сцены) — живость кадра
-    zoom = 1.0 + 0.015 * t
-    if zoom > 1.0:
-        w, h = out.size
-        cw, ch = int(w / zoom), int(h / zoom)
-        x0, y0 = (w - cw) // 2, (h - ch) // 2
-        out = out.crop((x0, y0, x0 + cw, y0 + ch)).resize((w, h), Image.LANCZOS)
+    # плавный push-in + боковой дрейф камеры (живость кадра)
+    out = camera_transform(out, t)
     return out
 
 
@@ -805,6 +804,9 @@ def synthesize_scene_audio(
         idx = np.clip(idx, 0, len(speech) - 1)
         speech = speech[idx]
 
+    total = dur + gape * 2
+    speech = compress_silence(speech, sr, max_gap_s=0.40)
+    dur = len(speech) / sr          # длительность после сжатия пауз
     total = dur + gape * 2
     n = int(total * sr)
     out = np.zeros(n, dtype=np.float32)
@@ -906,6 +908,7 @@ def _render_scene_sequence(
     out_clip: Path,
     work: Path,
     index: int,
+    speaking_env: Optional[np.ndarray] = None,
 ) -> Path:
     """Рендерит сцену как последовательность кадров (с движениями) в MP4."""
     n_frames = max(1, round(clip_dur * fps))
@@ -913,15 +916,17 @@ def _render_scene_sequence(
     seq_dir.mkdir(parents=True, exist_ok=True)
     for k in range(n_frames):
         t = k / n_frames
+        speaking = float(speaking_env[k]) if speaking_env is not None and k < len(speaking_env) else 0.0
         frame = compose_scene_frame(
             title=title, location=location, characters=characters,
             width=width, height=height, seed=seed, voice_line=voice_line,
-            t=t, moves=moves,
+            t=t, moves=moves, speaking=speaking,
         )
         frame.save(seq_dir / f"{k + 1:04d}.jpg", quality=88)
     cmd = [
         _ffmpeg(), "-y", "-framerate", str(fps),
         "-i", str(seq_dir / "%04d.jpg"),
+        "-vf", "scale=in_range=pc:out_range=tv,format=yuv420p",
         "-c:v", "libx264", "-pix_fmt", "yuv420p",
         "-preset", "veryfast", "-crf", "20",
         str(out_clip),
@@ -971,14 +976,7 @@ def build_story_film(
             return str(DEFAULT_PIPER_DIR / DEFAULT_VOICE_EN)
         return str(DEFAULT_PIPER_DIR / DEFAULT_VOICE_RU)
 
-    # длительности: пропорционально длине текста
-    target_s = target_s or float(storyboard.get("target_duration_s") or 60.0)
-    total_chars = max(1, sum(len(sc.get("detail") or sc.get("summary") or "") for sc in scenes))
-    durations: list[float] = []
-    for sc in scenes:
-        text = sc.get("detail") or sc.get("summary") or ""
-        durations.append(max(4.0, target_s * len(text) / total_chars))
-
+    # длительности сцен теперь определяются длиной речи (sp_dur) после сжатия пауз
     # --- аудио и клипы ---
     clip_paths: list[Path] = []
     audio_chunks: list[np.ndarray] = []
@@ -991,7 +989,6 @@ def build_story_film(
         text = (sc.get("detail") or sc.get("summary") or "").strip()
         title = sc.get("title") or f"Сцена {i + 1}"
         location = sc.get("location") or ""
-        duration = durations[i]
 
         # кто в сцене
         chars_meta = sc.get("characters") or []
@@ -1019,18 +1016,20 @@ def build_story_film(
         speech, sp_dur = synthesize_scene_audio(
             text, lang=lang, voice_override=voice, sr=sr, ambient=ambient,
         )
-        clip_dur = max(duration, sp_dur + 0.6)
+        clip_dur = sp_dur + 0.30    # sp_dur уже содержит 0.35 с лид-ин + 0.35 с хвост
+        speaking_env = speech_envelope(speech, sr, int(clip_dur * fps), fps)
         clip = work / f"clip_{i:03d}.mp4"
         _render_scene_sequence(
             title=title, location=location, characters=chars,
             width=width, height=height, seed=seed + i, voice_line=text,
             moves=sc.get("moves"), clip_dur=clip_dur, fps=fps,
-            out_clip=clip, work=work, index=i,
+            out_clip=clip, work=work, index=i, speaking_env=speaking_env,
         )
         clip_paths.append(clip)
 
         # аудио-блок со вставкой
-        pad = np.zeros(int((clip_dur - sp_dur) * sr), dtype=np.float32)
+        need = int(round(clip_dur * sr)) - len(speech)
+        pad = room_tone(need, sr, amp=0.03) if need > 0 else np.zeros(0, dtype=np.float32)
         audio_chunks.append(np.concatenate([speech, pad]))
 
         srt_lines.append((cursor, cursor + clip_dur, text))
@@ -1069,12 +1068,14 @@ def build_story_film(
     final = out_dir / f"{_slugify(title0)}.mp4"
     cmd = [
         _ffmpeg(), "-y", "-i", str(silent_video), "-i", str(mux_audio),
-        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
+        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+        "-ar", "48000", "-ac", "2", "-shortest",
         str(final),
     ]
     proc = subprocess.run(cmd, capture_output=True, text=True)
     if proc.returncode != 0:
         raise StoryFilmError(f"mux failed: {proc.stderr[-800:]}")
+    ensure_film_loudness(final)
 
     if subtitles:
         srt_path = out_dir / f"{_slugify(title0)}.srt"
@@ -1160,6 +1161,56 @@ def loudnorm_two_pass(
     )
     if apply_.returncode != 0:
         raise StoryFilmError(f"loudnorm apply failed: {apply_.stderr[-800:]}")
+
+
+def measure_integrated_lufs(path: Path) -> Optional[float]:
+    """Интегральная громкость готового файла (EBU R128 Summary), LUFS."""
+    proc = subprocess.run(
+        [_ffmpeg(), "-hide_banner", "-nostats", "-i", str(path),
+         "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"],
+        capture_output=True, text=True,
+    )
+    tail = proc.stderr[proc.stderr.rfind("Summary:"):]
+    m = re.search(r"I:\s+(-?[\d.]+) LUFS", tail)
+    return float(m.group(1)) if m else None
+
+
+def ensure_film_loudness(
+    film: Path,
+    *,
+    target_i: float = -14.0,
+    target_tp: float = -1.5,
+    tolerance: float = 0.3,
+) -> Path:
+    """Контроль громкости готового фильма; видео не перекодируется (-c:v copy)."""
+    probe = subprocess.run(
+        ["ffprobe", "-v", "quiet", "-select_streams", "a",
+         "-show_entries", "stream=codec_type", "-of", "csv=p=0", str(film)],
+        capture_output=True, text=True,
+    )
+    if "audio" not in probe.stdout:
+        return film
+    current = measure_integrated_lufs(film)
+    if current is not None and abs(current - target_i) <= tolerance:
+        return film
+    wav = film.parent / (film.stem + ".audio.wav")
+    loud = film.parent / (film.stem + ".loud.wav")
+    subprocess.run(
+        [_ffmpeg(), "-y", "-loglevel", "error", "-i", str(film),
+         "-vn", "-c:a", "pcm_s16le", str(wav)], check=True,
+    )
+    loudnorm_two_pass(wav, loud, i=target_i, tp=target_tp)
+    fixed = film.parent / (film.stem + ".fixed.mp4")
+    subprocess.run(
+        [_ffmpeg(), "-y", "-loglevel", "error", "-i", str(film), "-i", str(loud),
+         "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
+         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+         "-shortest", str(fixed)], check=True,
+    )
+    fixed.replace(film)
+    wav.unlink(missing_ok=True)
+    loud.unlink(missing_ok=True)
+    return film
 
 
 def _slugify(text: str) -> str:
